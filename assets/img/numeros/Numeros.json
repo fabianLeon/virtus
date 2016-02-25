@@ -1,0 +1,42 @@
+{ "height":7,
+ "layers":[
+        {
+         "data":[6, 10, 1, 1, 9, 6, 12, 16, 2, 17, 3, 12, 6, 15, 5, 12, 18, 6, 6, 11, 9, 13, 10, 6, 6, 4, 7, 14, 8, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
+         "height":7,
+         "name":"Ground",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":6,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "properties":
+    {
+
+    },
+ "renderorder":"right-down",
+ "tileheight":100,
+ "tilesets":[
+        {
+         "firstgid":1,
+         "image":"imagenes\/sumas_logicas\/Mundo.png",
+         "imageheight":700,
+         "imagewidth":600,
+         "margin":0,
+         "name":"Desert",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tilecount":42,
+         "tileheight":100,
+         "tilewidth":100
+        }],
+ "tilewidth":100,
+ "version":1,
+ "width":6
+}

@@ -10,7 +10,7 @@ define('DB_HOST','localhost');
 /**
 *nombre de la base de datos
 */
-define('DB_NAME','equipos_hidraulicos');
+define('DB_NAME','virtus');
 /**
 *usuario de base de datos de cliente
 */

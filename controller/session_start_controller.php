@@ -16,6 +16,7 @@ $pass               = $_POST['inputPassword'];
 if( $daoSession->inicioSesion($correo, $pass)){
     $result = $daoSession->inicioSesion($correo, $pass);
     $_SESSION['user'] = $dao->strtoupper_utf8($result[0]);
+    $_SESSION['correo'] = $correo;
     header('Location: ../index.php');
 }else{
     header('Location: ../login.php?e=QWEsdfeDFSDAcdffg');

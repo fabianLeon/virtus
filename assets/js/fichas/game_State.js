@@ -15,8 +15,6 @@ var GameState = {
         var y = 100;
         bounds = game.add.sprite(x - 29, y - 25, 'tablero');
 
-
-
         // creacion de las fichas
         var vertical1 = new Ficha(x + 0, y + 0, 'vertical', 0);
         var vertical2 = new Ficha(x + 0, y + 200, 'vertical', 1);
@@ -82,7 +80,11 @@ var Ficha = function (x, y, t, i) {
                     me.y = me.yOld;
                 }
                 if (fichas[9].x == 200 && fichas[9].y == 400) {
-                    alert("GANAMOOOS    WEEEEEEEEE  ");
+                    var campos  = ["t_duracion","n_secuencia","q_desorden","q_click","n_teclado","k_nivel"];
+                    var valores = [12000,"'4'",0,250,"'aiemfasjdofjasodmcfaosdcfaoaejfasfalmcweocmasd'","1"];
+                    var tabla = "nivel_usuario";
+                    var destino = "controller/nivel_usuario_controller.php"
+                    llevarDatos(tabla,campos,valores,destino);
                 }
             }
         }

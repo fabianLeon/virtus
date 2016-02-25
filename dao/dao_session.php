@@ -16,10 +16,10 @@ class daoSession {
         $this->database = $db;
     }
 
-    function crearUsuario($correo, $pass, $edificio, $nombre, $telefono) {
+    function crearUsuario($correo, $pass, $profesion, $nombre, $edad) {
         $tabla = "usuario";
-        $campos = array("k_correo", "n_contrasena", "n_edificio_direccion", "n_nombre", "n_telefono");
-        $valores = array("'" . $correo . "'", "'" . $pass . "'", "'" . $edificio . "'", "'" . $nombre . "'", "'" . $telefono . "'");
+        $campos = array("k_correo", "n_contrasena", "en_profesion", "n_nombre", "q_edad");
+        $valores = array("'" . $correo . "'", "'" . $pass . "'",$profesion, "'" . $nombre . "'",$edad);
         return $this->database->insertarRegistro($tabla, $campos, $valores);
     }
     

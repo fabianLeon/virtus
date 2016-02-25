@@ -12,15 +12,17 @@ $daoSession = new daoSession($dao);
 
 $nombre             = $_POST['inputNombre'];
 $correo             = $_POST['inputEmail'];
-$edificio           = ''; 
-if($_POST['inputEdificio']!= null){
-   $edificio           = $_POST['inputE{dificio']; 
+$perfil           = ''; 
+if($_POST['inputPerfil'] > 0){
+   $perfil           = $_POST['inputPerfil']; 
+}else{
+    header('Location: ../registro.php');
 }
 
-$telefono           = $_POST['inputTelefono'];
+$edad           = $_POST['inputEdad'];
 $pass               = $_POST['inputPassword'];
 
-if( $daoSession->crearUsuario($correo, $pass, $edificio, $nombre, $telefono)){
+if( $daoSession->crearUsuario($correo, $pass, $perfil, $nombre, $edad)){
     $_SESSION['user'] = $dao->strtoupper_utf8($nombre);
     header('Location: ../index.php');
 }

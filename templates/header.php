@@ -17,9 +17,14 @@
                 <li><a href="index.php">HOME</a></li>
                 <li><a href="quienes_somos.php">QUIENES SOMOS</a></li>
                 <li><a href="contactenos.php">CONTACTENOS</a></li>
-                <li>
-                    <a href="fichas.php" >JUGAR !! </a>
-
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">JUGAR !! </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="nivel1.php">Nivel 1</a></li>
+                        <li><a href="nivel2.php">Nivel 2</a></li>
+                        <li><a href="nivel3.php">Nivel 3</a></li>
+                        <li><a href="nivel4.php">Nivel 4</a></li>
+                    </ul>
                 </li>
                 <?php if ($_SESSION) { ?>
                     <li class="dropdown">

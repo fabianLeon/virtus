@@ -34,16 +34,21 @@
                             <br>
                             <form role="form" action="controller/sesion_controller.php" method="POST">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="inputNombre" id="inputNombre" required="" placeholder="* Nombres">
+                                    <input type="text" class="form-control" name="inputNombre" id="inputNombre" required="" placeholder="* Nombre">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control" name="inputEmail" id="inputEmail" required="" placeholder="* Correo Electrónico">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="inputEdificio" id="inputEdificio"  placeholder="Edificio o Direccion (opcional)">
+                                    <select class="form-control" name="inputPerfil">
+                                        <option value="0">Seleccione Perfil ...</option>
+                                        <option value="1"> TÉCNICO</option>
+                                        <option value="2"> TECNOLOGO</option>
+                                        <option value="3"> INGENIERO</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" name="inputTelefono" id="inputTelefono" required="" placeholder="* Perfil">
+                                    <input type="number" class="form-control" name="inputEdad" id="inputEdad" required="" placeholder="* Edad">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" name="inputPassword" id="inputPassword" required="" placeholder="* Contraseña ">

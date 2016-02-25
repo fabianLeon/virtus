@@ -1,11 +1,11 @@
 
 <?php include_once 'templates/open_head.php'; ?>
 <script type="text/javascript" src="assets/js/phaser.min.js"></script>
-<script type="text/javascript" src="assets/js/fichas/game_State.js"></script>
-<script type="text/javascript" src="assets/js/fichas/game.js"></script>
+<script type="text/javascript" src="assets/js/sapo/game_State.js"></script>
+<script type="text/javascript" src="assets/js/sapo/game.js"></script>
 <style type="text/css">
     body {
-        padding-left: 25%;
+        margin: 5%;
     }
 </style>
 </head>
