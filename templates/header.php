@@ -24,6 +24,7 @@
                         <li><a href="nivel2.php">Nivel 2</a></li>
                         <li><a href="nivel3.php">Nivel 3</a></li>
                         <li><a href="nivel4.php">Nivel 4</a></li>
+                        <li><a href="nivel5.php">Nivel 5</a></li>
                     </ul>
                 </li>
                 <?php if ($_SESSION) { ?>
