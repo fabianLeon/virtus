@@ -24,9 +24,9 @@ function concatenador(elEvento) {
 
 function clickear(){
     clicks +=1;
-    console.log(clicks);
-    
+    console.log(clicks); 
 }
+
 document.onkeypress = concatenador;
 reloj();
 
