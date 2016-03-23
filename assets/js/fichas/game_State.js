@@ -81,7 +81,7 @@ var Ficha = function (x, y, t, i) {
                 }
                 if (fichas[9].x == 200 && fichas[9].y == 400) {
                     var campos  = ["t_duracion","n_secuencia","q_desorden","q_click","n_teclado","k_nivel"];
-                    var valores = [12000,"'4'",0,250,"'aiemfasjdofjasodmcfaosdcfaoaejfasfalmcweocmasd'","1"];
+                    var valores = [relojito,"'4'",0,clicks,"'"+texto+"'","1"];
                     var tabla = "nivel_usuario";
                     var destino = "controller/nivel_usuario_controller.php"
                     llevarDatos(tabla,campos,valores,destino);

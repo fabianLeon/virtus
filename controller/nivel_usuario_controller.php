@@ -25,4 +25,13 @@ if ($_GET) {
         }
     }
 }
+
+$campos[count($campos)] = "n_intento";
+$valores[count($valores)] = $_SESSION["nivel".$valores[1]];
+
+$_SESSION["fecha"]=date("Y-m-d");
+
+$campos[count($campos)] = "d_fecha";
+$valores[count($valores)] = "'".$_SESSION["fecha"]."'";
+
 $daoUsuario->info_nivel($tabla, $campos, $valores);

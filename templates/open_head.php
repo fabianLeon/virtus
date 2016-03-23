@@ -27,3 +27,4 @@
     <![endif]-->
 
     <script src="assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="assets/js/data.js"></script>

@@ -1,5 +1,5 @@
 
-<?php include_once 'templates/open_head.php'; ?>
+<?php include_once 'templates/open_head.php';?>
 <script type="text/javascript" src="assets/js/phaser.min.js"></script>
 <script type="text/javascript" src="assets/js/sapo/game_State.js"></script>
 <script type="text/javascript" src="assets/js/sapo/game.js"></script>

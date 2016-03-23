@@ -2,7 +2,7 @@
 
 include '../dao/dao.php';
 include '../conf.php';
-include '../dao/dao_session.php';
+include '../dao/dao_contactenos.php';
 
 session_start();
 
@@ -20,7 +20,7 @@ if($_POST['inputPerfil'] > 0){
 }
 
 $edad           = $_POST['inputEdad'];
-$pass               = $_POST['inputPassword'];
+$pass           = $_POST['inputPassword'];
 
 if( $daoSession->crearUsuario($correo, $pass, $perfil, $nombre, $edad)){
     $_SESSION['user'] = $dao->strtoupper_utf8($nombre);
