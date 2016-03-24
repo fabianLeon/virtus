@@ -1,7 +1,8 @@
 window.addEventListener('load', init, false);
-var canvas = null, canvasF = null;
-var ctx2 = null, ctx = null;
-var matrizFuncion, cont1 = 0, cont2 = 0, matrizMundo, f = 0, c = 0;
+var canvas = null, canvasF = null, canvasF1 = null;
+;
+var ctx3 = null, ctx2 = null, ctx = null;
+var matrizFuncion, matrizFunciones, cont1 = 0, cont2 = 0, cont3 = 0, cont4 = 0, matrizMundo, f = 0, c = 0;
 var xInicial = 0, yInicial = 0, xBom = 0, yBom = 0, estado = 1;
 var dx = 0, dy = 0;
 var gano = false;
@@ -10,12 +11,16 @@ var nivel, juego;
 //inicializacion		   
 function init() {
     crearMatrizFunciones();
+    crearMatrizFunciones2();
     asignarInicial();
     canvasF = document.getElementById('canvasF');
     ctx2 = canvasF.getContext('2d');
 
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
+
+    canvasF1 = document.getElementById('canvasF1');
+    ctx3 = canvasF1.getContext('2d');
     run();
 }
 
@@ -23,6 +28,7 @@ function init() {
 function run() {
     setTimeout(run, 100);
     pintarFunciones(ctx2);
+    pintarFunciones2(ctx3);
     pintarTablero(ctx);
 }
 //envia orden de movimiento
@@ -33,6 +39,7 @@ function automover() {
             if (matrizFuncion [i][j] != 0) {
                 moverDef();
             }
+
         }
     }
 }
@@ -154,11 +161,37 @@ function crearMatrizFunciones() {
         }
     }
 }
+
+//crear matriz que guarda las acciones o movimientos
+function crearMatrizFunciones2() {
+
+    matrizFunciones = new Array(5);
+    for (i = 0; i < 5; i++) {
+        matrizFunciones[i] = new Array(5);
+        for (j = 0; j < 2; j++) {
+            matrizFunciones[i][j] = 0;
+        }
+    }
+}
+
 //adiciona movimientos a la matriz
 function cambiarMatriz(val) {
-
     if (val != null) {
-        if (val == 6) {
+        if (val == 7) {
+            if ((matrizFunciones[0][0] != 0)) {
+                matrizFuncion[cont2][cont1] = val;
+                cont2++;
+                if (cont2 > 4) {
+                    cont1++;
+                    cont2 = 0;
+                } else if (cont1 > 4) {
+                    alert("No hay Espacio");
+                }
+            }else{
+                alert("para usar una funcion, debe llenar algo en el panel\n\
+de funciones primero")
+            }
+        } else if (val == 6) {
             cont2--;
             if (cont2 < 0 && cont1 != 0) {
                 cont1--;
@@ -169,8 +202,7 @@ function cambiarMatriz(val) {
                 cont2 = 0;
             }
             matrizFuncion[cont2][cont1] = 0;
-        }
-        else {
+        } else {
             matrizFuncion[cont2][cont1] = val;
             cont2++;
             if (cont2 > 4) {
@@ -180,6 +212,19 @@ function cambiarMatriz(val) {
             else if (cont1 > 4)
                 alert("No hay Espacio");
         }
+    }
+}
+
+function cambiarMatrizFunciones(val2) {
+    if (val2 != null) {
+        matrizFunciones[cont4][cont3] = val2;
+        cont4++;
+        if (cont4 > 4) {
+            cont3++;
+            cont4 = 0;
+        }
+        else if (cont3 > 1)
+            alert("No hay Espacio");
     }
 }
 // controla las iteracciones de movimiento(girar)
@@ -445,7 +490,6 @@ function moverDef() {
         f = 0;
     }
     perdio();
-
 }
 
 //reinicia el juego en el nivel actual
@@ -456,9 +500,9 @@ function reset() {
 
 function backLevel() {
     juego = parseInt(nivel);
-    if(juego>=1){
-        location.href = "nivel7.php?mundo=" + (juego-1);
-    }else{
+    if (juego >= 1) {
+        location.href = "nivel7.php?mundo=" + (juego - 1);
+    } else {
         alert("Esta en el primer nivel");
     }
 }
@@ -517,6 +561,9 @@ function pintarFunciones(ctx2) {
                 case 5:
                     fondo.src = 'assets/img/hunter/dezplazamientos/encender.png';
                     break;
+                case 7:
+                    fondo.src = 'assets/img/hunter/dezplazamientos/funcion.png';
+                    break;
                 default:
                     fondo.src = 'assets/img/hunter/dezplazamientos/nada.png';
                     break;
@@ -526,7 +573,37 @@ function pintarFunciones(ctx2) {
     }
 }
 
-
+function pintarFunciones2(ctx3) {
+    var val, i, j;
+    ctx3.fillStyle = '#0f0';
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 2; j++) {
+            val = matrizFunciones[i][j];
+            fondo = new Image();
+            switch (val) {
+                case 1:
+                    fondo.src = 'assets/img/hunter/dezplazamientos/adelante.png';
+                    break;
+                case 2:
+                    fondo.src = 'assets/img/hunter/dezplazamientos/derecha.png';
+                    break;
+                case 3:
+                    fondo.src = 'assets/img/hunter/dezplazamientos/izquierda.png';
+                    break;
+                case 4:
+                    fondo.src = 'assets/img/hunter/dezplazamientos/saltar.png';
+                    break;
+                case 5:
+                    fondo.src = 'assets/img/hunter/dezplazamientos/encender.png';
+                    break;
+                default:
+                    fondo.src = 'assets/img/hunter/dezplazamientos/nada.png';
+                    break;
+            }
+            ctx3.drawImage(fondo, 51 * i, 51 * j);
+        }
+    }
+}
 
 //verifica que solo exista un destino y un personaje por nivel
 function asignarInicial() {

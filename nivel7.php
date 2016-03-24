@@ -62,8 +62,27 @@ for ($i = 0; $i < 8; $i++) {
                     <h3 class="panel-title">Comandos a Ejecutar</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="row" style="text-align: center">
-                        <canvas id="canvasF"  width="259" height="255" style="border:1px solid #000"></canvas>
+                    <div class="col-lg-8">
+                        <div class="row" style="text-align: center">
+                            <canvas id="canvasF"  width="259" height="255" style="border:1px solid #000"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"><br>
+                        <small>Adelante</small>
+                        <button onClick="cambiarMatriz(1)"><img src="assets/img/hunter/dezplazamientos/adelante.png"></button>   
+                        <small>Izquierda</small>
+                        <button onClick="cambiarMatriz(2)"><img src="assets/img/hunter/dezplazamientos/derecha.png"></button>
+                        <small>Derecha</small>
+                        <button onClick="cambiarMatriz(3)"><img src="assets/img/hunter/dezplazamientos/izquierda.png"></button>
+                    </div>
+                    <div class="col-lg-2"><br>
+                        <small>Encender</small>
+                        <button onClick="cambiarMatriz(5)"><img src="assets/img/hunter/dezplazamientos/encender.png"></button>
+                        <small>Saltar</small>
+                        <button onClick="cambiarMatriz(4)"><img src="assets/img/hunter/dezplazamientos/saltar.png"></button>
+                        <small>Funcion</small>
+                        <button onClick="cambiarMatriz(7)"><img src="assets/img/hunter/dezplazamientos/funcion.png"></button>
+
                     </div>
                 </div>
             </div>
@@ -73,8 +92,24 @@ for ($i = 0; $i < 8; $i++) {
                     <h3 class="panel-title">Funcion</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="row" style="text-align: center">
-                        <canvas id="canvasF1"  width="259" height="102" style="border:1px solid #000"></canvas>
+                    <div class="panel-body">
+                        <div class="col-lg-8">
+                            <div class="row" style="text-align: center">
+                                <canvas id="canvasF1"  width="259" height="102" style="border:1px solid #000"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-2"><br>
+                            <small>Adelante</small>
+                            <button onClick="cambiarMatrizFunciones(1)"><img src="assets/img/hunter/dezplazamientos/adelante.png"></button>   
+                            <small>Izquierda</small>
+                            <button onClick="cambiarMatrizFunciones(2)"><img src="assets/img/hunter/dezplazamientos/derecha.png"></button>
+                        </div>
+                        <div class="col-lg-2"><br>
+                            <small>Derecha</small>
+                            <button onClick="cambiarMatrizFunciones(3)"><img src="assets/img/hunter/dezplazamientos/izquierda.png"></button>
+                            <small>Saltar</small>
+                            <button onClick="cambiarMatrizFunciones(4)"><img src="assets/img/hunter/dezplazamientos/saltar.png"></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,28 +119,7 @@ for ($i = 0; $i < 8; $i++) {
                     <h3 class="panel-title">Panel de Comandos</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="row" style="text-align: center">
-                        <div class="col-lg-2 col-lg-offset-1" style="text-align: center">
-                            <label>Adelante</label>
-                            <button onClick="cambiarMatriz(1)"><img src="assets/img/hunter/dezplazamientos/adelante.png"></button>
-                        </div>
-                        <div class="col-lg-2" style="text-align: center">
-                            <label>Izquierda</label>
-                            <button onClick="cambiarMatriz(2)"><img src="assets/img/hunter/dezplazamientos/derecha.png"></button>
-                        </div>
-                        <div class="col-lg-2" style="text-align: center">
-                            <label>Derecha</label>
-                            <button onClick="cambiarMatriz(3)"><img src="assets/img/hunter/dezplazamientos/izquierda.png"></button>
-                        </div>
-                        <div class="col-lg-2" style="text-align: center">
-                            <label>Encender</label>
-                            <button onClick="cambiarMatriz(5)"><img src="assets/img/hunter/dezplazamientos/encender.png"></button>
-                        </div>
-                        <div class="col-lg-2" style="text-align: center">
-                            <label>Saltar</label>
-                            <button onClick="cambiarMatriz(4)"><img src="assets/img/hunter/dezplazamientos/saltar.png"></button>
-                        </div>
-                    </div>
+
                     <hr>
                     <div class="row" style="text-align: center">
                         <button onClick="automover()" class="btn btn-theme"> go !!!</button>
