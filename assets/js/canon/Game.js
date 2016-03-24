@@ -130,11 +130,12 @@ Juego.Game.prototype = {
         
         //Se crea la caja de texto del HTML5
         caja = document.createElement("input");
-        caja.setAttribute("type", "text");
+        caja.setAttribute("class", "form-control");
+        caja.setAttribute("type", "number");
         caja.setAttribute("id", "caja1");
         caja.setAttribute("value", "Cantidad de Bombas");
         caja.setAttribute("size", "17");
-        caja.setAttribute("style", "background-color: #F7F2E0; color: #000000; font-size:1em; font-family:Arial, sans-serif; position: absolute; top: 60px; left: 20px;");
+        caja.setAttribute("style", "background-color: #F7F2E0; color: #000000; font-size:1em; font-family:Arial, sans-serif; position: absolute; top: 45px; left: 117px;");
         document.getElementById("contenedor").appendChild(caja);
 
     }, 

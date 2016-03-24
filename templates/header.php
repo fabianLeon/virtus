@@ -21,12 +21,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">JUGAR !! </a>
                     <ul class="dropdown-menu">
                         <li><a href="logica_matematica.php">Logica Matemática</a></li>
-                        <li><a href="nivel2.php">Nivel 2</a></li>
-                        <li><a href="nivel3.php">Nivel 3</a></li>
-                        <li><a href="nivel4.php">Nivel 4</a></li>
-                        <li><a href="nivel5.php">Nivel 5</a></li>
-                        <li><a href="nivel6.php">Nivel 6</a></li>
-                        <li><a href="nivel7.php?mundo=0">Nivel 7</a></li>
+                        <li><a href="abstracto.php">Abstracto</a></li>
                     </ul>
                 </li>
                 <?php if ($_SESSION) { ?>
