@@ -2,7 +2,7 @@ window.addEventListener('load', init, false);
 var canvas = null, canvasF = null, canvasF1 = null;
 ;
 var ctx3 = null, ctx2 = null, ctx = null;
-var matrizFuncion, matrizFunciones, cont1 = 0, cont2 = 0, cont3 = 0, cont4 = 0, matrizMundo, f = 0, c = 0;
+var matrizFuncion, matrizFunciones, cont1 = 0, cont2 = 0, cont3 = 0, cont4 = 0, matrizMundo, f = 0, c = 0, ff = 0, cf = 0;
 var xInicial = 0, yInicial = 0, xBom = 0, yBom = 0, estado = 1;
 var dx = 0, dy = 0;
 var gano = false;
@@ -36,7 +36,10 @@ function automover() {
     setTimeout(automover, 200);
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 5; j++) {
-            if (matrizFuncion [i][j] != 0) {
+            if (matrizFuncion [f][c] == 7) {
+                moverDefFunction();
+            }
+            else if (matrizFuncion [i][j] != 0 && matrizFuncion [i][j] != 7) {
                 moverDef();
             }
 
@@ -187,7 +190,7 @@ function cambiarMatriz(val) {
                 } else if (cont1 > 4) {
                     alert("No hay Espacio");
                 }
-            }else{
+            } else {
                 alert("para usar una funcion, debe llenar algo en el panel\n\
 de funciones primero")
             }
@@ -484,6 +487,7 @@ function moverDef() {
         else
             alert("No esta encima del Bombillo");
     }
+    
     f++;
     if (f > 4) {
         c++;
@@ -491,7 +495,62 @@ function moverDef() {
     }
     perdio();
 }
+function moverDefFunction(){
+    var vector, valor, posActual, posSig;
+    vector = new Array(2);
+    vector = buscarFant();
+    buscarLuz();
+    while (matrizFunciones[ff][cf] > 0) {
+        console.log("estoy en la funcion");
+        if (matrizFunciones [ff][cf] == 1) {
+            mover(1);
+            valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
+            if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
+                alert("No es posible este movimiento");
+            }
+            else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
+                matrizMundo [(vector[0])][(vector[1])] = casillaActual(matrizMundo [(vector[0])][(vector[1])]);
+                matrizMundo [(vector[0]) + dx][(vector[1] + dy)] = valor;
+            }
+            else {
+                alert("No es posible este movimiento");
 
+            }
+        }
+        else if (matrizFunciones [ff][cf] == 2) {
+            mover(2);
+            valor = girar(matrizMundo [(vector[0])][(vector[1])], 2);
+            matrizMundo [(vector[0])][(vector[1])] = valor;
+        }
+        else if (matrizFunciones [ff][cf] == 3) {
+            mover(3);
+            valor = girar(matrizMundo [(vector[0])][(vector[1])], 3);
+            matrizMundo [(vector[0])][(vector[1])] = valor;
+        }
+        else if (matrizFunciones [ff][cf] == 4) {
+            mover(4);
+            valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
+            if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
+                alert("No es posible este movimiento");
+            }
+            else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
+                alert("No es posible este movimiento");
+            }
+            else {
+                valor = colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]);
+                matrizMundo [(vector[0])][(vector[1])] = casillaActual(matrizMundo [(vector[0])][(vector[1])]);
+                matrizMundo [(vector[0]) + dx][(vector[1] + dy)] = valor;
+            }
+
+        }
+        ff++;
+        if (ff > 4) {
+            cf++;
+            ff = 0;
+        }
+        perdio();
+    }
+}
 //reinicia el juego en el nivel actual
 function reset() {
     juego = parseInt(nivel);
