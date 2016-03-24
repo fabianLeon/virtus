@@ -20,7 +20,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">JUGAR !! </a>
                     <ul class="dropdown-menu">
-                        <li><a href="nivel1.php">Nivel 1</a></li>
+                        <li><a href="logica_matematica.php">Logica Matemática</a></li>
                         <li><a href="nivel2.php">Nivel 2</a></li>
                         <li><a href="nivel3.php">Nivel 3</a></li>
                         <li><a href="nivel4.php">Nivel 4</a></li>

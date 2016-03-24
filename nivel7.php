@@ -78,7 +78,7 @@ for ($i = 0; $i < 8; $i++) {
                     </div>
                 </div>
             </div>
-            
+
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Panel de Comandos</h3>
@@ -118,4 +118,5 @@ for ($i = 0; $i < 8; $i++) {
         </div>
 
 </body>
+<?php include_once 'templates/js.php'; ?>
 </html>
