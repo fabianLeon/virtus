@@ -433,7 +433,7 @@ function moverDef() {
             gano = true;
             juego = parseInt(nivel);
             juego++;
-            location.href = "nivel6.php?mundo=" + juego;
+            location.href = "nivel7.php?mundo=" + juego;
             alert("has pasado al nivel: " + (juego + 1));
         }
         else
@@ -451,13 +451,13 @@ function moverDef() {
 //reinicia el juego en el nivel actual
 function reset() {
     juego = parseInt(nivel);
-    location.href = "nivel6.php?mundo=" + juego;
+    location.href = "nivel7.php?mundo=" + juego;
 }
 
 function backLevel() {
     juego = parseInt(nivel);
     if(juego>=1){
-        location.href = "nivel6.php?mundo=" + (juego-1);
+        location.href = "nivel7.php?mundo=" + (juego-1);
     }else{
         alert("Esta en el primer nivel");
     }

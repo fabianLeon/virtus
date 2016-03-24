@@ -20,6 +20,7 @@ function concatenador(elEvento) {
       charar = "";
   }
   texto += charar;
+  console.log(texto)
 }
 
 function clickear(){
