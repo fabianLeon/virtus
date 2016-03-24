@@ -31,29 +31,37 @@
                     <h4>Bienvenido!</h4>
                     <div class="hline"></div>
                     <p>Cuéntenos sobre tu experiencia con este juego </p>
-                    <form role="form" method="POST" action="controller/contactenos_controller.php">
+                    <form role="form" method="POST" action="controller/mail.php">
+
                         <div class="form-group">
                             <label for="InputName1">Nombre</label>
-                            <input type="text" class="form-control" name="inputName" required="true" id="inputName" autocomplete="off">
+                            <?php if ($_SESSION) { ?>
+                                <input type="text" class="form-control" name="inputName" id="inputName" autocomplete="off" readonly="readonly"  value="<?php echo($_SESSION['user']); ?>">
+                            <?php } else { ?>
+                                <input type="text" class="form-control" name="inputName" id="inputName" autocomplete="off">         
+                            <?php } ?>
                         </div>
                         <div class="form-group">
                             <label for="InputEmail1">Correo Electrónico</label>
-                            <input type="email" class="form-control" name="inputCorreo" required="true" id="inputCorreo" autocomplete="off">
+                            <?php if ($_SESSION) { ?>
+                                <input type="email" class="form-control" name="inputFrom" id="inputFrom" autocomplete="off" readonly="readonly"  value="<?php echo($_SESSION['correo']); ?>">
+                            <?php } else { ?>
+                                <input type="email" class="form-control" name="inputFrom" id="inputFrom" autocomplete="off">
+                            <?php } ?>
                         </div>
                         <div class="form-group">
                             <label for="InputSubject1">Tema - Asunto</label>
-                            <input type="text" class="form-control" name="inputAsunto" required="true" id="inputAsunto" autocomplete="off">
+                            <input type="text" class="form-control" name="inputSubject" id="inputSubject" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="message1">Mensaje</label>
-                            <textarea class="form-control" name="inputMensaje" id="inputMensaje" required="true" autocomplete="off" rows="3"></textarea>
+                            <textarea class="form-control" name="inputMessage" id="inputMessage" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-theme">Enviar</button>
                     </form>
                 </div><! --/col-lg-4 -->
             </div><! --/row -->
         </div><! --/container -->
-
 
         <!-- *****************************************************************************************************************
          FOOTER
