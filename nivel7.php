@@ -40,10 +40,10 @@ for ($i = 0; $i < 8; $i++) {
 }
 ?>
             ]
-
         </script>
+        <br><br><br><br>
         <div class="col-lg-8 col">
-            <br><br>
+            
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Escenario</h3>
@@ -63,8 +63,8 @@ for ($i = 0; $i < 8; $i++) {
                 </div>
                 <div class="panel-body">
                     <div class="col-lg-8">
-                        <div class="row" style="text-align: center">
-                            <canvas id="canvasF"  width="259" height="255" style="border:1px solid #000"></canvas>
+                        <div class="row" >
+                            <canvas id="canvasF"  width="259" height="256" style="border:1px solid #000"></canvas>
                         </div>
                     </div>
                     <div class="col-lg-2"><br>
@@ -94,17 +94,17 @@ for ($i = 0; $i < 8; $i++) {
                 <div class="panel-body">
                     <div class="panel-body">
                         <div class="col-lg-8">
-                            <div class="row" style="text-align: center">
+                            <div class="row">
                                 <canvas id="canvasF1"  width="259" height="102" style="border:1px solid #000"></canvas>
                             </div>
                         </div>
-                        <div class="col-lg-2"><br>
+                        <div class="col-lg-2">
                             <small>Adelante</small>
                             <button onClick="cambiarMatrizFunciones(1)"><img src="assets/img/hunter/dezplazamientos/adelante.png"></button>   
                             <small>Izquierda</small>
                             <button onClick="cambiarMatrizFunciones(2)"><img src="assets/img/hunter/dezplazamientos/derecha.png"></button>
                         </div>
-                        <div class="col-lg-2"><br>
+                        <div class="col-lg-2">
                             <small>Derecha</small>
                             <button onClick="cambiarMatrizFunciones(3)"><img src="assets/img/hunter/dezplazamientos/izquierda.png"></button>
                             <small>Saltar</small>

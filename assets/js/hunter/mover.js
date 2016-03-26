@@ -2,8 +2,8 @@ window.addEventListener('load', init, false);
 var canvas = null, canvasF = null, canvasF1 = null;
 ;
 var ctx3 = null, ctx2 = null, ctx = null;
-var matrizFuncion, matrizFunciones, cont1 = 0, cont2 = 0, cont3 = 0, cont4 = 0, matrizMundo, f = 0, c = 0, ff = 0, cf = 0;
-var xInicial = 0, yInicial = 0, xBom = 0, yBom = 0, estado = 1;
+var matrizFuncion, matrizFunciones, cont1 = 0, cont2 = 0, cont3 = 0, cont4 = 0, matrizMundo, f = 0, c = 0, ff = 0, cf = 0, k = 0;
+var xInicial = 0, yInicial = 0, xBom = 0, yBom = 0, estado = 1, contF = 0, nFunciones = 0;
 var dx = 0, dy = 0;
 var gano = false;
 var nivel, juego;
@@ -33,16 +33,18 @@ function run() {
 }
 //envia orden de movimiento
 function automover() {
-    setTimeout(automover, 200);
+    setTimeout(automover, 100);
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 5; j++) {
-            if (matrizFuncion [f][c] == 7) {
-                moverDefFunction();
+            if (matrizFuncion[i][j] != 0) {
+                if (matrizFuncion [i][j] == 7) {
+                    moverDefFunction();
+                    clearTimeout(automover); 
+                } else {
+                    moverDef();
+                    console.log("sali de la funcion");
+                }
             }
-            else if (matrizFuncion [i][j] != 0 && matrizFuncion [i][j] != 7) {
-                moverDef();
-            }
-
         }
     }
 }
@@ -50,7 +52,6 @@ function automover() {
 //dibuja el tablero
 function pintarTablero(ctx) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     var val = 0, i, j, x = 0, y = 0;
     for (i = 0; i < 8; i++) {
         for (j = 0; j < 8; j++) {
@@ -221,6 +222,7 @@ de funciones primero")
 function cambiarMatrizFunciones(val2) {
     if (val2 != null) {
         matrizFunciones[cont4][cont3] = val2;
+        contF++;
         cont4++;
         if (cont4 > 4) {
             cont3++;
@@ -475,7 +477,7 @@ function moverDef() {
 
     }
     else if (matrizFuncion [f][c] == 5) {
-
+        console.log("bombillo porque no enciendes?")
         if (vector[0] == xBom && vector[1] == yBom) {
             matrizMundo [(vector[0])][(vector[1])] = 17;
             gano = true;
@@ -487,7 +489,7 @@ function moverDef() {
         else
             alert("No esta encima del Bombillo");
     }
-    
+
     f++;
     if (f > 4) {
         c++;
@@ -495,13 +497,12 @@ function moverDef() {
     }
     perdio();
 }
-function moverDefFunction(){
-    var vector, valor, posActual, posSig;
-    vector = new Array(2);
-    vector = buscarFant();
-    buscarLuz();
+function moverDefFunction() {
+    
     while (matrizFunciones[ff][cf] > 0) {
-        console.log("estoy en la funcion");
+        var vector, valor, posActual, posSig;
+        vector = new Array(2);
+        vector = buscarFant();
         if (matrizFunciones [ff][cf] == 1) {
             mover(1);
             valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
@@ -548,7 +549,6 @@ function moverDefFunction(){
             cf++;
             ff = 0;
         }
-        perdio();
     }
 }
 //reinicia el juego en el nivel actual
@@ -622,6 +622,7 @@ function pintarFunciones(ctx2) {
                     break;
                 case 7:
                     fondo.src = 'assets/img/hunter/dezplazamientos/funcion.png';
+                    f
                     break;
                 default:
                     fondo.src = 'assets/img/hunter/dezplazamientos/nada.png';
@@ -679,7 +680,8 @@ function asignarInicial() {
 //se;ala al jugador que perdio y que debe reiniciar el juego
 function perdio() {
     if (f == 0 && c == 5 && gano == false) {
-        alert("Has perdido el juego");
+        juego = parseInt(nivel);
+        location.href = "nivel7.php?mundo=" + juego;
     }
 }
 
