@@ -7,6 +7,8 @@ var xInicial = 0, yInicial = 0, xBom = 0, yBom = 0, estado = 1, contF = 0, nFunc
 var dx = 0, dy = 0;
 var gano = false;
 var nivel, juego;
+var movEsce;
+var movFunc;
 
 //inicializacion		   
 function init() {
@@ -26,29 +28,36 @@ function init() {
 
 //hilo para el movimiento, y pintado del tablero
 function run() {
-    setTimeout(run, 100);
+    setTimeout(run, 10);
     pintarFunciones(ctx2);
     pintarFunciones2(ctx3);
     pintarTablero(ctx);
+
 }
 //envia orden de movimiento
 function automover() {
-    setTimeout(automover, 100);
-    for (i = 0; i < 5; i++) {
-        for (j = 0; j < 5; j++) {
-            if (matrizFuncion[i][j] != 0) {
-                if (matrizFuncion [i][j] == 7) {
-                    moverDefFunction();
-                    clearTimeout(automover); 
-                } else {
-                    moverDef();
-                    console.log("sali de la funcion");
-                }
+    ff = 0;
+    cf = 0;
+    window.clearInterval(movFunc);
+    movEsce = window.setInterval('automover_escenario()', 300);
+}
+
+function automover_escenario() {
+    if (matrizFuncion[f][c] !== 0) {
+        if (matrizFuncion[f][c] === 7) {
+            if (matrizFunciones[ff][cf] !== 0) {
+                window.clearInterval(movEsce);
+                moverDefFunction();
+            } else {
+                window.clearInterval(movFunc);
             }
+        } else {
+            window.clearInterval(movFunc);
+            moverDef();
+            console.log("sali de la funcion");
         }
     }
 }
-
 //dibuja el tablero
 function pintarTablero(ctx) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -56,7 +65,7 @@ function pintarTablero(ctx) {
     for (i = 0; i < 8; i++) {
         for (j = 0; j < 8; j++) {
             x = ((370 - i * 50) + (j * 50));
-            y = (80 + (i * 25) + 25 * j);
+            y = (120 + (i * 25) + 25 * j);
             val = matrizMundo[i][j];
             fondo = new Image();
             switch (val) {
@@ -440,6 +449,7 @@ function moverDef() {
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
         if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
             alert("No es posible este movimiento");
+            reset();
         }
         else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
             matrizMundo [(vector[0])][(vector[1])] = casillaActual(matrizMundo [(vector[0])][(vector[1])]);
@@ -447,7 +457,7 @@ function moverDef() {
         }
         else {
             alert("No es posible este movimiento");
-
+            reset();
         }
     }
     else if (matrizFuncion [f][c] == 2) {
@@ -465,9 +475,11 @@ function moverDef() {
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
         if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
             alert("No es posible este movimiento");
+            reset();
         }
         else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
             alert("No es posible este movimiento");
+            reset();
         }
         else {
             valor = colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]);
@@ -477,17 +489,18 @@ function moverDef() {
 
     }
     else if (matrizFuncion [f][c] == 5) {
-        console.log("bombillo porque no enciendes?")
         if (vector[0] == xBom && vector[1] == yBom) {
             matrizMundo [(vector[0])][(vector[1])] = 17;
             gano = true;
             juego = parseInt(nivel);
             juego++;
-            location.href = "nivel7.php?mundo=" + juego;
+            location.href = "aplicacion.php";
             alert("has pasado al nivel: " + (juego + 1));
         }
-        else
+        else {
             alert("No esta encima del Bombillo");
+            reset();
+        }
     }
 
     f++;
@@ -497,9 +510,13 @@ function moverDef() {
     }
     perdio();
 }
+
+
 function moverDefFunction() {
-    
-    while (matrizFunciones[ff][cf] > 0) {
+    movFunc = window.setInterval('moverDefFunctionFinal()', 300);
+}
+function moverDefFunctionFinal() {
+    if (matrizFunciones[ff][cf] != 0) {
         var vector, valor, posActual, posSig;
         vector = new Array(2);
         vector = buscarFant();
@@ -508,6 +525,7 @@ function moverDefFunction() {
             valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
             if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
                 alert("No es posible este movimiento");
+                reset();
             }
             else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
                 matrizMundo [(vector[0])][(vector[1])] = casillaActual(matrizMundo [(vector[0])][(vector[1])]);
@@ -515,7 +533,7 @@ function moverDefFunction() {
             }
             else {
                 alert("No es posible este movimiento");
-
+                reset();
             }
         }
         else if (matrizFunciones [ff][cf] == 2) {
@@ -533,28 +551,38 @@ function moverDefFunction() {
             valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
             if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
                 alert("No es posible este movimiento");
+                reset();
             }
             else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
                 alert("No es posible este movimiento");
+                reset();
             }
             else {
                 valor = colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]);
                 matrizMundo [(vector[0])][(vector[1])] = casillaActual(matrizMundo [(vector[0])][(vector[1])]);
                 matrizMundo [(vector[0]) + dx][(vector[1] + dy)] = valor;
             }
-
         }
-        ff++;
+        ff += 1;
         if (ff > 4) {
-            cf++;
+            cf += 1;
             ff = 0;
         }
+    } else {
+        window.clearInterval(movFunc);
+        automover();
+        //ff = 0;
+        //cf = 0;
+        f++;
+        console.log("Salio de la funcion");
+
     }
 }
 //reinicia el juego en el nivel actual
 function reset() {
     juego = parseInt(nivel);
     location.href = "nivel7.php?mundo=" + juego;
+    //init();
 }
 
 function backLevel() {
@@ -622,7 +650,6 @@ function pintarFunciones(ctx2) {
                     break;
                 case 7:
                     fondo.src = 'assets/img/hunter/dezplazamientos/funcion.png';
-                    f
                     break;
                 default:
                     fondo.src = 'assets/img/hunter/dezplazamientos/nada.png';
@@ -634,6 +661,7 @@ function pintarFunciones(ctx2) {
 }
 
 function pintarFunciones2(ctx3) {
+
     var val, i, j;
     ctx3.fillStyle = '#0f0';
     for (i = 0; i < 5; i++) {

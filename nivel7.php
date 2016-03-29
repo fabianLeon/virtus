@@ -39,24 +39,36 @@ for ($i = 0; $i < 8; $i++) {
     echo '],';
 }
 ?>
-            ]
+            ];
         </script>
         <br><br><br><br>
         <div class="col-lg-8 col">
-            
+
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Escenario</h3>
                 </div>
                 <div class="panel-body">
-                    <canvas id="canvas" width="850" height="500"></canvas>
+                    <canvas id="canvas" width="850" height="600"></canvas>
                 </div>
             </div>
         </div>
         <script type="application/javascript" src="assets/js/hunter/mover.js">
         </script>
         <div class="col-lg-4">
-            <br>
+            <div class="panel panel-default">
+<!--                <div class="panel-heading">
+                    <h3 class="panel-title">Panel de Comandos</h3>
+                </div>-->
+                <div class="panel-body">
+                    <div class="row" style="text-align: center">
+                        <button onClick="automover()" class="btn btn-theme"> go !!!</button>
+                        <button onClick="reset()" class="btn btn-theme">again</button>
+                        <button onClick="backLevel()" class="btn btn-theme">Back Level</button>
+                        <button onClick="cambiarMatriz(6)" class="btn btn-theme">Delete!!!</button>
+                    </div>
+                </div>
+            </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Comandos a Ejecutar</h3>
@@ -110,22 +122,6 @@ for ($i = 0; $i < 8; $i++) {
                             <small>Saltar</small>
                             <button onClick="cambiarMatrizFunciones(4)"><img src="assets/img/hunter/dezplazamientos/saltar.png"></button>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Panel de Comandos</h3>
-                </div>
-                <div class="panel-body">
-
-                    <hr>
-                    <div class="row" style="text-align: center">
-                        <button onClick="automover()" class="btn btn-theme"> go !!!</button>
-                        <button onClick="reset()" class="btn btn-theme">again</button>
-                        <button onClick="backLevel()" class="btn btn-theme">Back Level</button>
-                        <button onClick="cambiarMatriz(6)" class="btn btn-theme">Delete!!!</button>
                     </div>
                 </div>
             </div>
