@@ -8,7 +8,7 @@ if (isset($_SESSION['nivel6'])) {
 } else {
     $_SESSION['nivel1'] = 1;
     echo "<br>" . $_SESSION['nivel6'];
-}
+}  
 ?>
 </head>
 <body>
