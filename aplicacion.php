@@ -29,11 +29,11 @@
 
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/sapos.jpg" alt="">
+                                <img src= "assets/img/niveles/hunter1.jpg" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 1. Inicial</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/sapos.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter1.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <a href="nivel7.php?mundo=0" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
@@ -42,11 +42,11 @@
 
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/camino.jpg" alt="">
+                                <img src= "assets/img/niveles/hunter2.jpg" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
-                                        <h3 class="a1" data-animate="fadeInDown">Nivel 2. Camino</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/camino.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <h3 class="a1" data-animate="fadeInDown">Nivel 2. Saltos</h3>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter2.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <a href="nivel7.php?mundo=1" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
@@ -55,11 +55,11 @@
 
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/fichas.jpg" alt="">
+                                <img src= "assets/img/niveles/hunter3.jpg" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
-                                        <h3 class="a1" data-animate="fadeInDown">Nivel 3. Apaga la Llama</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/fichas.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <h3 class="a1" data-animate="fadeInDown">Nivel 3. Funciones</h3>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter3.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <a href="nivel7.php?mundo=2" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
@@ -68,11 +68,12 @@
                         
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/fichas.jpg" alt="">
+                                <img src= "assets/img/niveles/hunter3.jpg" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 4. Apaga la Llama</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/fichas.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter3.jpg" class="dmbutton a2" data-animate="fadeInUp">
+                                            <i class="fa fa-search"></i></a>
                                         <a href="nivel7.php?mundo=3" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		

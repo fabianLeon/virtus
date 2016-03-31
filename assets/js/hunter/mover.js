@@ -361,6 +361,7 @@ function colision(act, sig) {
     var actual = 0, siguiente = 0, valor = 0;
     actual = act;
     siguiente = sig;
+    console.log(siguiente);
     if (actual == 2 && siguiente == 6)
         valor = 7;
     else if (actual == 3 && siguiente == 6)
@@ -447,8 +448,14 @@ function moverDef() {
     if (matrizFuncion [f][c] == 1) {
         mover(1);
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
+        console.log((vector[0]) + dx);
+        if((vector[0]) + dx == -1 || (vector[0]) + dx == 8){
+            alert("No es posible avanzar");
+            reset();
+        }
         if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
-            alert("No es posible este movimiento");
+
+            alert("No es posible avanzar");
             reset();
         }
         else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
@@ -456,7 +463,7 @@ function moverDef() {
             matrizMundo [(vector[0]) + dx][(vector[1] + dy)] = valor;
         }
         else {
-            alert("No es posible este movimiento");
+            alert("No es posible avanzar");
             reset();
         }
     }
@@ -473,12 +480,16 @@ function moverDef() {
     else if (matrizFuncion [f][c] == 4) {
         mover(4);
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
+        if((vector[0]) + dx == -1 || (vector[0]) + dx == 8){
+            alert("No es posible este Salto");
+            reset();
+        }
         if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
-            alert("No es posible este movimiento");
+            alert("No es posible este Salto");
             reset();
         }
         else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
-            alert("No es posible este movimiento");
+            alert("No es posible este Salto");
             reset();
         }
         else {
@@ -574,6 +585,10 @@ function moverDefFunctionFinal() {
         //ff = 0;
         //cf = 0;
         f++;
+        if (f > 4) {
+            c += 1;
+            f = 0;
+        }
         console.log("Salio de la funcion");
 
     }

@@ -26,5 +26,4 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script src="assets/js/modernizr.js"></script>
     <script type="text/javascript" src="assets/js/data.js"></script>

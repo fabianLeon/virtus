@@ -1,14 +1,6 @@
 
 <?php
 include_once 'templates/open_head.php';
-session_start();
-if (isset($_SESSION['nivel1'])){
-    $_SESSION['nivel1'] = $_SESSION['nivel1'] + 1;
-    echo "<br>" .$_SESSION['nivel1'];
-}else{
-  $_SESSION['nivel1'] = 1;
-  echo "<br>" .$_SESSION['nivel1'];
-}
 ?>
 <script type="text/javascript" src="assets/js/phaser.min.js"></script>
 <script type="text/javascript" src="assets/js/php.js"></script>
@@ -27,17 +19,15 @@ if (isset($_SESSION['nivel1'])){
 <body>
 
     <?php include_once 'templates/header.php'; ?>
-
-
-
-    <!-- *****************************************************************************************************************
-     FOOTER
-     ***************************************************************************************************************** -->
     <?php include_once 'templates/js.php'; ?>
     <div class="phaser">
-        <script type="text/javascript">
+<script type="text/javascript">
+    contarIntento("nivel1");
 
-        <!-- Bootstrap core JavaScript
-    === === === === === === === === === === === === === === === === == -- ><!-- Placed at the end of the document so the pages load faster -->
-                < /body>
-                < /html>
+    var efectividad = new Rangos(10,50,"Efectividad");  // definir estructura de premiacion de la efectividad
+    var eficacia = new Rangos(20,50,"eficacia");        // definir estructura de premiacion de la eficacia
+    var estrategia = new Rangos(10,15,"Estrategia");    // definir estructura de premiacion de la estrategia
+    var nivel1_premiacion = new Premiacion(efectividad,eficacia,estrategia);    
+    console.log(nivel1_premiacion.calcularEstra(13));     // envio el parametro, recibo el orden, 1 para oro, 2 para plata, 3 para bronce
+</script>
+

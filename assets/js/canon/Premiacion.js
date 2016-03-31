@@ -19,47 +19,23 @@ Juego.Premiacion.prototype = {
 	},
 
     Medalleria: function(){
+        
     	var promedioFallo=bombaLanzada-57;
-//---------------------------------MEDALLA 1-----------------------------------------
-    	if(bombaLanzada<=10){
-    		this.medalla1 = this.game.add.sprite(500, 200, 'Medallas', 0);
-        	this.medalla1.anchor.setTo(0.5, 0.5);
-    	}
-    	else if(bombaLanzada>10 && bombaLanzada<=57){
-    		this.medalla1 = this.game.add.sprite(500, 200, 'Medallas', 1);
-        	this.medalla1.anchor.setTo(0.5, 0.5);
-    	}
-    	else{
-    		this.medalla1 = this.game.add.sprite(500, 200, 'Medallas', 2);
-        	this.medalla1.anchor.setTo(0.5, 0.5);
-    	}
 
+        var efectividad = new Rangos(10,57,"Efectividad");  // definir estructura de premiacion de la efectividad depende de hacerlo bien
+        var eficacia = new Rangos(25,40,"eficacia");        // definir estructura de premiacion de la eficacia depende del tiempo
+        var estrategia = new Rangos(10,20,"Estrategia");    // definir estructura de premiacion de la estrategia depende del juego
+
+        var nivel_premiacion = new Premiacion(efectividad,eficacia,estrategia);
+//---------------------------------MEDALLA 1-----------------------------------------
+		this.medalla1 = this.game.add.sprite(500, 200, 'Medallas',nivel_premiacion.calcularEfe(bombaLanzada));
+    	this.medalla1.anchor.setTo(0.5, 0.5);
 //---------------------------------MEDALLA 2-----------------------------------------
-    	if(tiempoTotal<=25){
-    		this.medalla2 = this.game.add.sprite(700, 300, 'Medallas', 3);
-        	this.medalla2.anchor.setTo(0.5, 0.5);
-    	}
-    	else if(tiempoTotal>25 && tiempoTotal<=40){
-    		this.medalla2 = this.game.add.sprite(700, 300, 'Medallas', 4);
-        	this.medalla2.anchor.setTo(0.5, 0.5);
-    	}
-    	else{
-    		this.medalla2 = this.game.add.sprite(700, 300, 'Medallas', 5);
-        	this.medalla2.anchor.setTo(0.5, 0.5);
-    	}
+    	this.medalla1 = this.game.add.sprite(700, 300, 'Medallas',nivel_premiacion.calcularEfi(relojito));
+        this.medalla1.anchor.setTo(0.5, 0.5);
 //---------------------------------MEDALLA 3-----------------------------------------
-    	if(promedioFallo<=10){
-    		this.medalla3 = this.game.add.sprite(300, 300, 'Medallas', 6);
-        	this.medalla3.anchor.setTo(0.5, 0.5);
-    	}
-    	else if(promedioFallo>10 && promedioFallo<=20){
-    		this.medalla3 = this.game.add.sprite(300, 300, 'Medallas', 7);
-        	this.medalla3.anchor.setTo(0.5, 0.5);
-    	}
-    	else{
-    		this.medalla3 = this.game.add.sprite(300, 300, 'Medallas', 8);
-        	this.medalla3.anchor.setTo(0.5, 0.5);
-    	}
+    	this.medalla1 = this.game.add.sprite(300, 300, 'Medallas',nivel_premiacion.calcularEstra(promedioFallo));
+        this.medalla1.anchor.setTo(0.5, 0.5);
 
     },
 	retornarInicio: function() {
