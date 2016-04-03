@@ -28,7 +28,7 @@ Juego.Premiacion.prototype = {
 
         var nivel_premiacion = new Premiacion(efectividad,eficacia,estrategia);
 //---------------------------------MEDALLA 1-----------------------------------------
-		this.medalla1 = this.game.add.sprite(500, 200, 'Medallas',nivel_premiacion.calcularEfe(bombaLanzada));
+	this.medalla1 = this.game.add.sprite(500, 200, 'Medallas',nivel_premiacion.calcularEfe(bombaLanzada));
     	this.medalla1.anchor.setTo(0.5, 0.5);
 //---------------------------------MEDALLA 2-----------------------------------------
     	this.medalla1 = this.game.add.sprite(700, 300, 'Medallas',nivel_premiacion.calcularEfi(relojito));
