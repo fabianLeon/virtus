@@ -74,7 +74,8 @@ var Ficha = function (x, y, t, i) {
                 var bound2 = fichas[i].getBounds();
 
                 result = Phaser.Rectangle.intersects(bound1, bound2);
-                if (result || (Math.abs(me.y - me.yOld) + Math.abs(me.x - me.xOld)) > 200) {
+                if (result || (Math.abs(me.y - me.yOld) + Math.abs(me.x - me.xOld)) > 200 
+                        ) {
                     console.log("colision con" + i);
                     me.x = me.xOld;
                     me.y = me.yOld;
@@ -97,7 +98,7 @@ var Ficha = function (x, y, t, i) {
         me.y = y;
         me.inputEnabled = true;
         me.input.enableDrag();
-        me.input.enableSnap(100, 100, true, true);
+        me.input.enableSnap(100, 100, true, false);
         me.input.boundsSprite = bounds;
         me.events.onDragStart.add(dragStart);
         me.events.onDragStop.add(dragStop);

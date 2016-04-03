@@ -77,6 +77,8 @@ function contarIntento(datos_session){
 }
 
 
+
+
 function concatenador(elEvento) {
   var evento = elEvento || window.event;
   var caracter = evento.charCode || evento.keyCode;
@@ -97,8 +99,13 @@ document.onkeypress = concatenador;
 reloj();
 
 function reloj(){
-    relojito +=1;
-    setTimeout("reloj()",1000);
+    relojito +=1 ;
+    sessionStorage.setItem(datos_session, relojito);
+    setTimeout("reloj(nivel,usuario)",1000);
 }
 
 document.onmousedown = clickear;
+
+$(window).on('beforeunload', function(){
+    alert("desea salir? ");
+});

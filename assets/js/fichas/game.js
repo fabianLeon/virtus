@@ -1,4 +1,4 @@
-var game = new Phaser.Game(600, 700, Phaser.AUTO, '');
+var game = new Phaser.Game(600, 800, Phaser.AUTO, '');
 var fichas = [];
 var bounds = null;
 var vertical1 = null;
