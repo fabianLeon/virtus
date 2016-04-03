@@ -32,11 +32,13 @@ Juego.Game_State.prototype = {
                 var s = new sapo(game, i, 'rojo');
                 sapos.add(s);
                 saposGame[i] = s;
+                s.animations.play('saltar');
             }
             if (i > 3) {
                 var s = new sapo(game, i, 'azul');
                 sapos.add(s);
                 saposGame[i] = s;
+                s.animations.play('saltar');
             }
             saposGame[3] = null;
         }
@@ -44,6 +46,7 @@ Juego.Game_State.prototype = {
     update: function () {
         game.physics.arcade.collide(plataformas, sapos);
         //game.physics.arcade.collide(sapos, sapos);
+        
     }
 
 };
