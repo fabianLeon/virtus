@@ -13,6 +13,14 @@ Juego.Game.prototype = {
         this.game.load.image('VistoBueno', 'assets/img/numeros/VistoBueno.png');
 
         this.game.load.spritesheet('Preguntas', 'assets/img/numeros/Preguntas.png', 350, 100);
+
+        this.game.load.spritesheet('BottonesSonido', 'assets/btn/numeros/BT_Sonido.png', 50, 50, 4);
+        this.game.load.spritesheet('BottonPause', 'assets/btn/numeros/BT_Pause.png', 50, 50, 3);
+        this.game.load.image('BotonEfecto2', 'assets/btn/numeros/BT_Efectos2.png');
+        this.game.load.image('BotonMusica2', 'assets/btn/numeros/BT_Musica2.png');
+
+        this.game.load.audio('MusicaFondo', 'assets/audio/numeros/MusicaFondo.mp3');
+        this.game.load.audio('Giro_Ficha', 'assets/audio/numeros/Giro_Ficha.mp3');
     },
     create: function () {
         this.timerInicial = 3;
@@ -39,7 +47,7 @@ Juego.Game.prototype = {
         this.Solucion = this.game.add.image(0, 0, 'Solucion');
 
         //Texto del tiempo
-        this.timerText = this.game.add.text(800, 300, this.timerInicial, {
+        this.timerText = this.game.add.text(800, 350, this.timerInicial, {
             font: "100px Comic Sans MS",
             fill: "#000000",
             align: "center"
@@ -49,8 +57,27 @@ Juego.Game.prototype = {
         this.time.events.loop(Phaser.Timer.SECOND, this.updateTimer, this);
         this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
 
-        this.Pregunta = this.game.add.sprite(800, 150, 'Preguntas', 0);
+        this.Pregunta = this.game.add.sprite(800, 200, 'Preguntas', 0);
         this.Pregunta.anchor.setTo(0.5, 0.5);
+
+        //Botones de sonidos y pause
+        this.buttonEfecto = this.game.add.button(840, 30, 'BottonesSonido', this.Musica_Efecto, this, 1, 0, 0);
+        this.buttonEfecto.anchor.setTo(0.5, 0.5);
+        this.buttonEfecto.name = 'Efectos_Sonido';
+
+
+        this.buttonMusica = this.game.add.button(900, 30, 'BottonesSonido', this.Musica_Efecto, this, 3, 2, 2);
+        this.buttonMusica.anchor.setTo(0.5, 0.5);
+        this.buttonMusica.name = 'Musica';
+
+        this.buttonPause = this.game.add.button(960, 30, 'BottonPause', this.managePause, this, 1, 0, 2);
+        this.buttonPause.anchor.setTo(0.5, 0.5);
+        this.buttonPause.name = 'Pause';
+
+        //Sonidos del videoJuego se agregan
+        MusicaFondo = this.game.add.audio('MusicaFondo');
+        MusicaFondo.loopFull(0.6);
+        this.Sonido_Giro = this.game.add.audio('Giro_Ficha');
     },
     updateTimer: function () {
         this.timer++;
@@ -69,7 +96,7 @@ Juego.Game.prototype = {
     createText: function () {
 
         //Primero el Titulo---------------------------------------------------------
-        text = this.game.add.text(780, 30, "Logica Matematica");
+        text = this.game.add.text(780, 80, "Logica Matematica");
         //El puntero se ubicara en el centro del texto, para ubicarlo en el CANVAS
         text.anchor.setTo(0.5, 0.5);
 
@@ -156,6 +183,14 @@ Juego.Game.prototype = {
 
             }
         }
+
+        //Si la musica fue o no desactivada que relice la gestion necesaria
+        if (B_musica == false) {
+            MusicaFondo.pause();
+        }
+        else {
+            MusicaFondo.resume();
+        }
     },
     processClick: function () {
 
@@ -164,6 +199,10 @@ Juego.Game.prototype = {
 
         if (this.game.input.activePointer.isDown)
         {
+            //Giro de baldosa
+            if (B_efecto) {
+                this.Sonido_Giro.play();
+            }
             // compruebe que la baldosa o Tile no está volteado, si esta volteada no actua
             if (TileActual.index == ListaInicial[PosicionTileActual - 1])
             {
@@ -186,12 +225,12 @@ Juego.Game.prototype = {
                     // check for match
                     if (this.listaResultadoIgual(AlmacenValores, NumCasillasAlmacen) == true)
                     {
-                        if(this.imagen_resultado){
+                        if (this.imagen_resultado) {
                             this.imagen_resultado.kill();
                         }
                         masterCounter++;
                         this.Pregunta.loadTexture(this.Pregunta.key, masterCounter, false);
-                        this.imagen_resultado = this.game.add.image(780, 380, 'VistoBueno');
+                        this.imagen_resultado = this.game.add.image(780, 450, 'VistoBueno');
                         this.imagen_resultado.anchor.setTo(0.5, 0.5);
                         Secuencia++;
                         if (this.listaParejasFigurasIguales(NumCasillasAlmacen) == true) {
@@ -207,25 +246,26 @@ Juego.Game.prototype = {
                             // Se gana el juego y se acaba
                             TextWin.setText('¡Felicitaciones Gano!');
                             banderaTiempo = false;
-                            tiempoTotal=this.timer;
+                            tiempoTotal = this.timer;
                             console.log("Fallos: " + Fallos);
                             console.log("Parejas_Acertadas: " + Parejas_Acertadas);
                             console.log("Tiempo_Total: " + tiempoTotal);
+                            MusicaFondo.stop();
                             this.game.state.start('Premiacion');
                             //console.log("SumaTotal: " + SumaTotal.toString());
                             //alert("secuenciaTotal: " + secuenciaTotal.toString());
                         }
                     }
                     else
-                    {   
-                        if(this.imagen_resultado){
+                    {
+                        if (this.imagen_resultado) {
                             this.imagen_resultado.kill();
                         }
                         coordenadasX.push(layer.getTileX(marker.x));
                         coordenadasY.push(layer.getTileY(marker.y));
                         flipFlag = true;
                         tiempoChequeo = this.game.time.totalElapsedSeconds();
-                        this.imagen_resultado = this.game.add.image(780, 380, 'Error');
+                        this.imagen_resultado = this.game.add.image(780, 450, 'Error');
                         this.imagen_resultado.anchor.setTo(0.5, 0.5);
                         this.imagen_resultado.scale.x = 0.6;
                         this.imagen_resultado.scale.y = 0.6;
@@ -282,7 +322,7 @@ Juego.Game.prototype = {
         }
         else {
             //SumaTotal.push(suma);
-            Fallos=Fallos+1;
+            Fallos = Fallos + 1;
             return false;
         }
 
@@ -362,5 +402,35 @@ Juego.Game.prototype = {
         //this.game.debug.text('Matched Pairs: ' + masterCounter, 620, 304, 'rgb(0,0,255)');
         //this.game.debug.text('Secuencia: ' + Secuencia, 620, 400, 'rgb(255,0,0)');
         //this.game.debug.text('Valor Actual: ' + respuestasSuma[Secuencia - 1], 620, 500, 'rgb(255,0,0)');
+    },
+    Musica_Efecto: function (button) {
+        if (button.name == "Musica") {
+            if (B_musica == true) {
+                button.loadTexture('BotonMusica2');
+            }
+            else {
+                button.loadTexture('BottonesSonido', 0);
+            }
+            B_musica = !B_musica;
+        }
+        else if (button.name == "Efectos_Sonido") {
+            if (B_efecto == true) {
+                button.loadTexture('BotonEfecto2');
+            }
+            else {
+                button.loadTexture('BottonesSonido', 1);
+            }
+            B_efecto = !B_efecto;
+        }
+    },
+    managePause: function () {
+        this.game.paused = true;
+        var pausedText = this.add.text(600, 300, "PAUSED", this.fontMessage);
+        pausedText.anchor.set(0.5, 0.5);
+
+        this.input.onDown.add(function () {
+            pausedText.destroy();
+            this.game.paused = false;
+        }, this);
     }
 };
