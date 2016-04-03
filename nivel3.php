@@ -40,7 +40,6 @@
         var flipFlag = false;
 
         //Variables del Juego
-        var tiempo = "";
         var tiempoChequeo = 0;
         var ListaInicial = new Array();
         var ListaCuadrados = new Array();
@@ -55,7 +54,7 @@
         var secuenciaTotal = new Array();
         var secuenciaFigura = new Array();
         var SumaTotal = new Array();
-        var intentos = new Array();
+        var Parejas_Acertadas = 0;
 
         var masterCounter = 0;
         var ContadorCuadrados = 0;

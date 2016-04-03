@@ -15,7 +15,7 @@ Juego.Game.prototype = {
         this.game.load.spritesheet('Preguntas', 'assets/img/numeros/Preguntas.png', 350, 100);
     },
     create: function () {
-        this.timerInicial = 5;
+        this.timerInicial = 3;
         this.timer = 0;
         this.tiempoEliminar = 0;
         this.SecuenciaFinal = 0;
@@ -99,7 +99,7 @@ Juego.Game.prototype = {
         text.events.onInputOut.add(this.outText, this);
 
         //-----------Texto Ganador
-        TextWin = this.game.add.text(770, 550, "");
+        TextWin = this.game.add.text(780, 350, "");
         TextWin.anchor.setTo(0.5, 0.5);
         TextWin.font = 'comic sans';
         TextWin.fontSize = 38;
@@ -186,11 +186,17 @@ Juego.Game.prototype = {
                     // check for match
                     if (this.listaResultadoIgual(AlmacenValores, NumCasillasAlmacen) == true)
                     {
+                        if(this.imagen_resultado){
+                            this.imagen_resultado.kill();
+                        }
                         masterCounter++;
                         this.Pregunta.loadTexture(this.Pregunta.key, masterCounter, false);
-                        this.imagen_resultado = this.game.add.image(500, 225, 'VistoBueno');
+                        this.imagen_resultado = this.game.add.image(780, 380, 'VistoBueno');
                         this.imagen_resultado.anchor.setTo(0.5, 0.5);
                         Secuencia++;
+                        if (this.listaParejasFigurasIguales(NumCasillasAlmacen) == true) {
+                            Parejas_Acertadas++;
+                        }
                         NumCasillasAlmacen = [];
                         AlmacenValores = [];
                         coordenadasX = [];
@@ -201,21 +207,28 @@ Juego.Game.prototype = {
                             // Se gana el juego y se acaba
                             TextWin.setText('¡Felicitaciones Gano!');
                             banderaTiempo = false;
-                            alert("secuenciaTotal: " + secuenciaTotal.toString());
-                            alert("SumaTotal: " + SumaTotal.toString());
-                            alert("intentos: " + intentos.toString());
+                            tiempoTotal=this.timer;
+                            console.log("Fallos: " + Fallos);
+                            console.log("Parejas_Acertadas: " + Parejas_Acertadas);
+                            console.log("Tiempo_Total: " + tiempoTotal);
+                            this.game.state.start('Premiacion');
+                            //console.log("SumaTotal: " + SumaTotal.toString());
+                            //alert("secuenciaTotal: " + secuenciaTotal.toString());
                         }
                     }
                     else
-                    {
+                    {   
+                        if(this.imagen_resultado){
+                            this.imagen_resultado.kill();
+                        }
                         coordenadasX.push(layer.getTileX(marker.x));
                         coordenadasY.push(layer.getTileY(marker.y));
                         flipFlag = true;
                         tiempoChequeo = this.game.time.totalElapsedSeconds();
-                        this.imagen_resultado = this.game.add.image(500, 225, 'Error');
+                        this.imagen_resultado = this.game.add.image(780, 380, 'Error');
                         this.imagen_resultado.anchor.setTo(0.5, 0.5);
-                        this.imagen_resultado.scale.x = 0.7;
-                        this.imagen_resultado.scale.y = 0.7;
+                        this.imagen_resultado.scale.x = 0.6;
+                        this.imagen_resultado.scale.y = 0.6;
                     }
                 }
                 else
@@ -265,15 +278,43 @@ Juego.Game.prototype = {
 
             //intentos.push(Fallos);
             //SumaTotal.push(suma);
-            //Fallos=0;
             return true;
         }
         else {
             //SumaTotal.push(suma);
-            //Fallos=Fallos+1;
+            Fallos=Fallos+1;
             return false;
         }
 
+    },
+    listaParejasFigurasIguales: function (lista) {
+        var cantidad_numeros = 0;
+        var numero_inicial = 0;
+        var numero_siguiente = 0;
+        var repetidos = 1;
+
+        cantidad_numeros = lista.length;
+
+        if (cantidad_numeros > 1) {
+            for (index = 0; index < lista.length; index++) {
+                if (index == 0) {
+                    numero_inicial = lista[index];
+                }
+                else {
+                    numero_siguiente = lista[index];
+                    if (numero_inicial == numero_siguiente) {
+                        repetidos++;
+                    }
+                }
+            }
+        }
+
+        if (cantidad_numeros == repetidos) {
+            return true;
+        }
+        else {
+            return false;
+        }
     },
     flipBack: function () {
         var posicion;
