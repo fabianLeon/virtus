@@ -84,8 +84,10 @@ var Ficha = function (x, y, t, i) {
                     var campos  = ["t_duracion","n_secuencia","q_desorden","q_click","n_teclado","k_nivel"];
                     var valores = [relojito,"'4'",0,clicks,"'"+texto+"'","1"];
                     var tabla = "nivel_usuario";
-                    var destino = "controller/nivel_usuario_controller.php"
+                    var destino = "controller/nivel_usuario_controller.php";
+                    borrarTodasLasCookies();
                     llevarDatos(tabla,campos,valores,destino);
+                   
                 }
             }
         }
