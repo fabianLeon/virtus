@@ -7,7 +7,8 @@
 <script type="text/javascript" src="assets/js/sapo/Premiacion.js"></script>
 <style type="text/css">
     body {
-        margin: 5%;
+        margin-top: 7%;
+        margin-left: 2%;
     }
 </style>
 </head>
@@ -23,7 +24,7 @@
     <?php include_once 'templates/js.php'; ?>
     <script>
 
-        var game = new Phaser.Game(1240, 600, Phaser.AUTO, 'game');
+        var game = new Phaser.Game(1200, 600, Phaser.AUTO, 'game');
         game.state.add('Inicio', Juego.Inicio);
         game.state.add('Game', Juego.Game_State);
         game.state.add('Ayuda', Juego.Ayuda);
@@ -38,6 +39,7 @@
 
         var B_musica = true;
         var B_efecto = true;
+        var Sonido_Salto;
         var MusicaFondo;
         var tiempoTotal = 0;
         var logrosAlcanzados = new Array();
@@ -115,6 +117,9 @@
                 if (sePuede == true) {
                     animar();
                     me.body.velocity = new Phaser.Point(vx, vy);
+                }
+                if (B_efecto) {
+                    Sonido_Salto.play();
                 }
             }
 
