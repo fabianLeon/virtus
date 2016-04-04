@@ -75,22 +75,22 @@ Juego.Game.prototype = {
         this.Engrane6 = new Img_Movimiento(537, 300, 'Engrane6', 6, 537);
         this.Engrane7 = new Img_Movimiento(633, 350, 'Engrane7', 7, 633);
 
-       
-    
+
+
         //Se agregan los numeros 1 y 2
         this.Button_Numero1 = this.add.button(750, 300, 'Numero1', this.Mover_Engrane_Opc1, this, 1, 0, 2);
         this.Button_Numero1.anchor.setTo(0.50, 0.50);
         this.Button_Numero2 = this.add.button(750, 400, 'Numero2', this.Mover_Engrane_Opc2, this, 1, 0, 2);
         this.Button_Numero2.anchor.setTo(0.50, 0.50);
 
-        this.PintarTablero2();
+        //this.PintarTablero2();
         this.time.events.loop(Phaser.Timer.SECOND, this.updateTimer, this);
 
         //Se crea explosion de bomba de agua
         this.explosions = this.game.add.group();
         this.explosions.createMultiple(10, 'kaboom');
         this.explosions.forEach(this.setupBombaAgua, this);
-        
+
     },
     setupBombaAgua: function (bombaAgua) {
 
@@ -100,9 +100,9 @@ Juego.Game.prototype = {
 
     },
     update: function () {
-        
-        this.game.physics.arcade.collide(this.Engrane17, this.Caja2, this.collisionCaja, null, this);
-        this.MoverEngranes();
+        if (Tablero == 2) {
+            this.game.physics.arcade.collide(this.Engrane17, this.Caja2, this.collisionCaja, null, this);
+        }
         if (Mover_Engranes == true) {
             this.MoverEngranes();
         }
@@ -115,9 +115,9 @@ Juego.Game.prototype = {
         }
 
     },
-    render: function () {  
-    //game.debug.body(this.Engrane17);
-    //game.debug.body(this.Caja2);
+    render: function () {
+        //game.debug.body(this.Engrane17);
+        //game.debug.body(this.Caja2);
     },
     updateTimer: function () {
         this.timer++;
@@ -278,7 +278,7 @@ Juego.Game.prototype = {
         this.Caja = this.game.add.sprite(690, 210, 'Caja');
         this.Caja.anchor.setTo(0.5, 0.5);
         this.tweenCaja = game.add.tween(this.Caja).to({x: 850}, 24000, "Quart.easeOut");
-                
+
 
         this.Engrane10 = new Img_Movimiento(240, 420, 'Engrane8', 1, 240);
         this.Engrane11 = new Img_Movimiento(322, 364, 'Engrane3', 2, 322);
@@ -291,10 +291,10 @@ Juego.Game.prototype = {
         this.Engrane18 = new Img_Movimiento(830, 427, 'Engrane6', 7, 830);
         this.Banda2 = new Img_Movimiento(732, 415, 'Banda', 7, 732);
         this.Tuerca2 = new Img_Movimiento(605, 398, 'Tuerca', 7, 605);
-        this.Caja2 = this.game.add.sprite(800, 360, 'Caja');   
+        this.Caja2 = this.game.add.sprite(800, 360, 'Caja');
         this.Caja2.anchor.setTo(0.5, 0.5);
         this.game.physics.enable(this.Caja2, Phaser.Physics.ARCADE);
-        
+
         //Se agregan los numeros 1 y 2
         this.Button_Numero1 = this.add.button(150, 200, 'Numero1', this.Mover_Engrane_Opc1, this, 1, 0, 2);
         this.Button_Numero1.anchor.setTo(0.50, 0.50);
