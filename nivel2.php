@@ -34,8 +34,8 @@
         var saposGame = [];
         var sapos = null;
         var plataformas = null;
-        var VAzul = new Phaser.Point(-43, -90); //velocidad sapo azul
-        var VRojo = new Phaser.Point(45, -90); // velocidad sapo rojo
+        var VAzul = new Phaser.Point(-55, -90); //velocidad sapo azul
+        var VRojo = new Phaser.Point(55, -90); // velocidad sapo rojo
 
         var B_musica = true;
         var B_efecto = true;
@@ -58,22 +58,37 @@
 
 
             function dondeSaltar() {
+                if (saposGame[0] !== null &&
+                        saposGame[1] !== null &&
+                        saposGame[2] !== null &&
+                        saposGame[4] !== null &&
+                        saposGame[5] !== null &&
+                        saposGame[6] !== null) {
+
+                    if (saposGame[0].cl == 'azul' &&
+                            saposGame[1].cl == 'azul' &&
+                            saposGame[2].cl == 'azul' &&
+                            saposGame[4].cl == 'rojo' &&
+                            saposGame[5].cl == 'rojo' &&
+                            saposGame[6].cl == 'rojo') {
+                        console.log("GANOOOOO");
+                    }
+                }
                 console.log("old: " + plataforma);
                 if (me.cl == 'rojo') {
                     if (saposGame[plataforma + 1] == null) {
                         saposGame[plataforma] = null;
                         plataforma += 1;
                         saposGame[plataforma] = me;
-                        vx = 44;
+                        vx = 55;
                         vy = -50;
                         sePuede = true;
-                    }
-                    else if (saposGame[plataforma + 2] == null) {
+                    } else if (saposGame[plataforma + 2] == null) {
                         saposGame[plataforma] = null;
                         plataforma += 2;
                         saposGame[plataforma] = me;
-                        vx = 88;
-                        vy = -100;
+                        vx = 120;
+                        vy = -90;
                         sePuede = true;
                     }
                 } else {
@@ -81,16 +96,15 @@
                         saposGame[plataforma] = null;
                         plataforma -= 1;
                         saposGame[plataforma] = me;
-                        vx = -44;
+                        vx = -55;
                         vy = -50;
                         sePuede = true;
-                    }
-                    else if (saposGame[plataforma - 2] == null) {
+                    } else if (saposGame[plataforma - 2] == null) {
                         saposGame[plataforma] = null;
                         plataforma -= 2;
                         saposGame[plataforma] = me;
-                        vx = -88;
-                        vy = -100;
+                        vx = -120;
+                        vy = -90;
                         sePuede = true;
                     }
                 }
