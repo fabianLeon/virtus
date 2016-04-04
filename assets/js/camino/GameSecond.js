@@ -24,6 +24,7 @@ Juego.GameSecond.prototype = {
     create: function () {
 
         this.textPregunta;
+        this.timer = 0;
         this.contadorPregunta = 1;
         this.dobleClick = 0;
         //cada posicion corresponde a la respuesta de cada pregunta, en el sprite de imagenes correspondiente a cada pregunta,
@@ -72,6 +73,9 @@ Juego.GameSecond.prototype = {
         MusicaFondo.loopFull(0.6);
         this.Sonido_Giro = this.game.add.audio('Giro_Ficha');
 
+        //tiempo
+        this.time.events.loop(Phaser.Timer.SECOND, this.updateTimer, this);
+
     },
     update: function () {
         //Si la musica fue o no desactivada que relice la gestion necesaria
@@ -81,6 +85,9 @@ Juego.GameSecond.prototype = {
         else {
             MusicaFondo.resume();
         }
+    },
+    updateTimer: function () {
+        this.timer++;
     },
     cargarTableros: function (tablero, imgSprite, posicionX, posicionY) {
         var piecesIndex = 0, i, j, piece;
@@ -108,7 +115,58 @@ Juego.GameSecond.prototype = {
         if (B_efecto) {
             this.Sonido_Giro.play();
         }
+
         if (this.inhabilitarClick == false) {
+            //Se evalua pregunta para cmabiar ficha
+            switch (this.contadorPregunta) {
+                case 1:
+                    if (piece.posicionActual == 5) {
+                        matrizSolucion[0] = 4;
+                    }
+                    else {
+                        matrizSolucion[0] = 4.1;
+                        Fallos++;
+                    }
+                    break;
+                case 2:
+                    if (piece.posicionActual == 0) {
+                        matrizSolucion[6] = 4;
+                    }
+                    else {
+                        matrizSolucion[6] = 4.2;
+                        Fallos++;
+                    }
+                    break;
+                case 3:
+                    if (piece.posicionActual == 0) {
+                        matrizSolucion[1] = 2;
+                    }
+                    else {
+                        matrizSolucion[1] = 2.1;
+                        Fallos++;
+                    }
+                    break;
+                case 4:
+                    if (piece.posicionActual == 0 || piece.posicionActual == 5) {
+                        if (this.dobleClick == 0) {
+                            matrizSolucion[5] = 3;
+                        }
+                        else if (this.dobleClick == 1) {
+                            matrizSolucion[10] = 3;
+                        }
+                    } else if (piece.posicionActual == 1 || piece.posicionActual == 4) {
+                        if (this.dobleClick == 0) {
+                            matrizSolucion[5] = 3.1;
+                            Fallos++;
+                        }
+                        else if (this.dobleClick == 1) {
+                            matrizSolucion[10] = 3.1;
+                            Fallos++;
+                        }
+                    }
+                    break;
+            }
+            //Se evalua la ficha seleccionada para girarla
             switch (piece.posicionActual) {
                 case 0:
                     piece.loadTexture(piece.key, 2, false);
@@ -171,6 +229,7 @@ Juego.GameSecond.prototype = {
         }
     },
     JuegoPrincipal: function () {
+        tiempoTotal = this.timer;
         MusicaFondo.stop();
         this.game.state.start('Game');
     },
