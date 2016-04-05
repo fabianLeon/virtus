@@ -103,6 +103,7 @@ Juego.Game.prototype = {
         if (Tablero == 2) {
             this.game.physics.arcade.collide(this.Engrane17, this.Caja2, this.collisionCaja, null, this);
         }
+
         if (Mover_Engranes == true) {
             this.MoverEngranes();
         }
@@ -186,8 +187,9 @@ Juego.Game.prototype = {
     },
     collisionCaja: function (ObjetoDeColision, bala) {
         bala.kill();
-
+        
         var explosion = this.explosions.getFirstExists(false);
+        // console.log()
         explosion.reset(bala.body.x, bala.body.y);
         explosion.play('kaboom', 30, false, true);
     },
@@ -212,22 +214,41 @@ Juego.Game.prototype = {
         }
     },
     Mover_Engrane_Opc1: function () {
-        this.Button_Numero1.visible = false;
-        this.Button_Numero2.visible = false;
-        this.Imagen_Numero1 = this.game.add.sprite(750, 300, 'Numero1', 2);
-        this.Imagen_Numero1.anchor.setTo(0.50, 0.50);
-        this.Imagen_Numero2 = this.game.add.sprite(750, 400, 'Numero2', 0);
-        this.Imagen_Numero2.anchor.setTo(0.50, 0.50);
+        if (Tablero == 1) {
+            this.Button_Numero1.visible = false;
+            this.Button_Numero2.visible = false;
+            this.Imagen_Numero1 = this.game.add.sprite(750, 300, 'Numero1', 2);
+            this.Imagen_Numero1.anchor.setTo(0.50, 0.50);
+            this.Imagen_Numero2 = this.game.add.sprite(750, 400, 'Numero2', 0);
+            this.Imagen_Numero2.anchor.setTo(0.50, 0.50);
+        } else if (Tablero == 2) {
+            this.Button_Numero1.visible = false;
+            this.Button_Numero2.visible = false;
+            this.Imagen_Numero1 = this.game.add.sprite(150, 200, 'Numero1', 2);
+            this.Imagen_Numero1.anchor.setTo(0.50, 0.50);
+            this.Imagen_Numero2 = this.game.add.sprite(150, 420, 'Numero2', 0);
+            this.Imagen_Numero2.anchor.setTo(0.50, 0.50);
+        }
         Mover_Engranes = true;
         respuesta = 1;
     },
     Mover_Engrane_Opc2: function () {
-        this.Button_Numero1.visible = false;
-        this.Button_Numero2.visible = false;
-        this.Imagen_Numero1 = this.game.add.sprite(750, 300, 'Numero1', 0);
-        this.Imagen_Numero1.anchor.setTo(0.50, 0.50);
-        this.Imagen_Numero2 = this.game.add.sprite(750, 400, 'Numero2', 2);
-        this.Imagen_Numero2.anchor.setTo(0.50, 0.50);
+        if (Tablero == 1) {
+            this.Button_Numero1.visible = false;
+            this.Button_Numero2.visible = false;
+            this.Imagen_Numero1 = this.game.add.sprite(750, 300, 'Numero1', 0);
+            this.Imagen_Numero1.anchor.setTo(0.50, 0.50);
+            this.Imagen_Numero2 = this.game.add.sprite(750, 400, 'Numero2', 2);
+            this.Imagen_Numero2.anchor.setTo(0.50, 0.50);
+
+        } else if (Tablero == 2) {
+            this.Button_Numero1.visible = false;
+            this.Button_Numero2.visible = false;
+            this.Imagen_Numero1 = this.game.add.sprite(150, 200, 'Numero1', 0);
+            this.Imagen_Numero1.anchor.setTo(0.50, 0.50);
+            this.Imagen_Numero2 = this.game.add.sprite(150, 420, 'Numero2', 2);
+            this.Imagen_Numero2.anchor.setTo(0.50, 0.50);
+        }
         Mover_Engranes = true;
         respuesta = 2;
     },
