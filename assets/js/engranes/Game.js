@@ -83,14 +83,7 @@ Juego.Game.prototype = {
         this.Button_Numero2 = this.add.button(750, 400, 'Numero2', this.Mover_Engrane_Opc2, this, 1, 0, 2);
         this.Button_Numero2.anchor.setTo(0.50, 0.50);
 
-        //this.PintarTablero2();
         this.time.events.loop(Phaser.Timer.SECOND, this.updateTimer, this);
-
-        //Se crea explosion de bomba de agua
-        this.explosions = this.game.add.group();
-        this.explosions.createMultiple(10, 'kaboom');
-        this.explosions.forEach(this.setupBombaAgua, this);
-
     },
     setupBombaAgua: function (bombaAgua) {
 
@@ -106,6 +99,8 @@ Juego.Game.prototype = {
 
         if (Mover_Engranes == true) {
             this.MoverEngranes();
+        }else if (Mover_Engranes == false && Tablero==2 ){
+            this.Caja.body.velocity.x = 0;    
         }
         //Si la musica fue o no desactivada que relice la gestion necesaria
         if (B_musica == false) {
@@ -122,27 +117,54 @@ Juego.Game.prototype = {
     },
     updateTimer: function () {
         this.timer++;
-        if (Mover_Engranes == true) {
-            this.tiempo_detenerse++;
-            if (this.tiempo_detenerse == 2) {
-                Mover_Engranes = false
-                if (respuesta == 1) {
-                    this.imagen_resultado = this.game.add.image(500, 225, 'VistoBueno');
-                    this.imagen_resultado.anchor.setTo(0.5, 0.5);
-                    respuestas_Acertadas += 1;
-                    tiempoTotal = this.timer;
-                    this.buttonContinue.visible = true;
-                    this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
-                } else if (respuesta == 2) {
-                    this.imagen_resultado = this.game.add.image(500, 225, 'Error');
-                    this.imagen_resultado.anchor.setTo(0.5, 0.5);
-                    this.imagen_resultado.scale.x = 0.7;
-                    this.imagen_resultado.scale.y = 0.7;
-                    tiempoTotal = this.timer;
-                    this.buttonContinue.visible = true;
-                    this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
-                }
+        if (Tablero == 1) {
+            if (Mover_Engranes == true) {
+                this.tiempo_detenerse++;
+                if (this.tiempo_detenerse == 2) {
+                    Mover_Engranes = false
+                    if (respuesta == 1) {
+                        this.imagen_resultado = this.game.add.image(500, 225, 'VistoBueno');
+                        this.imagen_resultado.anchor.setTo(0.5, 0.5);
+                        respuestas_Acertadas += 1;
+                        tiempoTotal = this.timer;
+                        this.buttonContinue.visible = true;
+                        this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
+                    } else if (respuesta == 2) {
+                        this.imagen_resultado = this.game.add.image(500, 225, 'Error');
+                        this.imagen_resultado.anchor.setTo(0.5, 0.5);
+                        this.imagen_resultado.scale.x = 0.7;
+                        this.imagen_resultado.scale.y = 0.7;
+                        tiempoTotal = this.timer;
+                        this.buttonContinue.visible = true;
+                        this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
+                    }
 
+                }
+            }
+        }
+        else if (Tablero == 2) {
+            if (Mover_Engranes == true) {
+                this.tiempo_detenerse++;
+                if (this.tiempo_detenerse == 5) {
+                    Mover_Engranes = false
+                    if (respuesta == 1) {
+                        this.imagen_resultado = this.game.add.image(500, 225, 'VistoBueno');
+                        this.imagen_resultado.anchor.setTo(0.5, 0.5);
+                        respuestas_Acertadas += 1;
+                        tiempoTotal = tiempoTotal + this.timer;
+                        this.buttonContinue.visible = true;
+                        this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
+                    } else if (respuesta == 2) {
+                        this.imagen_resultado = this.game.add.image(500, 225, 'Error');
+                        this.imagen_resultado.anchor.setTo(0.5, 0.5);
+                        this.imagen_resultado.scale.x = 0.7;
+                        this.imagen_resultado.scale.y = 0.7;
+                        tiempoTotal = tiempoTotal + this.timer;
+                        this.buttonContinue.visible = true;
+                        this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
+                    }
+
+                }
             }
         }
     },
@@ -167,7 +189,7 @@ Juego.Game.prototype = {
             this.Engrane8.angle += 0.5;
             this.Engrane9.angle += 0.5;
             this.Tuerca.angle += 0.7;
-            this.tweenCaja.start();
+            this.Caja.body.velocity.x = +30;
 
             this.Engrane10.angle += 0.5;
             this.Engrane11.angle -= 0.5;
@@ -180,16 +202,13 @@ Juego.Game.prototype = {
             this.Engrane18.angle -= 0.7;
             this.Tuerca2.angle += 0.7;
             this.Caja2.body.velocity.x = -30;
-            //this.tweenCaja2.start();
         }
 
 
     },
     collisionCaja: function (ObjetoDeColision, bala) {
         bala.kill();
-        
         var explosion = this.explosions.getFirstExists(false);
-        // console.log()
         explosion.reset(bala.body.x, bala.body.y);
         explosion.play('kaboom', 30, false, true);
     },
@@ -281,6 +300,7 @@ Juego.Game.prototype = {
     PintarTablero2: function () {
         //Se crean los engranes
         Tablero = 2;
+        this.tiempo_detenerse = 0;
         this.Destruir_Imagenes_Tablero1();
         this.Fondo_Engrane = this.game.add.image(520, 310, 'Fondo_Blanco2');
         this.Fondo_Engrane.anchor.setTo(0.5, 0.5);
@@ -298,7 +318,7 @@ Juego.Game.prototype = {
         this.Tuerca = new Img_Movimiento(605, 248, 'Tuerca', 7, 605);
         this.Caja = this.game.add.sprite(690, 210, 'Caja');
         this.Caja.anchor.setTo(0.5, 0.5);
-        this.tweenCaja = game.add.tween(this.Caja).to({x: 850}, 24000, "Quart.easeOut");
+        this.game.physics.enable(this.Caja, Phaser.Physics.ARCADE);
 
 
         this.Engrane10 = new Img_Movimiento(240, 420, 'Engrane8', 1, 240);
@@ -321,6 +341,12 @@ Juego.Game.prototype = {
         this.Button_Numero1.anchor.setTo(0.50, 0.50);
         this.Button_Numero2 = this.add.button(150, 420, 'Numero2', this.Mover_Engrane_Opc2, this, 1, 0, 2);
         this.Button_Numero2.anchor.setTo(0.50, 0.50);
+
+        //Se crea explosion de bomba de agua
+        this.explosions = this.game.add.group();
+        this.explosions.createMultiple(10, 'kaboom');
+        this.explosions.forEach(this.setupBombaAgua, this);
+
     },
     Destruir_Imagenes_Tablero1: function () {
         this.Engrane1.kill();
