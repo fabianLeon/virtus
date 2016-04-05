@@ -8,7 +8,7 @@
 <style type="text/css">
     body {
         margin-top: 7%;
-        margin-left: 2%;
+        margin-left: 1%;
     }
 </style>
 </head>
@@ -24,7 +24,7 @@
     <?php include_once 'templates/js.php'; ?>
     <script>
 
-        var game = new Phaser.Game(1200, 600, Phaser.AUTO, 'game');
+        var game = new Phaser.Game(1240, 600, Phaser.AUTO, 'game');
         game.state.add('Inicio', Juego.Inicio);
         game.state.add('Game', Juego.Game_State);
         game.state.add('Ayuda', Juego.Ayuda);

@@ -16,7 +16,7 @@ Juego.Game.prototype = {
         this.game.load.audio('Arrastrar', 'assets/audio/camino/Arrastrar_ficha.mp3');
     },
     create: function () {
-
+        this.timer = 0;
         this.PIECE_WIDTH = 100;
         this.PIECE_HEIGHT = 100;
         this.BOARD_COLS = 5;
@@ -66,6 +66,8 @@ Juego.Game.prototype = {
         MusicaFondo.loopFull(0.6);
         this.Sonido_Giro = this.game.add.audio('Arrastrar');
 
+        //tiempo
+        this.time.events.loop(Phaser.Timer.SECOND, this.updateTimer, this);
     },
     update: function () {
         //Si la musica fue o no desactivada que relice la gestion necesaria
@@ -76,6 +78,9 @@ Juego.Game.prototype = {
             MusicaFondo.resume();
         }
     },
+    updateTimer: function () {
+        this.timer++;
+    },
     prepararTablero: function () {
 
         var piecesIndex = 0, i, j, piece;
@@ -85,7 +90,7 @@ Juego.Game.prototype = {
         for (i = 0; i < this.BOARD_ROWS; i++)
         {
             for (j = 0; j < this.BOARD_COLS; j++)
-            {
+            {   
                 if (this.matrizJuego[piecesIndex] != 10) {
                     this.valorCasilla = this.matrizJuego[piecesIndex];
                     piece = this.GrupoFichas.create(j * this.PIECE_WIDTH + 25, i * this.PIECE_HEIGHT + 50, "background", this.EvaluadorCasilla(this.valorCasilla));
@@ -187,7 +192,10 @@ Juego.Game.prototype = {
         }
 
         if (isFinished) {
+            tiempoSolucionCamino=this.timer;
+            tiempoTotal=tiempoTotal+this.timer;
             this.showFinishedText();
+            this.game.state.start('Premiacion');
         }
 
     },
@@ -195,7 +203,7 @@ Juego.Game.prototype = {
 
         var style = {font: "40px Arial", fill: "#000", align: "center"};
 
-        var text = game.add.text(game.world.centerX, game.world.centerY, "Congratulations! \nYou made it!", style);
+        var text = game.add.text(game.world.centerX, game.world.centerY, "Felicitaciones! \nLo has Conseguido!", style);
 
         text.anchor.set(0.5);
 
@@ -257,6 +265,9 @@ Juego.Game.prototype = {
                 break;
             case 4.1:
                 posicionImagen = 20;
+                break;
+            case 4.2:
+                posicionImagen = 23;
                 break;
             default:
                 posicionImagen = 3;

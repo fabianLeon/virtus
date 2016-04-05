@@ -36,6 +36,8 @@
         var B_efecto = true;
         var MusicaFondo;
         var tiempoTotal = 0;
+        var tiempoSolucionCamino = 0;
+        var Fallos=0;
         var logrosAlcanzados = new Array();
 
         //el numero 0 corresponde a casillas sin camino y el 10 corresponde a la casilla de color negro

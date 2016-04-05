@@ -1,5 +1,5 @@
 var Juego = {
-    _WIDTH: 1200,
+    _WIDTH: 1240,
     _HEIGHT: 600
 };
 
