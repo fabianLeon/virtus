@@ -27,7 +27,7 @@ Juego.Game_State.prototype = {
 
 
         for (var i = 0; i < 7; i++) {
-            var plataforma = game.add.sprite((100 + (150 * i)), game.height - 50, 'plataforma');
+            var plataforma = game.add.sprite((105 + (150 * i)), game.height - 50, 'plataforma');
             game.physics.arcade.enable(plataforma);
             plataforma.body.immovable = true;
             plataforma.body.allowGravity = false;
