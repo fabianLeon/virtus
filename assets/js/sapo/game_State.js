@@ -16,6 +16,10 @@ Juego.Game_State.prototype = {
         game.load.audio('Salto_Sapo', 'assets/audio/sapo/Salto_Sapo.mp3');
     },
     create: function () {
+//        this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+//        this.game.scale.pageAlignHorizontally = true;
+//        this.game.scale.pageAlignVertically = true;
+        
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.arcade.gravity.set(0, 60);
 

@@ -65,14 +65,14 @@
                         saposGame[plataforma] = null;
                         plataforma += 1;
                         saposGame[plataforma] = me;
-                        vx = 55;
+                        vx = 48;
                         vy = -50;
                         sePuede = true;
                     } else if (saposGame[plataforma + 2] == null) {
                         saposGame[plataforma] = null;
                         plataforma += 2;
                         saposGame[plataforma] = me;
-                        vx = 110;
+                        vx = 90;
                         vy = -80;
                         sePuede = true;
                     }
@@ -81,14 +81,14 @@
                         saposGame[plataforma] = null;
                         plataforma -= 1;
                         saposGame[plataforma] = me;
-                        vx = -55;
+                        vx = -48;
                         vy = -50;
                         sePuede = true;
                     } else if (saposGame[plataforma - 2] == null) {
                         saposGame[plataforma] = null;
                         plataforma -= 2;
                         saposGame[plataforma] = me;
-                        vx = -110;
+                        vx = -90;
                         vy = -80;
                         sePuede = true;
                     }
