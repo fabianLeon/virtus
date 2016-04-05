@@ -59,8 +59,7 @@ Juego.Inicio.prototype = {
     actionOnClick: function (button) {
         if (button.name == "Jugar") {
             this.game.state.start('Game');
-        }
-        else {
+        } else {
             this.game.state.start('Ayuda');
         }
 

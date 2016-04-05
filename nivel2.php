@@ -58,22 +58,7 @@
 
 
             function dondeSaltar() {
-                if (saposGame[0] !== null &&
-                        saposGame[1] !== null &&
-                        saposGame[2] !== null &&
-                        saposGame[4] !== null &&
-                        saposGame[5] !== null &&
-                        saposGame[6] !== null) {
-
-                    if (saposGame[0].cl == 'azul' &&
-                            saposGame[1].cl == 'azul' &&
-                            saposGame[2].cl == 'azul' &&
-                            saposGame[4].cl == 'rojo' &&
-                            saposGame[5].cl == 'rojo' &&
-                            saposGame[6].cl == 'rojo') {
-                        console.log("GANOOOOO");
-                    }
-                }
+                
                 console.log("old: " + plataforma);
                 if (me.cl == 'rojo') {
                     if (saposGame[plataforma + 1] == null) {
@@ -87,8 +72,8 @@
                         saposGame[plataforma] = null;
                         plataforma += 2;
                         saposGame[plataforma] = me;
-                        vx = 120;
-                        vy = -90;
+                        vx = 110;
+                        vy = -80;
                         sePuede = true;
                     }
                 } else {
@@ -103,24 +88,24 @@
                         saposGame[plataforma] = null;
                         plataforma -= 2;
                         saposGame[plataforma] = me;
-                        vx = -120;
-                        vy = -90;
+                        vx = -110;
+                        vy = -80;
                         sePuede = true;
                     }
                 }
-                console.log("new: " + plataforma);
             }
 
             function mover() {
+                
                 dondeSaltar();
-                console.log(sePuede);
                 if (sePuede == true) {
                     animar();
                     me.body.velocity = new Phaser.Point(vx, vy);
+                    if (B_efecto) {
+                        Sonido_Salto.play();
+                    }
                 }
-                if (B_efecto) {
-                    Sonido_Salto.play();
-                }
+
             }
 
             function animationStopped(me, animation) {
@@ -148,7 +133,7 @@
                 me.inputEnabled = true;
                 me.events.onInputUp.add(mover);
 
-                me.x = 110 + (150 * plataforma);
+                me.x = 105 + (150 * plataforma);
                 //me.y = game.height - me.height- 70;
                 me.y = game.height / 2;
 
