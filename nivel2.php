@@ -100,6 +100,7 @@
                 dondeSaltar();
                 if (sePuede == true) {
                     animar();
+                    console.log(vx+","+vy);
                     me.body.velocity = new Phaser.Point(vx, vy);
                     if (B_efecto) {
                         Sonido_Salto.play();
