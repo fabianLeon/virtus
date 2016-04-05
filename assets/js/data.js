@@ -112,7 +112,7 @@ $(window).on('beforeunload', function () {
     console.log("clicks  : " + clicks);
     console.log("texto   : " + texto);
     console.log(obtenersesion(usuario, cookies, "ti"));
-    return ("saliendo");
+//    return ("saliendo");
 });
 
 $(window).on('load', function () {

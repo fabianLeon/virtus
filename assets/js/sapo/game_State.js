@@ -71,30 +71,43 @@ Juego.Game_State.prototype = {
     },
     update: function () {
         game.physics.arcade.collide(plataformas, sapos);
-        //game.physics.arcade.collide(sapos, sapos);
+        if (    saposGame[0] !== null &&
+                saposGame[1] !== null &&
+                saposGame[2] !== null &&
+                saposGame[4] !== null &&
+                saposGame[5] !== null &&
+                saposGame[6] !== null) {
+
+            if (    saposGame[0].cl == 'azul' &&
+                    saposGame[1].cl == 'azul' &&
+                    saposGame[2].cl == 'azul' &&
+                    saposGame[4].cl == 'rojo' &&
+                    saposGame[5].cl == 'rojo' &&
+                    saposGame[6].cl == 'rojo') {
+                console.log("GANOOOOO"); /// listo mk aqui es donde gana el socio
+                borrarTodasLasCookies();
+            }
+        }
         //Si la musica fue o no desactivada que relice la gestion necesaria
         if (B_musica == false) {
             MusicaFondo.pause();
-        }
-        else {
+        } else {
             MusicaFondo.resume();
         }
+
     },
     Musica_Efecto: function (button) {
         if (button.name == "Musica") {
             if (B_musica == true) {
                 button.loadTexture('BotonMusica2');
-            }
-            else {
+            } else {
                 button.loadTexture('BottonesSonido', 0);
             }
             B_musica = !B_musica;
-        }
-        else if (button.name == "Efectos_Sonido") {
+        } else if (button.name == "Efectos_Sonido") {
             if (B_efecto == true) {
                 button.loadTexture('BotonEfecto2');
-            }
-            else {
+            } else {
                 button.loadTexture('BottonesSonido', 1);
             }
             B_efecto = !B_efecto;
