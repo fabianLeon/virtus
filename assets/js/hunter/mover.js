@@ -55,9 +55,12 @@ function automover_escenario() {
         } else {
             window.clearInterval(movFunc);
             moverDef();
-            console.log("sali de la funcion");
         }
     } else if (matrizFuncion[f][c] === 0 && !gano){
+        window.clearInterval(movEsce);
+        swal({title: "Juego no Culminado!", text: "No lograste recoger la planta, intenta nuevamente!", type: "error", confirmButtonText: "Aceptar"});
+        reset();
+    }else if (c == 4 && f == 4 & !gano){
         window.clearInterval(movEsce);
         swal({title: "Juego no Culminado!", text: "No lograste recoger la planta, intenta nuevamente!", type: "error", confirmButtonText: "Aceptar"});
         reset();
@@ -205,11 +208,10 @@ function cambiarMatriz(val) {
                     cont1++;
                     cont2 = 0;
                 } else if (cont1 > 4) {
-                    alert("No hay Espacio");
+                    swal({title: "No Hay Espacio!", text: "Se ha terminado el espacio, cambia tu estrategia", type: "error", confirmButtonText: "Aceptar"});
                 }
             } else {
-                alert("para usar una funcion, debe llenar algo en el panel\n\
-de funciones primero")
+               swal({title: "Mal Uso de la Funcion!", text: "Debes llenar almenos una instruccion en la funcion para poder usarla!", type: "error", confirmButtonText: "Aceptar"});
             }
         } else if (val == 6) {
             cont2--;
@@ -228,7 +230,7 @@ de funciones primero")
                 cont1++;
                 cont2 = 0;
             } else if (cont1 > 4)
-                alert("No hay Espacio");
+                swal({title: "No Hay Espacio!", text: "Se ha terminado el espacio, cambia tu estrategia", type: "error", confirmButtonText: "Aceptar"});
         }
     }
 }
@@ -242,7 +244,7 @@ function cambiarMatrizFunciones(val2) {
             cont3++;
             cont4 = 0;
         } else if (cont3 > 1)
-            alert("No hay Espacio");
+            swal({title: "No Hay Espacio!", text: "Se ha terminado el espacio, cambia tu estrategia", type: "error", confirmButtonText: "Aceptar"});
     }
 }
 // controla las iteracciones de movimiento(girar)
@@ -590,8 +592,6 @@ function backLevel() {
     juego = parseInt(nivel);
     if (juego >= 1) {
         location.href = "nivel7.php?mundo=" + (juego - 1);
-    } else {
-        alert("Esta en el primer nivel");
     }
 }
 
@@ -708,12 +708,10 @@ function asignarInicial() {
 
 //se;ala al jugador que perdio y que debe reiniciar el juego
 function perdio() {
-    if (f == 0 && c == 5 && gano == false) {
         juego = parseInt(nivel);
         var destino = "nivel7.php?mundo=" + juego;
-        //setTimeout("location.href='"+destino+"'", 6000);
+        setTimeout("location.href='"+destino+"'", 30);
         console.log(destino);
-    }
 }
 
 
