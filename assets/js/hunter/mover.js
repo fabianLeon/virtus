@@ -57,6 +57,10 @@ function automover_escenario() {
             moverDef();
             console.log("sali de la funcion");
         }
+    } else if (matrizFuncion[f][c] === 0 && !gano){
+        window.clearInterval(movEsce);
+        swal({title: "Juego no Culminado!", text: "No lograste recoger la planta, intenta nuevamente!", type: "error", confirmButtonText: "Aceptar"});
+        reset();
     }
 }
 //dibuja el tablero
@@ -445,18 +449,18 @@ function moverDef() {
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
         console.log((vector[0]) + dx);
         if ((vector[0]) + dx == -1 || (vector[0]) + dx == 8) {
-            swal({   title: "Mal Movimiento!",   text: "No puede Avanzar !",   type: "error",   confirmButtonText: "Aceptar" });
+            swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
         }
         if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
 
-            swal({   title: "Mal Movimiento!",   text: "No puede Avanzar !",   type: "error",   confirmButtonText: "Aceptar" });
+            swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
         } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
             matrizMundo [(vector[0])][(vector[1])] = casillaActual(matrizMundo [(vector[0])][(vector[1])]);
             matrizMundo [(vector[0]) + dx][(vector[1] + dy)] = valor;
         } else {
-            swal({   title: "Mal Movimiento!",   text: "No puede Avanzar !",   type: "error",   confirmButtonText: "Aceptar" });
+            swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
         }
     } else if (matrizFuncion [f][c] == 2) {
@@ -471,14 +475,14 @@ function moverDef() {
         mover(4);
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
         if ((vector[0]) + dx == -1 || (vector[0]) + dx == 8) {
-            swal({   title: "Mal Movimiento!",   text: "No puede Saltar !",   type: "error",   confirmButtonText: "Aceptar" });
+            swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
         }
         if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
-            swal({   title: "Mal Movimiento!",   text: "No puede Saltar !",   type: "error",   confirmButtonText: "Aceptar" });
+            swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
         } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
-            swal({   title: "Mal Movimiento!",   text: "No puede Saltar !",   type: "error",   confirmButtonText: "Aceptar" });
+            swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
         } else {
             valor = colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]);
@@ -491,23 +495,23 @@ function moverDef() {
         if (vector[0] == xBom && vector[1] == yBom) {
             matrizMundo [(vector[0])][(vector[1])] = 17;
             pintarTablero(ctx);
+            window.clearInterval(movFunc);
             gano = true;
             juego = parseInt(nivel);
             juego++;
-           swal({   title: "Buen Trabajo!",   text: "Ha recojido la planta de este nivel, !",   type: "success",   confirmButtonText: "Aceptar" });
-           setTimeout("location.href='aplicacion.php'", 4000);
+            
+            swal({title: "Buen Trabajo!", text: "Ha recojido la planta de este nivel, !", type: "success", confirmButtonText: "Aceptar"});
+            setTimeout("location.href='aplicacion.php'", 4000);
         } else {
-            alert("No esta encima del Bombillo");
+            swal({title: "Mal Movimiento!", text: "No puedes Recoger la planta ahora!", type: "error", confirmButtonText: "Aceptar"});
             reset();
         }
     }
-
     f++;
     if (f > 4) {
         c++;
         f = 0;
     }
-    perdio();
 }
 
 
@@ -523,13 +527,13 @@ function moverDefFunctionFinal() {
             mover(1);
             valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
             if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
-                swal({   title: "Mal Movimiento!",   text: "No puede Avanzar !",   type: "error",   confirmButtonText: "Aceptar" });
+                swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
                 reset();
             } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
                 matrizMundo [(vector[0])][(vector[1])] = casillaActual(matrizMundo [(vector[0])][(vector[1])]);
                 matrizMundo [(vector[0]) + dx][(vector[1] + dy)] = valor;
             } else {
-                swal({   title: "Mal Movimiento!",   text: "No puede Avanzar !",   type: "error",   confirmButtonText: "Aceptar" });
+                swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
                 reset();
             }
         } else if (matrizFunciones [ff][cf] == 2) {
@@ -544,10 +548,10 @@ function moverDefFunctionFinal() {
             mover(4);
             valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
             if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
-                swal({   title: "Mal Movimiento!",   text: "No puede Saltar !",   type: "error",   confirmButtonText: "Aceptar" });
+                swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
                 reset();
             } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
-                swal({   title: "Mal Movimiento!",   text: "No puede Saltar !",   type: "error",   confirmButtonText: "Aceptar" });
+                swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
                 reset();
             } else {
                 valor = colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]);
@@ -577,8 +581,8 @@ function moverDefFunctionFinal() {
 //reinicia el juego en el nivel actual
 function reset() {
     juego = parseInt(nivel);
-    var destino  = "nivel7.php?mundo=" + juego;
-    setTimeout("location.href='"+destino+"'", 4000);
+    var destino = "nivel7.php?mundo=" + juego;
+    setTimeout("location.href='" + destino + "'", 3000);
     //init();
 }
 

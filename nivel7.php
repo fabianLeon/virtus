@@ -74,17 +74,17 @@ for ($i = 0; $i < 8; $i++) {
                             <canvas id="canvasF"  width="259" height="256" style="border:1px solid #000"></canvas>
                         </div>
                     </div>
-                    <div class="col-lg-2"><br>
+                    <div class="col-lg-2">
                         <small>Adelante</small>
                         <button onClick="cambiarMatriz(1)"><img src="assets/img/hunter/dezplazamientos/adelante.png"></button>   
                         <small>Izquierda</small>
                         <button onClick="cambiarMatriz(2)"><img src="assets/img/hunter/dezplazamientos/derecha.png"></button>
                         <small>Derecha</small>
                         <button onClick="cambiarMatriz(3)"><img src="assets/img/hunter/dezplazamientos/izquierda.png"></button>
-                        <br><button onClick="cambiarMatriz(6)" class="btn btn-theme">Delete!!!</button>
+                        <br><button onClick="cambiarMatriz(6)" class="btn btn-theme">Borrar!!!</button>
                     </div>
-                    <div class="col-lg-2"><br>
-                        <small>Encender</small>
+                    <div class="col-lg-2">
+                        <small>Recoger</small>
                         <button onClick="cambiarMatriz(5)"><img src="assets/img/hunter/dezplazamientos/encender.png"></button>
                         <small>Saltar</small>
                         <button onClick="cambiarMatriz(4)"><img src="assets/img/hunter/dezplazamientos/saltar.png"></button>
