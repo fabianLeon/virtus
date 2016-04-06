@@ -1,14 +1,6 @@
 
 <?php
 include_once 'templates/open_head.php';
-session_start();
-if (isset($_SESSION['nivel6'])) {
-    $_SESSION['nivel6'] = $_SESSION['nivel6'] + 1;
-    echo "<br>" . $_SESSION['nivel6'];
-} else {
-    $_SESSION['nivel1'] = 1;
-    echo "<br>" . $_SESSION['nivel6'];
-}  
 ?>
 </head>
 <body>
@@ -40,6 +32,10 @@ for ($i = 0; $i < 8; $i++) {
 }
 ?>
             ];
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').focus()
+            })
+
         </script>
         <br><br><br><br>
         <div class="col-lg-8 col">
@@ -57,15 +53,14 @@ for ($i = 0; $i < 8; $i++) {
         </script>
         <div class="col-lg-4">
             <div class="panel panel-default">
-<!--                <div class="panel-heading">
-                    <h3 class="panel-title">Panel de Comandos</h3>
-                </div>-->
+                <!--                <div class="panel-heading">
+                                    <h3 class="panel-title">Panel de Comandos</h3>
+                                </div>-->
                 <div class="panel-body">
                     <div class="row" style="text-align: center">
                         <button onClick="automover()" class="btn btn-theme"> go !!!</button>
                         <button onClick="reset()" class="btn btn-theme">again</button>
                         <button onClick="backLevel()" class="btn btn-theme">Back Level</button>
-                        <button onClick="cambiarMatriz(6)" class="btn btn-theme">Delete!!!</button>
                     </div>
                 </div>
             </div>
@@ -86,6 +81,7 @@ for ($i = 0; $i < 8; $i++) {
                         <button onClick="cambiarMatriz(2)"><img src="assets/img/hunter/dezplazamientos/derecha.png"></button>
                         <small>Derecha</small>
                         <button onClick="cambiarMatriz(3)"><img src="assets/img/hunter/dezplazamientos/izquierda.png"></button>
+                        <br><button onClick="cambiarMatriz(6)" class="btn btn-theme">Delete!!!</button>
                     </div>
                     <div class="col-lg-2"><br>
                         <small>Encender</small>
@@ -94,8 +90,9 @@ for ($i = 0; $i < 8; $i++) {
                         <button onClick="cambiarMatriz(4)"><img src="assets/img/hunter/dezplazamientos/saltar.png"></button>
                         <small>Funcion</small>
                         <button onClick="cambiarMatriz(7)"><img src="assets/img/hunter/dezplazamientos/funcion.png"></button>
-
                     </div>
+
+
                 </div>
             </div>
 
