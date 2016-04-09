@@ -11,7 +11,7 @@ var Rangos = function (ini, fin, nombre) {
     this.getPosicion = function (date) {
         if (date <= this.inicial) {
             this.orden = 0;
-        } else if (date >= this.inicial && date <= this.fin) {
+        } else if (date > this.inicial && date <= this.fin) {
             this.orden = 1;
         } else {
             this.orden = 2;
