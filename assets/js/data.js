@@ -1,6 +1,9 @@
 var texto, usuario, cookies;
 var relojito, clicks, intentos, borrado = true;
-
+//reinicia el juego en el nivel actual
+function reiniciar(side) {
+    setTimeout("location.href='" + side + "'", 3000);
+}
 var Rangos = function (ini, fin, nombre) {
     // define la posicion correspondiente a la peor
     this.nombre = nombre;

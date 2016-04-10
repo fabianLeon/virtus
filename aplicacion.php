@@ -29,7 +29,7 @@
 
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/hunter1.jpg" alt="">
+                                <img src= "assets/img/niveles/hunter1.png" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 1. Inicial</h3>
@@ -42,7 +42,7 @@
 
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/hunter2.jpg" alt="">
+                                <img src= "assets/img/niveles/hunter2.png" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 2. Saltos</h3>
@@ -55,7 +55,7 @@
 
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/hunter3.jpg" alt="">
+                                <img src= "assets/img/niveles/hunter3.png" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 3. Funciones</h3>

@@ -105,6 +105,8 @@
                     if (B_efecto) {
                         Sonido_Salto.play();
                     }
+                }else{
+                    reiniciar("nivel2.php");
                 }
 
             }

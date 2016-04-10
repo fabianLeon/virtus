@@ -585,7 +585,6 @@ function reset() {
     juego = parseInt(nivel);
     var destino = "nivel7.php?mundo=" + juego;
     setTimeout("location.href='" + destino + "'", 3000);
-    //init();
 }
 
 function backLevel() {
