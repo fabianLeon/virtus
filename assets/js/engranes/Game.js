@@ -331,6 +331,8 @@ Juego.Game.prototype = {
             this.Imagen_Numero1.anchor.setTo(0.50, 0.50);
             this.Imagen_Numero2 = this.game.add.sprite(750, 400, 'Numero2', 0);
             this.Imagen_Numero2.anchor.setTo(0.50, 0.50);
+            swal({title: "No Hay Espacio!", text: "Se ha terminado el espacio, cambia tu estrategia", type: "error", confirmButtonText: "Aceptar"});
+
         } else if (Tablero == 2) {
             this.Button_Numero1.kill();
             this.Button_Numero2.kill();
