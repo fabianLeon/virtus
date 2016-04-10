@@ -34,6 +34,9 @@
         var B_efecto = true;
         var MusicaFondo;
         var tiempoTotal = 0;
+        var tiempo1 = 0;
+        var tiempo2 = 0;
+        var tiempo3 = 0;
         var logrosAlcanzados = new Array();
         var Mover_Engranes = false;
         var respuesta = 0;

@@ -1,14 +1,24 @@
-var GameState = {
+Juego.Game_State = function (game) {
+};
+Juego.Game_State.prototype = {
     preload: function () {
+        game.load.image('Fondo', 'assets/img/fichas/fondo.jpg');
         game.load.image('cuadro', 'assets/img/fichas/cuadro1.png');
         game.load.image('horizontal', 'assets/img/fichas/horizontal3.png');
         game.load.image('vertical', 'assets/img/fichas/vertical2.png');
         game.load.image('cuadrito', 'assets/img/fichas/cuadrito2.png');
         game.load.image('tablero', 'assets/img/fichas/fondo2.png');
         game.load.spritesheet('fuego', 'assets/img/fichas/fuego.png', 200, 200);
+
+        game.load.spritesheet('BottonesSonido', 'assets/btn/sapo/BT_Sonido.png', 50, 50, 4);
+        game.load.spritesheet('BottonPause', 'assets/btn/sapo/BT_Pause.png', 50, 50, 3);
+        game.load.image('BotonEfecto2', 'assets/btn/sapo/BT_Efectos2.png');
+        game.load.image('BotonMusica2', 'assets/btn/sapo/BT_Musica2.png');
+
+        game.load.audio('MusicaFondo', 'assets/audio/fichas/MusicaFondo.mp3');
     },
     create: function () {
-
+        game.add.image(0, 0, 'Fondo');
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.stage.backgroundColor = '#FFFFFF';
         var x = 100;
@@ -41,73 +51,57 @@ var GameState = {
         fichas.push(cuadrito4);
         fichas.push(horizontal);
         fichas.push(cuadro);
-    }
-}
 
-var Ficha = function (x, y, t, i) {
+        //Botones de sonidos y pause
+        this.buttonEfecto= this.game.add.button(840, 50, 'BottonesSonido', this.Musica_Efecto, this, 1,0,0);
+        this.buttonEfecto.anchor.setTo(0.5, 0.5);
+        this.buttonEfecto.name = 'Efectos_Sonido';
 
-    Phaser.Sprite.call(this, game);
-    var me = this;
-    me.xOld = x;
-    me.yOld = y;
-    init(x, y, t, i);
 
-    function dragStart() {
-        me.bringToTop();
-        me.xOld = me.x;
-        me.yOld = me.y;
-    }
+        this.buttonMusica = this.game.add.button(900, 50, 'BottonesSonido', this.Musica_Efecto, this, 3,2,2);
+        this.buttonMusica.anchor.setTo(0.5, 0.5);
+        this.buttonMusica.name = 'Musica';
 
-    function dragStop() {
-        me.moveDown();
-        var result = false;
-        var bound1 = me.getBounds();
+        this.buttonPause = this.game.add.button(960, 50, 'BottonPause', this.managePause, this, 1,0,2);
+        this.buttonPause.anchor.setTo(0.5, 0.5);
+        this.buttonPause.name = 'Pause';
 
-        bound1.x += 1;
-        bound1.y += 1;
-        bound1.width -= 50;
-        bound1.height -= 50;
-
-        //validacion de colisiones con las demas fichas
-        for (var i = fichas.length - 1; i >= 0; i--) {
-            if (me.i != i) {
-                var bound2 = fichas[i].getBounds();
-
-                result = Phaser.Rectangle.intersects(bound1, bound2);
-                if (result || (Math.abs(me.y - me.yOld) + Math.abs(me.x - me.xOld)) > 200 
-                        ) {
-                    console.log("colision con" + i);
-                    me.x = me.xOld;
-                    me.y = me.yOld;
-                }
-                if (fichas[9].x == 200 && fichas[9].y == 400) {
-                    var campos  = ["t_duracion","n_secuencia","q_desorden","q_click","n_teclado","k_nivel"];
-                    var valores = [relojito,"'4'",0,clicks,"'"+texto+"'","1"];
-                    var tabla = "nivel_usuario";
-                    var destino = "controller/nivel_usuario_controller.php";
-                    borrarTodasLasCookies();
-                    llevarDatos(tabla,campos,valores,destino);
-                   
-                }
-            }
+        //Sonidos del videoJuego se agregan
+        MusicaFondo = this.game.add.audio('MusicaFondo');
+        MusicaFondo.loopFull(0.6);
+    }, update: function () {
+        //Si la musica fue o no desactivada que relice la gestion necesaria
+        if (B_musica == false) {
+            MusicaFondo.pause();
+        } else {
+            MusicaFondo.resume();
         }
-    }
 
-    function init(x, y, t, i) {
-        me.i = i;
-        me.loadTexture(t);
-        me.x = x;
-        me.y = y;
-        me.inputEnabled = true;
-        me.input.enableDrag();
-        me.input.enableSnap(100, 100, true, false);
-        me.input.boundsSprite = bounds;
-        me.events.onDragStart.add(dragStart);
-        me.events.onDragStop.add(dragStop);
-        game.add.existing(me);
-        game.physics.arcade.enable(me);
-    }
-}
+    }, Musica_Efecto: function (button) {
+        if (button.name == "Musica") {
+            if (B_musica == true) {
+                button.loadTexture('BotonMusica2');
+            } else {
+                button.loadTexture('BottonesSonido', 0);
+            }
+            B_musica = !B_musica;
+        } else if (button.name == "Efectos_Sonido") {
+            if (B_efecto == true) {
+                button.loadTexture('BotonEfecto2');
+            } else {
+                button.loadTexture('BottonesSonido', 1);
+            }
+            B_efecto = !B_efecto;
+        }
+    },
+    managePause: function () {
+        this.game.paused = true;
+        var pausedText = this.add.text(600, 300, "PAUSED", this.fontMessage);
+        pausedText.anchor.set(0.5, 0.5);
 
-Ficha.prototype = Object.create(Phaser.Sprite.prototype);
-Ficha.prototype.constructor = Ficha;
+        this.input.onDown.add(function () {
+            pausedText.destroy();
+            this.game.paused = false;
+        }, this);
+    }
+};
