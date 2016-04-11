@@ -10,8 +10,7 @@ Juego.Inicio.prototype = {
     preload: function() {
 
         this.game.load.image('Fondo', 'assets/img/engranes/fondo.png');
-        this.game.load.image('Ayuda_1', 'assets/img/engranes/Ayuda1.png');
-        this.game.load.image('Ayuda_2', 'assets/img/engranes/Ayuda2.png');
+        this.game.load.image('Ayuda', 'assets/img/engranes/Ayuda.png');
 
         this.game.load.spritesheet('BottonSiguiente', 'assets/btn/engranes/BT_Siguiente.png', 150, 45, 3);
         this.game.load.spritesheet('BottonAtras', 'assets/btn/engranes/BT_Atras.png', 150, 45, 3);

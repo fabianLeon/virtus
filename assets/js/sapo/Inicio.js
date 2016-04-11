@@ -9,8 +9,7 @@ Juego.Inicio.prototype = {
     preload: function () {
 
         this.game.load.image('Fondo', 'assets/img/sapo/fondo1.jpg');
-        this.game.load.image('Ayuda_1', 'assets/img/sapo/Ayuda1.png');
-        this.game.load.image('Ayuda_2', 'assets/img/sapo/Ayuda2.png');
+        this.game.load.image('Ayuda', 'assets/img/sapo/Ayuda.png');
 
         this.game.load.spritesheet('BottonSiguiente', 'assets/btn/sapo/BT_Siguiente.png', 150, 45, 3);
         this.game.load.spritesheet('BottonAtras', 'assets/btn/sapo/BT_Atras.png', 150, 45, 3);

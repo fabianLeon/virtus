@@ -16,6 +16,7 @@ Juego.Game.prototype = {
 
         this.game.load.spritesheet('BottonesSonido', 'assets/btn/numeros/BT_Sonido.png', 50, 50, 4);
         this.game.load.spritesheet('BottonPause', 'assets/btn/numeros/BT_Pause.png', 50, 50, 3);
+        this.game.load.spritesheet('BottonReiniciar', 'assets/btn/numeros/BT_Reiniciar.png', 50, 50, 3);
         this.game.load.image('BotonEfecto2', 'assets/btn/numeros/BT_Efectos2.png');
         this.game.load.image('BotonMusica2', 'assets/btn/numeros/BT_Musica2.png');
 
@@ -73,6 +74,10 @@ Juego.Game.prototype = {
         this.buttonPause = this.game.add.button(960, 30, 'BottonPause', this.managePause, this, 1, 0, 2);
         this.buttonPause.anchor.setTo(0.5, 0.5);
         this.buttonPause.name = 'Pause';
+
+        this.buttonReiniciar = this.game.add.button(780, 30, 'BottonReiniciar', this.Reiniciar_Nivel, this, 1, 0, 2);
+        this.buttonReiniciar.anchor.setTo(0.5, 0.5);
+        this.buttonReiniciar.name = 'Reiniciar';
 
         //Sonidos del videoJuego se agregan
         MusicaFondo = this.game.add.audio('MusicaFondo');
@@ -432,5 +437,14 @@ Juego.Game.prototype = {
             pausedText.destroy();
             this.game.paused = false;
         }, this);
+    },
+    Reiniciar_Nivel: function () {
+        intentos_Internos = intentos_Internos + 1;
+        tiempoTotal = tiempoTotal + this.timer;
+        Parejas_Acertadas = 0;
+        Fallos = 0;
+        MusicaFondo.stop();
+        this.game.state.start('Inicio');
     }
+
 };
