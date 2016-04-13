@@ -34,7 +34,7 @@
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 1. Inicial</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/hunter1.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel7.php?mundo=0" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <a href="nivel7.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
@@ -47,7 +47,7 @@
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 2. Saltos</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/hunter2.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel7.php?mundo=1" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <a href="nivel8.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
@@ -60,7 +60,7 @@
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 3. Funciones</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/hunter3.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel7.php?mundo=2" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <a href="nivel9.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
@@ -74,7 +74,7 @@
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 4. Apaga la Llama</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/hunter3.jpg" class="dmbutton a2" data-animate="fadeInUp">
                                             <i class="fa fa-search"></i></a>
-                                        <a href="nivel7.php?mundo=3" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <a href="nivel10.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
