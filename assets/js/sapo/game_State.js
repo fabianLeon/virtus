@@ -4,8 +4,8 @@ Juego.Game_State.prototype = {
     preload: function () {
         game.load.image('plataforma', 'assets/img/sapo/plataforma.png');
         game.load.image('fondo', 'assets/img/sapo/fondo1.jpg');
-        game.load.spritesheet('azul', 'assets/img/sapo/camaleon-azul.png', 100, 94);
-        game.load.spritesheet('rojo', 'assets/img/sapo/camaleon-rojo.png', 100, 94);
+        game.load.spritesheet('azul', 'assets/img/sapo/rojo.png', 138, 100);
+        game.load.spritesheet('rojo', 'assets/img/sapo/azul.png', 138, 100);
 
         game.load.spritesheet('BottonesSonido', 'assets/btn/sapo/BT_Sonido.png', 50, 50, 4);
         game.load.spritesheet('BottonPause', 'assets/btn/sapo/BT_Pause.png', 50, 50, 3);
@@ -31,12 +31,16 @@ Juego.Game_State.prototype = {
 
 
         for (var i = 0; i < 7; i++) {
-            var plataforma = game.add.sprite((100 + (150 * i)), game.height - 50, 'plataforma');
+            var plataforma = game.add.sprite((100 + (150 * i)), game.height - 100, 'plataforma');
             game.physics.arcade.enable(plataforma);
             plataforma.body.immovable = true;
             plataforma.body.allowGravity = false;
+            var bound1 = plataforma.getBounds();
+            bound1.width -= 20;
+            bound1.height -= 50;
+            console.log(bound1);
             plataformas.add(plataforma);
-
+            
         }
         for (var i = 0; i < 7; i++) {
 

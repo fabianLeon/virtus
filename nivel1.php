@@ -15,7 +15,7 @@ include_once 'templates/open_head.php';
         margin-left: 8%;
     }
     .phaser{
-        padding-left: 25%;
+        padding-left: 30%;
     }
 </style>
 </head>
@@ -99,7 +99,6 @@ include_once 'templates/open_head.php';
                                 var destino = "controller/nivel_usuario_controller.php";
                                 borrarTodasLasCookies();
                                 llevarDatos(tabla, campos, valores, destino);
-
                             }
                         }
                     }

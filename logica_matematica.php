@@ -2,7 +2,10 @@
     <?php include_once 'templates/head.php'; ?>
     <body>
 
-        <?php include_once 'templates/header.php'; ?>
+        <?php
+        include_once 'templates/header.php';
+        include_once './controller/niveles_controller.php';
+        ?>
         <!-- Fixed navbar -->
 
         <!-- *****************************************************************************************************************
@@ -15,7 +18,6 @@
                 </div><!-- /row -->
             </div> <!-- /container -->
         </div><!-- /blue -->
-
         <!-- *****************************************************************************************************************
          TITLE & CONTENT
          ***************************************************************************************************************** -->
@@ -34,7 +36,14 @@
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 1. Numeros</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/numeros.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel3.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php
+                                        if (!in_array('1', $niveles)) {
+                                            ?>
+                                            <a href="nivel3.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php } else { ?>
+
+                                            <h3 class="a1" data-animate="fadeInDown">SUPERADO !!!</h3>
+                                        <?php } ?>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
@@ -47,7 +56,11 @@
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 2. Cañón</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/canon.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel4.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php if (!in_array('2', $niveles)) { ?>
+                                            <a href="nivel4.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php } else { ?>
+                                            <h3 class="a1" data-animate="fadeInDown">SUPERADO . !!!</h3>
+                                        <?php } ?>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
@@ -60,7 +73,11 @@
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 3. Engranes</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/engranes.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel6.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php if (!in_array('3', $niveles)) { ?>
+                                            <a href="nivel6.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php } else { ?>
+                                            <h3 class="a1" data-animate="fadeInDown">SUPERADO . !!!</h3>
+                                        <?php } ?>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
