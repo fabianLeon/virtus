@@ -1,6 +1,7 @@
 var texto, usuario, cookies;
 var relojito, clicks, intentos, borrado = true;
 var medalla_eficacia, medalla_efectividad, medalla_estrategia; 
+
 function reiniciar(side) {
     setTimeout("location.href='" + side + "'", 3000);
 }

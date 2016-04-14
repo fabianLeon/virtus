@@ -56,11 +56,11 @@ function automover_escenario() {
             window.clearInterval(movFunc);
             moverDef();
         }
-    } else if (matrizFuncion[f][c] === 0 && !gano){
+    } else if (matrizFuncion[f][c] === 0 && !gano) {
         window.clearInterval(movEsce);
         swal({title: "Juego no Culminado!", text: "No lograste recoger la planta, intenta nuevamente!", type: "error", confirmButtonText: "Aceptar"});
         reset();
-    }else if (c == 4 && f == 4 & !gano){
+    } else if (c === 4 && f === 4 & !gano) {
         window.clearInterval(movEsce);
         swal({title: "Juego no Culminado!", text: "No lograste recoger la planta, intenta nuevamente!", type: "error", confirmButtonText: "Aceptar"});
         reset();
@@ -211,7 +211,7 @@ function cambiarMatriz(val) {
                     swal({title: "No Hay Espacio!", text: "Se ha terminado el espacio, cambia tu estrategia", type: "error", confirmButtonText: "Aceptar"});
                 }
             } else {
-               swal({title: "Mal Uso de la Funcion!", text: "Debes llenar almenos una instruccion en la funcion para poder usarla!", type: "error", confirmButtonText: "Aceptar"});
+                swal({title: "Mal Uso de la Funcion!", text: "Debes llenar almenos una instruccion en la funcion para poder usarla!", type: "error", confirmButtonText: "Aceptar"});
             }
         } else if (val == 6) {
             cont2--;
@@ -501,7 +501,7 @@ function moverDef() {
             gano = true;
             juego = parseInt(nivel);
             juego++;
-            
+
             swal({title: "Buen Trabajo!", text: "Ha recojido la planta de este nivel, !", type: "success", confirmButtonText: "Aceptar"});
             setTimeout("location.href='aplicacion.php'", 4000);
         } else {
@@ -582,9 +582,9 @@ function moverDefFunctionFinal() {
 }
 //reinicia el juego en el nivel actual
 function reset() {
-    juego = parseInt(nivel);
-    var destino = "nivel7.php?mundo=" + juego;
-    setTimeout("location.href='" + destino + "'", 3000);
+    window.clearInterval(movFunc);
+    window.clearInterval(movEsce);
+    setTimeout("location.reload()", 1500);
 }
 
 function backLevel() {
@@ -707,11 +707,45 @@ function asignarInicial() {
 
 //se;ala al jugador que perdio y que debe reiniciar el juego
 function perdio() {
-        juego = parseInt(nivel);
-        var destino = "nivel7.php?mundo=" + juego;
-        setTimeout("location.href='"+destino+"'", 30);
-        console.log(destino);
+    setTimeout("location.reload()", 30);
 }
 
+function ayuda1() {
+    swal({
+        title: 'Ayuda!',
+        imageUrl: 'assets/img/fichas/ayuda1.png',
+        imageWidth: 800,
+        imageHeight: 600,
+        animation: true
+    });
+}
 
+function ayuda2() {
+    swal({
+        title: 'Ayuda!',
+        imageUrl: 'assets/img/fichas/ayuda1.png',
+        imageWidth: 800,
+        imageHeight: 600,
+        animation: true
+    });
+}
 
+function ayuda3() {
+    swal({
+        title: 'Ayuda!',
+        imageUrl: 'assets/img/fichas/ayuda1.png',
+        imageWidth: 800,
+        imageHeight: 600,
+        animation: true
+    });
+}
+
+function ayuda4() {
+    swal({
+        title: 'Ayuda!',
+        imageUrl: 'assets/img/fichas/ayuda1.png',
+        imageWidth: 800,
+        imageHeight: 600,
+        animation: true
+    });
+}

@@ -43,8 +43,7 @@ Juego.Premiacion.prototype = {
     },
     retornarInicio: function () {
 
-        salvarInfo(medalla_eficacia, medalla_efectividad, medalla_estrategia, "2",
-                "logica_matematica.php");
+        salvarInfo(medalla_eficacia, medalla_efectividad, medalla_estrategia, "2", "logica_matematica.php");
 
     }
 };

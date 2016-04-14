@@ -26,6 +26,7 @@
                             <li><a href="logica_matematica.php">Logica Matemática</a></li>
                             <li><a href="abstracto.php">Abstracto</a></li>
                             <li><a href="aplicacion.php">Aplicacion</a></li>
+                            <li><a href="medalleria.php">Medalleria</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

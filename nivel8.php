@@ -13,14 +13,14 @@ include_once 'templates/open_head.php';
             <?php
             error_reporting(E_ALL & ~E_NOTICE | E_STRICT);
             $filas = file('assets/backup_db/mundo.txt');
-            $nivel = 1;
+            $nivel = 0;
             $mundo = explode(",", $filas[$nivel]);
             // mientras exista una fila
             ?>
             <!-- asignar la matriz guardada en el archivo a la matriz creada en javascript que contiene el mundo creado -->
         <script type="text/javascript">
 
-            nivel = "<?php echo $nivel; ?>";
+            nivel = 1;
             matrizMundo = [
 <?php
 for ($i = 0; $i < 8; $i++) {
@@ -32,9 +32,7 @@ for ($i = 0; $i < 8; $i++) {
 }
 ?>
             ];
-            $('#myModal').on('shown.bs.modal', function () {
-                $('#myInput').focus()
-            })
+
 
         </script>
         <br><br><br><br>
@@ -50,6 +48,7 @@ for ($i = 0; $i < 8; $i++) {
             </div>
         </div>
         <script type="application/javascript" src="assets/js/hunter/mover.js">
+            
         </script>
         <br>
         <div class="col-lg-4">
@@ -75,6 +74,10 @@ for ($i = 0; $i < 8; $i++) {
                             <button onClick="cambiarMatriz(6)"type="button" class="btn btn-theme">
                                 <span class="glyphicon glyphicon-backward" aria-hidden="true"> </span>
                             </button>
+                            <small>Ayuda</small>
+                            <button onClick="ayuda1()" class="btn btn-theme">
+                                <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                            </button>
                         </div>
                         <div class="col-lg-2">
                             <small>Recoger</small>
@@ -87,12 +90,13 @@ for ($i = 0; $i < 8; $i++) {
                             <button onClick="perdio()" class="btn btn-theme">
                                 <span class="glyphicon glyphicon glyphicon-off" aria-hidden="true"> </span>
                             </button>
-
+                            <small>Iniciar</small>
+                            <button onClick="automover()" class="btn btn-theme">
+                                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                            </button>
                         </div>
                         <div class="row" style="text-align: center">
-                            <button onClick="automover()" class="btn btn-theme">
-                                <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Iniciar
-                            </button>
+
                         </div>
                     </div>
                 </div>

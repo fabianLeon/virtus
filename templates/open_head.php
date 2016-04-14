@@ -27,6 +27,6 @@
 <![endif]-->
 <script type="text/javascript" src="assets/js/jquery-1.7.js"></script>
 <script type="text/javascript" src="assets/js/data.js"></script>
-
-<script src="dist/sweetalert.min.js">
-</script> <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+<script src="dist/sweetalert-dev.js"></script>
+<script src="dist/sweetalert2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="dist/sweetalert2.min.css">
