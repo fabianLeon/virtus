@@ -7,7 +7,7 @@ Juego.Game.prototype = {
         this.tiempoEliminar = 0;
         this.SecuenciaFinal = 0;
 
-        this.game.add.image(0, 0, 'fondo');
+        this.game.add.image(0, 0, 'Fondo');
 
         map = this.game.add.tilemap('mundo_json');
         map.addTilesetImage('Desert', 'mundo_tiles');
@@ -205,7 +205,7 @@ Juego.Game.prototype = {
                         
                         swal({title: "Respuesta Correcta",   
                               text: "Los numeros que seleccionaste completaron la operación.",
-                              timer: 1500,  
+                              timer: 1000,  
                               showConfirmButton: false, 
                               type: "success"});
                         
@@ -224,9 +224,6 @@ Juego.Game.prototype = {
                             TextWin.setText('¡Felicitaciones Gano!');
                             banderaTiempo = false;
                             tiempoTotal = this.timer;
-                            console.log("Fallos: " + Fallos);
-                            console.log("Parejas_Acertadas: " + Parejas_Acertadas);
-                            console.log("Tiempo_Total: " + tiempoTotal);
                             MusicaFondo.stop();
                             this.game.state.start('Premiacion');
                             //console.log("SumaTotal: " + SumaTotal.toString());
