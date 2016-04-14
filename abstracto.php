@@ -2,7 +2,10 @@
     <?php include_once 'templates/head.php'; ?>
     <body>
 
-        <?php include_once 'templates/header.php'; ?>
+        <?php
+        include_once 'templates/header.php';
+        include_once './controller/niveles_controller.php';
+        ?>
         <!-- Fixed navbar -->
 
         <!-- *****************************************************************************************************************
