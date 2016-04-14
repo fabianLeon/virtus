@@ -1,20 +1,6 @@
 Juego.Game = function (game) {
 };
 Juego.Game.prototype = {
-    preload: function () {
-        this.game.load.spritesheet("background", "assets/img/camino/fichas.jpg", 100, 100);
-        this.game.load.image('Solucion', 'assets/img/camino/solucion.jpg');
-        this.game.load.image('Marco', 'assets/img/camino/marco.png');
-        this.game.load.image('Fondo', 'assets/img/camino/imagenes/Fondo2.jpg');
-
-        this.game.load.spritesheet('BottonesSonido', 'assets/btn/camino/BT_Sonido.png', 50, 50, 4);
-        this.game.load.spritesheet('BottonPause', 'assets/btn/camino/BT_Pause.png', 50, 50, 3);
-        this.game.load.image('BotonEfecto2', 'assets/btn/camino/BT_Efectos2.png');
-        this.game.load.image('BotonMusica2', 'assets/btn/camino/BT_Musica2.png');
-
-        this.game.load.audio('MusicaFondo', 'assets/audio/camino/MusicaFondo.mp3');
-        this.game.load.audio('Arrastrar', 'assets/audio/camino/Arrastrar_ficha.mp3');
-    },
     create: function () {
         this.timer = 0;
         this.PIECE_WIDTH = 100;
@@ -57,6 +43,10 @@ Juego.Game.prototype = {
         this.buttonMusica.anchor.setTo(0.5, 0.5);
         this.buttonMusica.name = 'Musica';
 
+        this.buttonReiniciar = this.game.add.button(780, 30, 'BottonReiniciar', this.Reiniciar_Nivel, this, 1, 0, 2);
+        this.buttonReiniciar.anchor.setTo(0.5, 0.5);
+        this.buttonReiniciar.name = 'Reiniciar';
+
         this.buttonPause = this.game.add.button(960, 30, 'BottonPause', this.managePause, this, 1, 0, 2);
         this.buttonPause.anchor.setTo(0.5, 0.5);
         this.buttonPause.name = 'Pause';
@@ -90,7 +80,7 @@ Juego.Game.prototype = {
         for (i = 0; i < this.BOARD_ROWS; i++)
         {
             for (j = 0; j < this.BOARD_COLS; j++)
-            {   
+            {
                 if (this.matrizJuego[piecesIndex] != 10) {
                     this.valorCasilla = this.matrizJuego[piecesIndex];
                     piece = this.GrupoFichas.create(j * this.PIECE_WIDTH + 25, i * this.PIECE_HEIGHT + 50, "background", this.EvaluadorCasilla(this.valorCasilla));
@@ -192,8 +182,8 @@ Juego.Game.prototype = {
         }
 
         if (isFinished) {
-            tiempoSolucionCamino=this.timer;
-            tiempoTotal=tiempoTotal+this.timer;
+            tiempoSolucionCamino = this.timer;
+            tiempoTotal = tiempoTotal + this.timer;
             this.showFinishedText();
             this.game.state.start('Premiacion');
         }
@@ -332,5 +322,14 @@ Juego.Game.prototype = {
             pausedText.destroy();
             this.game.paused = false;
         }, this);
+    },
+    Reiniciar_Nivel: function () {
+        intentos += 1;
+        tiempoTotal = tiempoTotal + this.timerJuego;
+        tiempoSolucionCamino = 0;
+        B_musica = true;
+        B_efecto = true;
+        MusicaFondo.stop();
+        this.game.state.start('Game');
     }
 };

@@ -34,7 +34,14 @@
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 1. Camaleones</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/sapos.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel2.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php
+                                        if (!in_array('4', $niveles)) {
+                                            ?>
+                                            <a href="nivel2.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php } else { ?>
+
+                                            <h3 class="a1" data-animate="fadeInDown">SUPERADO !!!</h3>
+                                        <?php } ?>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
@@ -47,7 +54,15 @@
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 2. Camino</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/camino.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel5.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php
+                                        if (!in_array('5', $niveles)) {
+                                            ?>
+                                            <a href="nivel5.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php } else { ?>
+
+                                            <h3 class="a1" data-animate="fadeInDown">SUPERADO !!!</h3>
+                                        <?php } ?>
+
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
@@ -60,7 +75,15 @@
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 3. Apaga la Llama</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/fichas.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel1.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php
+                                        if (!in_array('6', $niveles)) {
+                                            ?>
+                                            <a href="nivel1.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php } else { ?>
+
+                                            <h3 class="a1" data-animate="fadeInDown">SUPERADO !!!</h3>
+                                        <?php } ?>
+
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->

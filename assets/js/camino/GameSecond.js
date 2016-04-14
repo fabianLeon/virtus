@@ -1,26 +1,6 @@
 Juego.GameSecond = function (game) {
 };
 Juego.GameSecond.prototype = {
-    preload: function () {
-        this.game.load.image('Fondo', 'assets/img/camino/imagenes/Fondo2.jpg');
-        this.game.load.image('Solucion', 'assets/img/camino/solucion.jpg');
-
-        this.game.load.spritesheet('Preguntas', 'assets/img/camino/preguntasAbstractas.png', 400, 80, 4);
-        this.game.load.spritesheet('Solucion1', 'assets/img/camino/solucionPregunta1.png', 100, 100, 8);
-        this.game.load.spritesheet('Solucion2', 'assets/img/camino/solucionPregunta2.png', 100, 100, 8);
-        this.game.load.spritesheet('Solucion3', 'assets/img/camino/solucionPregunta3.png', 100, 100, 8);
-        this.game.load.spritesheet('Solucion4', 'assets/img/camino/solucionPregunta4.png', 100, 100, 8);
-
-        this.game.load.spritesheet('BottonSiguiente', 'assets/btn/camino/BT_Siguiente.png', 150, 45, 3);
-
-        this.game.load.spritesheet('BottonesSonido', 'assets/btn/camino/BT_Sonido.png', 50, 50, 4);
-        this.game.load.spritesheet('BottonPause', 'assets/btn/camino/BT_Pause.png', 50, 50, 3);
-        this.game.load.image('BotonEfecto2', 'assets/btn/camino/BT_Efectos2.png');
-        this.game.load.image('BotonMusica2', 'assets/btn/camino/BT_Musica2.png');
-
-        this.game.load.audio('MusicaFondo', 'assets/audio/camino/MusicaFondo.mp3');
-        this.game.load.audio('Giro_Ficha', 'assets/audio/camino/Giro_Ficha.mp3');
-    },
     create: function () {
 
         this.textPregunta;
@@ -33,8 +13,6 @@ Juego.GameSecond.prototype = {
         this.GrupoTablero;
         this.pregunta;
         this.inhabilitarClick = false;
-
-
 
         this.game.add.image(0, 0, 'Fondo');
 
@@ -63,6 +41,10 @@ Juego.GameSecond.prototype = {
         this.buttonMusica = this.game.add.button(900, 30, 'BottonesSonido', this.Musica_Efecto, this, 3, 2, 2);
         this.buttonMusica.anchor.setTo(0.5, 0.5);
         this.buttonMusica.name = 'Musica';
+
+        this.buttonReiniciar = this.game.add.button(780, 30, 'BottonReiniciar', this.Reiniciar_Nivel, this, 1, 0, 2);
+        this.buttonReiniciar.anchor.setTo(0.5, 0.5);
+        this.buttonReiniciar.name = 'Reiniciar';
 
         this.buttonPause = this.game.add.button(960, 30, 'BottonPause', this.managePause, this, 1, 0, 2);
         this.buttonPause.anchor.setTo(0.5, 0.5);
@@ -262,6 +244,15 @@ Juego.GameSecond.prototype = {
             pausedText.destroy();
             this.game.paused = false;
         }, this);
+    },
+    Reiniciar_Nivel: function () {
+        intentos += 1;
+        tiempoTotal = tiempoTotal + this.timerJuego;      
+        B_musica = true;
+        B_efecto = true;
+        Fallos=0;
+        MusicaFondo.stop();
+        this.game.state.start('GameSecond');
     }
 
 };

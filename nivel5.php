@@ -38,7 +38,6 @@
         var tiempoTotal = 0;
         var tiempoSolucionCamino = 0;
         var Fallos=0;
-        var logrosAlcanzados = new Array();
 
         //el numero 0 corresponde a casillas sin camino y el 10 corresponde a la casilla de color negro
         var matrizSolucion = [4, 2, 5, 0, 10, 3, 4, 7, 0, 1, 3, 8, 0, 0, 3, 6, 2, 2, 2, 7];
