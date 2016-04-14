@@ -13,7 +13,7 @@ include_once 'templates/open_head.php';
             <?php
             error_reporting(E_ALL & ~E_NOTICE | E_STRICT);
             $filas = file('assets/backup_db/mundo.txt');
-            $nivel = 0;
+            $nivel = 1;
             $mundo = explode(",", $filas[$nivel]);
             // mientras exista una fila
             ?>

@@ -11,7 +11,7 @@
         <div id="blue">
             <div class="container">
                 <div class="row" style="text-align: center">
-                    <h3>Abstracto</h3>
+                    <h3>Aplicacion</h3>
                 </div><!-- /row -->
             </div> <!-- /container -->
         </div><!-- /blue -->
@@ -68,11 +68,11 @@
                         
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/hunter3.jpg" alt="">
+                                <img src= "assets/img/niveles/hunter4.png" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 4. Apaga la Llama</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter3.jpg" class="dmbutton a2" data-animate="fadeInUp">
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter4.png" class="dmbutton a2" data-animate="fadeInUp">
                                             <i class="fa fa-search"></i></a>
                                         <a href="nivel10.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                     </div><!-- he bg -->
