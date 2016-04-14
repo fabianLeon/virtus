@@ -2,39 +2,9 @@ Juego.Game = function (game) {
 };
 Juego.Game.prototype = {
     preload: function () {
-        this.game.load.image('Fondo', 'assets/img/engranes/fondo.png');
-        this.game.load.image('Fondo_Blanco', 'assets/img/engranes/Fondo_Blanco.png');
-        this.game.load.image('Fondo_Blanco2', 'assets/img/engranes/Fondo_Blanco2.png');
-
-        for (i = 1; i < 9; i++) {
-            this.game.load.image('Engrane' + i, 'assets/img/engranes/Engranes/engrane' + i + '.png');
-        }
-        for (i = 1; i < 5; i++) {
-            this.game.load.image('Banda' + i, 'assets/img/engranes/Engranes/Banda' + i + '.png');
-        }
-        this.game.load.image('Caja', 'assets/img/engranes/Engranes/Caja.png');
-        this.game.load.image('Tuerca', 'assets/img/engranes/Engranes/Tuerca.png');
-        this.game.load.spritesheet('kaboom', 'assets/img/engranes/explode.png', 128, 128);
-
-        this.game.load.spritesheet('Numero1', 'assets/btn/engranes/BT_Numero1.png', 50, 50, 3);
-        this.game.load.spritesheet('Numero2', 'assets/btn/engranes/BT_Numero2.png', 50, 50, 3);
-        this.game.load.spritesheet('Ninguno', 'assets/btn/engranes/BT_Ninguno.png', 50, 50, 3);
-
-        this.game.load.image('Error', 'assets/img/engranes/error.png');
-        this.game.load.image('VistoBueno', 'assets/img/engranes/VistoBueno.png');
-
-
-        this.game.load.spritesheet('BottonesSonido', 'assets/btn/engranes/BT_Sonido.png', 50, 50, 4);
-        this.game.load.spritesheet('BottonPause', 'assets/btn/engranes/BT_Pause.png', 50, 50, 3);
-        this.game.load.image('BotonEfecto2', 'assets/btn/engranes/BT_Efectos2.png');
-        this.game.load.image('BotonMusica2', 'assets/btn/engranes/BT_Musica2.png');
-        this.game.load.spritesheet('BottonSiguiente', 'assets/btn/engranes/BT_Siguiente.png', 150, 45, 3);
-
-
-        this.game.load.audio('MusicaFondo', 'assets/audio/engranes/MusicaFondo.mp3');
     },
     create: function () {
-        this.timer = 0;
+        this.timerJuego = 0;
         this.tiempo_detenerse = 0;
         this.tiempoEliminar = 0;
         Tablero = 1;
@@ -62,6 +32,10 @@ Juego.Game.prototype = {
         this.buttonPause = this.game.add.button(960, 50, 'BottonPause', this.managePause, this, 1, 0, 2);
         this.buttonPause.anchor.setTo(0.5, 0.5);
         this.buttonPause.name = 'Pause';
+
+        this.buttonReiniciar = this.game.add.button(780, 50, 'BottonReiniciar', this.Reiniciar_Nivel, this, 1, 0, 2);
+        this.buttonReiniciar.anchor.setTo(0.5, 0.5);
+        this.buttonReiniciar.name = 'Reiniciar';
 
         this.buttonContinue = this.game.add.button(500, 500, 'BottonSiguiente', this.CambiarEscenario, this, 1, 0, 2);
         this.buttonContinue.name = "Continue";
@@ -126,31 +100,36 @@ Juego.Game.prototype = {
         //game.debug.body(this.Caja2);
     },
     updateTimer: function () {
-        this.timer++;
+        this.timerJuego++;
         if (Tablero == 1) {
             if (Mover_Engranes == true) {
                 this.tiempo_detenerse++;
                 if (this.tiempo_detenerse == 2) {
                     Mover_Engranes = false
                     if (respuesta == 1) {
-                        this.imagen_resultado = this.game.add.image(500, 225, 'VistoBueno');
-                        this.imagen_resultado.anchor.setTo(0.5, 0.5);
+                        swal({title: "¡Respuesta Correcta!",
+                            text: "La aguja apuntara hacia el numero 1, cuando giren los engranes.",
+                            timer: 1000,
+                            showConfirmButton: false,
+                            type: "success"});
                         respuestas_Acertadas += 1;
-                        tiempoTotal = this.timer;
+                        tiempoTotal = this.timerJuego;
                         this.buttonContinue.visible = true;
                         this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
                     } else if (respuesta == 2) {
-                        this.imagen_resultado = this.game.add.image(500, 225, 'Error');
-                        this.imagen_resultado.anchor.setTo(0.5, 0.5);
-                        this.imagen_resultado.scale.x = 0.7;
-                        this.imagen_resultado.scale.y = 0.7;
-                        tiempoTotal = this.timer;
+                        swal({title: "¡Respuesta Incorrecta!",
+                            text: "La aguja apuntara hacia el numero 1, cuando giren los engranes.",
+                            timer: 1500,
+                            showConfirmButton: false,
+                            type: "error"});
+                        tiempoTotal = this.timerJuego;
                         this.buttonContinue.visible = true;
                         this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
                     }
 
                 }
-                tiempo1 = this.timer;
+                tiempo1 = this.timerJuego;
+                this.timerJuego = 0;
             }
         }
         else if (Tablero == 2) {
@@ -159,50 +138,60 @@ Juego.Game.prototype = {
                 if (this.tiempo_detenerse == 3) {
                     Mover_Engranes = false
                     if (respuesta == 1) {
-                        this.imagen_resultado = this.game.add.image(500, 225, 'VistoBueno');
-                        this.imagen_resultado.anchor.setTo(0.5, 0.5);
+                        swal({title: "¡Respuesta Correcta!",
+                            text: "El sistema de engranes que hara que la caja llegue al final de la banda es el numero 1.",
+                            timer: 1000,
+                            showConfirmButton: false,
+                            type: "success"});
                         respuestas_Acertadas += 1;
-                        tiempoTotal = tiempoTotal + this.timer;
+                        tiempoTotal = tiempoTotal + this.timerJuego;
                         this.buttonContinue.visible = true;
                         this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
                     } else if (respuesta == 2) {
-                        this.imagen_resultado = this.game.add.image(500, 225, 'Error');
-                        this.imagen_resultado.anchor.setTo(0.5, 0.5);
-                        this.imagen_resultado.scale.x = 0.7;
-                        this.imagen_resultado.scale.y = 0.7;
-                        tiempoTotal = tiempoTotal + this.timer;
+                        swal({title: "¡Respuesta Incorrecta!",
+                            text: "El sistema de engranes que hara que la caja llegue al final de la banda es el numero 1.",
+                            timer: 1500,
+                            showConfirmButton: false,
+                            type: "error"});
+                        tiempoTotal = tiempoTotal + this.timerJuego;
                         this.buttonContinue.visible = true;
                         this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
                     }
 
                 }
-                tiempo2 = this.timer;
+                tiempo2 = this.timerJuego;
+                this.timerJuego = 0;
             }
         }
         else if (Tablero == 3) {
             if (Mover_Engranes == true) {
                 this.tiempo_detenerse++;
                 if (respuesta == 3 && this.tiempo_detenerse == 1) {
-                    this.imagen_resultado = this.game.add.image(500, 225, 'VistoBueno');
-                    this.imagen_resultado.anchor.setTo(0.5, 0.5);
+                    swal({title: "¡Respuesta Correcta!",
+                            text: "Ningun sistema de engranes hace que las agujas se muevan en sentido contrario.",
+                            timer: 1000,
+                            showConfirmButton: false,
+                            type: "success"});
                     respuestas_Acertadas += 1;
-                    tiempoTotal = tiempoTotal + this.timer;
+                    tiempoTotal = tiempoTotal + this.timerJuego;
                     this.buttonContinue.visible = true;
                     this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
                 }
                 else if (respuesta != 3 && this.tiempo_detenerse == 3) {
                     Mover_Engranes = false
                     if (respuesta == 1 || respuesta == 2) {
-                        this.imagen_resultado = this.game.add.image(500, 225, 'Error');
-                        this.imagen_resultado.anchor.setTo(0.5, 0.5);
-                        this.imagen_resultado.scale.x = 0.7;
-                        this.imagen_resultado.scale.y = 0.7;
-                        tiempoTotal = tiempoTotal + this.timer;
+                        swal({title: "¡Respuesta Incorrecta!",
+                            text: "Ningun sistema de engranes hace que las agujas se muevan en sentido contrario.",
+                            timer: 1500,
+                            showConfirmButton: false,
+                            type: "error"});
+                        tiempoTotal = tiempoTotal + this.timerJuego;
                         this.buttonContinue.visible = true;
                         this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
                     }
                 }
-                tiempo3 = this.timer;
+                tiempo3 = this.timerJuego;
+                this.timerJuego = 0;
             }
         }
     },
@@ -331,7 +320,6 @@ Juego.Game.prototype = {
             this.Imagen_Numero1.anchor.setTo(0.50, 0.50);
             this.Imagen_Numero2 = this.game.add.sprite(750, 400, 'Numero2', 0);
             this.Imagen_Numero2.anchor.setTo(0.50, 0.50);
-            swal({title: "No Hay Espacio!", text: "Se ha terminado el espacio, cambia tu estrategia", type: "error", confirmButtonText: "Aceptar"});
 
         } else if (Tablero == 2) {
             this.Button_Numero1.kill();
@@ -601,6 +589,21 @@ Juego.Game.prototype = {
         this.Imagen_Numero2.kill();
         this.Fondo_Engrane.kill();
         this.QuestionText.kill();
+    },
+    Reiniciar_Nivel: function () {
+        intentos += 1;
+        tiempoTotal = tiempoTotal + this.timerJuego;
+        B_musica = true;
+        B_efecto = true;
+        tiempo1 = 0;
+        tiempo2 = 0;
+        tiempo3 = 0;
+        Mover_Engranes = false;
+        respuesta = 0;
+        respuestas_Acertadas = 0;
+        Tablero = 0;
+        MusicaFondo.stop();
+        this.game.state.start('Game');
     }
 
 };

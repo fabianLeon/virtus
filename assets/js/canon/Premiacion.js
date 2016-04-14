@@ -1,11 +1,6 @@
 Juego.Premiacion = function (game) {
 };
 Juego.Premiacion.prototype = {
-    preload: function () {
-        this.game.load.audio('MusicaTriunfo', 'assets/audio/canon/Ganador.mp3');
-        this.game.load.image('FondoPremiacion', 'assets/img/canon/Premiacion.png');
-        this.game.load.spritesheet('Medallas', 'assets/img/canon/Medallas.png', 200, 160, 9);
-    },
     create: function () {
         this.game.add.image(0, 0, 'FondoPremiacion');
         this.Medalleria();
@@ -15,7 +10,6 @@ Juego.Premiacion.prototype = {
 
         this.buttonContinue = this.add.button(500, 520, 'BottonAceptar', this.retornarInicio, this, 1, 0, 2);
         this.buttonContinue.anchor.setTo(0.5, 0.5);
-        document.getElementById("caja1").remove();
     },
     Medalleria: function () {
 

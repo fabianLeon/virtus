@@ -33,10 +33,8 @@
 
         var B_musica = true;
         var B_efecto = true;
-        var intentos_Internos = 0;
         var MusicaFondo;
         var tiempoTotal = 0;
-        var logrosAlcanzados = new Array();
 
         var flipFlag = false;
 
