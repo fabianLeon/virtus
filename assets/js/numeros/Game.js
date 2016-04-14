@@ -1,28 +1,6 @@
 Juego.Game = function (game) {
 };
 Juego.Game.prototype = {
-    preload: function () {
-        //game.scale.pageAlignHorizontally=true;
-        this.game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
-
-        this.game.load.tilemap('mundo_json', 'assets/img/numeros/Numeros.json', null, Phaser.Tilemap.TILED_JSON);
-        this.game.load.image('fondo', 'assets/img/numeros/Fondo.jpg');
-        this.game.load.image('Solucion', 'assets/img/numeros/solucion.png');
-        this.game.load.image('mundo_tiles', 'assets/img/numeros/mundo.png');
-        this.game.load.image('Error', 'assets/img/numeros/error.png');
-        this.game.load.image('VistoBueno', 'assets/img/numeros/VistoBueno.png');
-
-        this.game.load.spritesheet('Preguntas', 'assets/img/numeros/Preguntas.png', 350, 100);
-
-        this.game.load.spritesheet('BottonesSonido', 'assets/btn/numeros/BT_Sonido.png', 50, 50, 4);
-        this.game.load.spritesheet('BottonPause', 'assets/btn/numeros/BT_Pause.png', 50, 50, 3);
-        this.game.load.spritesheet('BottonReiniciar', 'assets/btn/numeros/BT_Reiniciar.png', 50, 50, 3);
-        this.game.load.image('BotonEfecto2', 'assets/btn/numeros/BT_Efectos2.png');
-        this.game.load.image('BotonMusica2', 'assets/btn/numeros/BT_Musica2.png');
-
-        this.game.load.audio('MusicaFondo', 'assets/audio/numeros/MusicaFondo.mp3');
-        this.game.load.audio('Giro_Ficha', 'assets/audio/numeros/Giro_Ficha.mp3');
-    },
     create: function () {
         this.timerInicial = 3;
         this.timer = 0;
@@ -56,7 +34,6 @@ Juego.Game.prototype = {
         this.timerText.anchor.setTo(0.5, 0.5);
 
         this.time.events.loop(Phaser.Timer.SECOND, this.updateTimer, this);
-        this.time.events.loop(Phaser.Timer.SECOND, this.eliminarImagen, this);
 
         this.Pregunta = this.game.add.sprite(800, 200, 'Preguntas', 0);
         this.Pregunta.anchor.setTo(0.5, 0.5);
@@ -136,18 +113,8 @@ Juego.Game.prototype = {
         TextWin.font = 'comic sans';
         TextWin.fontSize = 38;
         TextWin.fill = grdOut;
-
     },
-    eliminarImagen: function () {
-
-        this.tiempoEliminar++;
-        if (this.tiempoEliminar == 2) {
-            if (this.imagen_resultado != null) {
-                this.imagen_resultado.kill();
-            }
-            this.tiempoEliminar = 0;
-        }
-    },
+    
 //Cuando el puntero del mouse este fuera del Texto
     outText: function () {
         text.fill = grdOut;
@@ -235,8 +202,13 @@ Juego.Game.prototype = {
                         }
                         masterCounter++;
                         this.Pregunta.loadTexture(this.Pregunta.key, masterCounter, false);
-                        this.imagen_resultado = this.game.add.image(780, 450, 'VistoBueno');
-                        this.imagen_resultado.anchor.setTo(0.5, 0.5);
+                        
+                        swal({title: "Respuesta Correcta",   
+                              text: "Los numeros que seleccionaste completaron la operación.",
+                              timer: 1500,  
+                              showConfirmButton: false, 
+                              type: "success"});
+                        
                         Secuencia++;
                         if (this.listaParejasFigurasIguales(NumCasillasAlmacen) == true) {
                             Parejas_Acertadas++;
@@ -270,10 +242,11 @@ Juego.Game.prototype = {
                         coordenadasY.push(layer.getTileY(marker.y));
                         flipFlag = true;
                         tiempoChequeo = this.game.time.totalElapsedSeconds();
-                        this.imagen_resultado = this.game.add.image(780, 450, 'Error');
-                        this.imagen_resultado.anchor.setTo(0.5, 0.5);
-                        this.imagen_resultado.scale.x = 0.6;
-                        this.imagen_resultado.scale.y = 0.6;
+                        swal({title: "¡Respuesta Incorrecta!",   
+                              text: "Los numeros que seleccionaste no completan la operación.",
+                              timer: 1500,  
+                              showConfirmButton: false, 
+                              type: "error"});
                     }
                 }
                 else
@@ -383,9 +356,6 @@ Juego.Game.prototype = {
 
         respuestasSuma = [0, 2, 81, 30, 217, 40, 111];
 
-        // Para Imprimir la lista Inicial como una cadena de String
-        //myString1 = ListaInicial.toString();
-
 
         //Ciclos For que rellenan la cuadricula inicial con la figura de la ListaInicial
         var i = 0;
@@ -401,13 +371,7 @@ Juego.Game.prototype = {
             }
         }
     },
-    render: function () {
-        //game.debug.text(Math.floor(myCountdownSeconds), 750, 200, { font: '40px Comic Sans MS', fill: '#FFF866' });
-
-        //this.game.debug.text('Matched Pairs: ' + masterCounter, 620, 304, 'rgb(0,0,255)');
-        //this.game.debug.text('Secuencia: ' + Secuencia, 620, 400, 'rgb(255,0,0)');
-        //this.game.debug.text('Valor Actual: ' + respuestasSuma[Secuencia - 1], 620, 500, 'rgb(255,0,0)');
-    },
+    
     Musica_Efecto: function (button) {
         if (button.name == "Musica") {
             if (B_musica == true) {
@@ -439,12 +403,12 @@ Juego.Game.prototype = {
         }, this);
     },
     Reiniciar_Nivel: function () {
-        intentos_Internos = intentos_Internos + 1;
+        intentos += 1;
         tiempoTotal = tiempoTotal + this.timer;
         Parejas_Acertadas = 0;
         Fallos = 0;
         MusicaFondo.stop();
-        this.game.state.start('Inicio');
+        this.game.state.start('Game');
     }
 
 };

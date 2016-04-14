@@ -1,11 +1,6 @@
 Juego.Premiacion = function(game) {
 };
 Juego.Premiacion.prototype = {
-	preload: function(){
-		this.game.load.audio('MusicaTriunfo', 'assets/audio/numeros/Ganador.mp3');
-		this.game.load.image('FondoPremiacion', 'assets/img/numeros/Premiacion.png');
-        this.game.load.spritesheet('Medallas', 'assets/img/numeros/Medallas.png', 200, 160, 9);
-	},
 	create: function() {
 		this.game.add.image(0, 0, 'FondoPremiacion');
 		this.Medalleria();
