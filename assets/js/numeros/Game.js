@@ -3,7 +3,7 @@ Juego.Game = function (game) {
 Juego.Game.prototype = {
     create: function () {
         this.timerInicial = 3;
-        this.timer = 0;
+        this.timerJuego = 0;
         this.tiempoEliminar = 0;
         this.SecuenciaFinal = 0;
 
@@ -62,7 +62,7 @@ Juego.Game.prototype = {
         this.Sonido_Giro = this.game.add.audio('Giro_Ficha');
     },
     updateTimer: function () {
-        this.timer++;
+        this.timerJuego++;
         this.timerInicial--;
         if (this.timerInicial == 0) {
             this.timerText.setText("¡¡Go!!");
@@ -114,7 +114,6 @@ Juego.Game.prototype = {
         TextWin.fontSize = 38;
         TextWin.fill = grdOut;
     },
-    
 //Cuando el puntero del mouse este fuera del Texto
     outText: function () {
         text.fill = grdOut;
@@ -202,13 +201,13 @@ Juego.Game.prototype = {
                         }
                         masterCounter++;
                         this.Pregunta.loadTexture(this.Pregunta.key, masterCounter, false);
-                        
-                        swal({title: "Respuesta Correcta",   
-                              text: "Los numeros que seleccionaste completaron la operación.",
-                              timer: 1000,  
-                              showConfirmButton: false, 
-                              type: "success"});
-                        
+
+                        swal({title: "Respuesta Correcta",
+                            text: "Los numeros que seleccionaste completaron la operación.",
+                            timer: 1000,
+                            showConfirmButton: false,
+                            type: "success"});
+
                         Secuencia++;
                         if (this.listaParejasFigurasIguales(NumCasillasAlmacen) == true) {
                             Parejas_Acertadas++;
@@ -223,7 +222,7 @@ Juego.Game.prototype = {
                             // Se gana el juego y se acaba
                             TextWin.setText('¡Felicitaciones Gano!');
                             banderaTiempo = false;
-                            tiempoTotal = this.timer;
+                            tiempoTotal = this.timerJuego;
                             MusicaFondo.stop();
                             this.game.state.start('Premiacion');
                             //console.log("SumaTotal: " + SumaTotal.toString());
@@ -239,11 +238,11 @@ Juego.Game.prototype = {
                         coordenadasY.push(layer.getTileY(marker.y));
                         flipFlag = true;
                         tiempoChequeo = this.game.time.totalElapsedSeconds();
-                        swal({title: "¡Respuesta Incorrecta!",   
-                              text: "Los numeros que seleccionaste no completan la operación.",
-                              timer: 1500,  
-                              showConfirmButton: false, 
-                              type: "error"});
+                        swal({title: "¡Respuesta Incorrecta!",
+                            text: "Los numeros que seleccionaste no completan la operación.",
+                            timer: 1500,
+                            showConfirmButton: false,
+                            type: "error"});
                     }
                 }
                 else
@@ -368,7 +367,6 @@ Juego.Game.prototype = {
             }
         }
     },
-    
     Musica_Efecto: function (button) {
         if (button.name == "Musica") {
             if (B_musica == true) {
@@ -401,9 +399,16 @@ Juego.Game.prototype = {
     },
     Reiniciar_Nivel: function () {
         intentos += 1;
-        tiempoTotal = tiempoTotal + this.timer;
+        tiempoTotal = tiempoTotal + this.timerJuego;
         Parejas_Acertadas = 0;
         Fallos = 0;
+        tiempoChequeo = 0;
+        masterCounter = 0;
+        ContadorCuadrados = 0;
+        banderaTiempo = true;
+        Secuencia = 1;
+        B_musica = true;
+        B_efecto = true;
         MusicaFondo.stop();
         this.game.state.start('Game');
     }

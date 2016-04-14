@@ -8,7 +8,7 @@ Juego.Game.prototype = {
         this.acertadas = 0;
         this.llantaRotacion = true;
         this.llantaContador = 0;
-        this.timer = 0;
+        this.timerJuego = 0;
         this.tiempoEliminar = 0;
 
 
@@ -38,11 +38,16 @@ Juego.Game.prototype = {
         this.buttonPause.anchor.setTo(0.5, 0.5);
         this.buttonPause.name = 'Pause';
 
+        this.buttonReiniciar = this.game.add.button(780, 50, 'BottonReiniciar', this.Reiniciar_Nivel, this, 1, 0, 2);
+        this.buttonReiniciar.anchor.setTo(0.5, 0.5);
+        this.buttonReiniciar.name = 'Reiniciar';
+
         this.buttonContinue = this.add.button(70, 100, 'BottonAceptar', this.Verificar_Resultado, this, 1, 0, 2);
         this.buttonContinue.anchor.setTo(0.5, 0.5);
         this.buttonContinue.scale.x = 0.7;
         this.buttonContinue.scale.y = 0.7;
         this.buttonContinue.name = 'Continue';
+
 
         // se crea el cañon
         this.canon = this.game.add.sprite(80, 400, 'Canon', 0);
@@ -90,7 +95,7 @@ Juego.Game.prototype = {
         this.blancoDisparado.anchor.setTo(0.5, 0.5);
 
         //Texto Tiempo-------------------------------------------------------------------------------------------------
-        this.timerText = this.game.add.text(15, 15, "Tiempo: " + this.timer, this.fontBig);
+        this.timerText = this.game.add.text(15, 15, "Tiempo: " + this.timerJuego, this.fontBig);
         this.bombasText = this.game.add.text(400, 520, "Bombas Acertadas: " + this.acertadas, this.fontBig);
 
         this.time.events.loop(Phaser.Timer.SECOND, this.updateTimer, this);
@@ -154,8 +159,8 @@ Juego.Game.prototype = {
         }
     },
     updateTimer: function () {
-        this.timer++;
-        this.timerText.setText("Tiempo: " + this.timer);
+        this.timerJuego++;
+        this.timerText.setText("Tiempo: " + this.timerJuego);
     },
     MoverLlantas: function () {
 
@@ -266,19 +271,13 @@ Juego.Game.prototype = {
         if (resultado == 57) {
             swal({title: "¡Felicitaciones!",
                 text: "Efectivamente 57 son la cantidad de Bombas de agua que llenan la caneca.",
-                timer: 1000,
                 showConfirmButton: true,
-                type: "success"},
-            function (isConfirm) {
-                if (isConfirm) {
-                    console.log("entre")
-//                    tiempoTotal = this.timer;
-//                    MusicaFondo.stop();
-//                    this.game.state.start('Premiacion');
-//                    document.getElementById("caja1").remove();
-                }
-            });
-
+                type: "success"}
+            );
+            tiempoTotal = this.timerJuego;
+            MusicaFondo.stop();
+            document.getElementById("caja1").remove();
+            this.game.state.start('Premiacion');
         }
         else {
             swal({title: "¡Respuesta Incorrecta!",
@@ -316,5 +315,15 @@ Juego.Game.prototype = {
             pausedText.destroy();
             this.game.paused = false;
         }, this);
+    },
+    Reiniciar_Nivel: function () {
+        intentos += 1;
+        tiempoTotal = tiempoTotal + this.timerJuego;
+        bombaLanzada = 0;
+        B_musica = true;
+        B_efecto = true;
+        MusicaFondo.stop();
+        document.getElementById("caja1").remove();
+        this.game.state.start('Game');
     }
 };
