@@ -19,7 +19,13 @@ include_once 'templates/open_head.php';
             ?>
             <!-- asignar la matriz guardada en el archivo a la matriz creada en javascript que contiene el mundo creado -->
         <script type="text/javascript">
-
+                        // definicion de variables de sesion de javascript para almacenar los distintos valores
+            // estos cambiaran para cada usuario y nivel
+            // cookies almacenara el nivel en este caso nivel uno
+            // usuario traido de la variable de session de php
+            usuario = "<?php echo($_SESSION['correo']); ?>";
+            usuario = usuario.substring(0, 5);
+            cookies = "diez";
             nivel = "<?php echo $nivel; ?>";
             matrizMundo = [
 <?php

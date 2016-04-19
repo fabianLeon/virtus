@@ -199,9 +199,9 @@ function crearMatrizFunciones2() {
 
 //adiciona movimientos a la matriz
 function cambiarMatriz(val) {
-    if (val != null) {
-        if (val == 7) {
-            if ((matrizFunciones[0][0] != 0)) {
+    if (val !== null) {
+        if (val === 7) {
+            if ((matrizFunciones[0][0] !== 0)) {
                 matrizFuncion[cont2][cont1] = val;
                 cont2++;
                 if (cont2 > 4) {
@@ -213,9 +213,9 @@ function cambiarMatriz(val) {
             } else {
                 swal({title: "Mal Uso de la Funcion!", text: "Debes llenar almenos una instruccion en la funcion para poder usarla!", type: "error", confirmButtonText: "Aceptar"});
             }
-        } else if (val == 6) {
+        } else if (val === 6) {
             cont2--;
-            if (cont2 < 0 && cont1 != 0) {
+            if (cont2 < 0 && cont1 !== 0) {
                 cont1--;
                 cont2 = 4;
             } else if (cont2 < 0 && cont1 <= 0) {
@@ -236,7 +236,7 @@ function cambiarMatriz(val) {
 }
 
 function cambiarMatrizFunciones(val2) {
-    if (val2 != null) {
+    if (val2 !== null) {
         matrizFunciones[cont4][cont3] = val2;
         contF++;
         cont4++;
@@ -250,71 +250,71 @@ function cambiarMatrizFunciones(val2) {
 // controla las iteracciones de movimiento(girar)
 function girar(act, acc) {//acc es la accion y act es al imagen actual
     var valor = 0;
-    if (act == 2 && acc == 2)
+    if (act === 2 && acc === 2)
         valor = 3;
-    else if (act == 2 && acc == 2)
+    else if (act === 2 && acc === 2)
         valor = 3;
-    else if (act == 2 && acc == 3)
+    else if (act === 2 && acc === 3)
         valor = 4;
-    else if (act == 3 && acc == 2)
+    else if (act === 3 && acc === 2)
         valor = 5;
-    else if (act == 3 && acc == 3)
+    else if (act === 3 && acc === 3)
         valor = 2;
-    else if (act == 4 && acc == 2)
+    else if (act === 4 && acc === 2)
         valor = 2;
-    else if (act == 4 && acc == 3)
+    else if (act === 4 && acc === 3)
         valor = 5;
-    else if (act == 5 && acc == 2)
+    else if (act === 5 && acc === 2)
         valor = 4;
-    else if (act == 5 && acc == 3)
+    else if (act === 5 && acc === 3)
         valor = 3;
-    else if (act == 7 && acc == 2)
+    else if (act === 7 && acc === 2)
         valor = 8;
-    else if (act == 7 && acc == 3)
+    else if (act === 7 && acc === 3)
         valor = 9;
-    else if (act == 8 && acc == 2)
+    else if (act === 8 && acc === 2)
         valor = 10;
-    else if (act == 8 && acc == 3)
+    else if (act === 8 && acc === 3)
         valor = 7;
-    else if (act == 9 && acc == 2)
+    else if (act === 9 && acc === 2)
         valor = 7;
-    else if (act == 9 && acc == 3)
+    else if (act === 9 && acc === 3)
         valor = 10;
-    else if (act == 10 && acc == 2)
+    else if (act === 10 && acc === 2)
         valor = 9;
-    else if (act == 10 && acc == 3)
+    else if (act === 10 && acc === 3)
         valor = 8;
-    else if (act == 12 && acc == 2)
+    else if (act === 12 && acc === 2)
         valor = 13;
-    else if (act == 12 && acc == 3)
+    else if (act === 12 && acc === 3)
         valor = 14;
-    else if (act == 13 && acc == 2)
+    else if (act === 13 && acc === 2)
         valor = 15;
-    else if (act == 13 && acc == 3)
+    else if (act === 13 && acc === 3)
         valor = 12;
-    else if (act == 14 && acc == 2)
+    else if (act === 14 && acc === 2)
         valor = 12;
-    else if (act == 14 && acc == 3)
+    else if (act === 14 && acc === 3)
         valor = 15;
-    else if (act == 15 && acc == 2)
+    else if (act === 15 && acc === 2)
         valor = 14;
-    else if (act == 15 && acc == 3)
+    else if (act === 15 && acc === 3)
         valor = 13;
-    else if (act == 18 && acc == 2)
+    else if (act === 18 && acc === 2)
         valor = 19;
-    else if (act == 18 && acc == 3)
+    else if (act === 18 && acc === 3)
         valor = 20;
-    else if (act == 19 && acc == 2)
+    else if (act === 19 && acc === 2)
         valor = 21;
-    else if (act == 19 && acc == 3)
+    else if (act === 19 && acc === 3)
         valor = 18;
-    else if (act == 20 && acc == 2)
+    else if (act === 20 && acc === 2)
         valor = 18;
-    else if (act == 20 && acc == 3)
+    else if (act === 20 && acc === 3)
         valor = 21;
-    else if (act == 21 && acc == 2)
+    else if (act === 21 && acc === 2)
         valor = 20;
-    else if (act == 21 && acc == 3)
+    else if (act === 21 && acc === 3)
         valor = 19;
     else
         valor = act;
@@ -322,35 +322,35 @@ function girar(act, acc) {//acc es la accion y act es al imagen actual
 }
 //escencial para el movimiento	
 function mover(mov) {
-    if ((mov == 1 || mov == 4) && estado == 1) {
+    if ((mov === 1 || mov === 4) && estado === 1) {
         dx = 0;
         dy = 1;
-    } else if ((mov == 1 || mov == 4) && estado == 2) {
+    } else if ((mov === 1 || mov === 4) && estado === 2) {
         dx = -1;
         dy = 0;
-    } else if ((mov == 1 || mov == 4) && estado == 3) {
+    } else if ((mov === 1 || mov === 4) && estado === 3) {
         dx = 0;
         dy = -1;
-    } else if ((mov == 1 || mov == 4) && estado == 4) {
+    } else if ((mov === 1 || mov === 4) && estado === 4) {
         dx = 1;
         dy = 0;
-    } else if (mov == 2) {
-        if (estado == 1)
+    } else if (mov === 2) {
+        if (estado === 1)
             estado = 2;
-        else if (estado == 2)
+        else if (estado === 2)
             estado = 3;
-        else if (estado == 3)
+        else if (estado === 3)
             estado = 4;
-        else if (estado == 4)
+        else if (estado === 4)
             estado = 1;
-    } else if (mov == 3) {
-        if (estado == 1)
+    } else if (mov === 3) {
+        if (estado === 1)
             estado = 4;
-        else if (estado == 2)
+        else if (estado === 2)
             estado = 1;
-        else if (estado == 3)
+        else if (estado === 3)
             estado = 2;
-        else if (estado == 4)
+        else if (estado === 4)
             estado = 3;
     }
 }
@@ -363,63 +363,63 @@ function colision(act, sig) {
     actual = act;
     siguiente = sig;
     console.log(siguiente);
-    if (actual == 2 && siguiente == 6)
+    if (actual === 2 && siguiente === 6)
         valor = 7;
-    else if (actual == 3 && siguiente == 6)
+    else if (actual === 3 && siguiente === 6)
         valor = 8;
-    else if (actual == 4 && siguiente == 6)
+    else if (actual === 4 && siguiente === 6)
         valor = 9;
-    else if (actual == 5 && siguiente == 6)
+    else if (actual === 5 && siguiente === 6)
         valor = 10;
-    else if (actual == 7 && siguiente == 11)
+    else if (actual === 7 && siguiente === 11)
         valor = 12;
-    else if (actual == 8 && siguiente == 11)
+    else if (actual === 8 && siguiente === 11)
         valor = 13;
-    else if (actual == 9 && siguiente == 11)
+    else if (actual === 9 && siguiente === 11)
         valor = 14;
-    else if (actual == 10 && siguiente == 11)
+    else if (actual === 10 && siguiente === 11)
         valor = 15;
-    else if (actual == 12 && siguiente == 6)
+    else if (actual === 12 && siguiente === 6)
         valor = 7;
-    else if (actual == 13 && siguiente == 6)
+    else if (actual === 13 && siguiente === 6)
         valor = 8;
-    else if (actual == 14 && siguiente == 6)
+    else if (actual === 14 && siguiente === 6)
         valor = 9;
-    else if (actual == 15 && siguiente == 6)
+    else if (actual === 15 && siguiente === 6)
         valor = 10;
-    else if (actual == 7 && siguiente == 1)
+    else if (actual === 7 && siguiente === 1)
         valor = 2;
-    else if (actual == 8 && siguiente == 1)
+    else if (actual === 8 && siguiente === 1)
         valor = 3;
-    else if (actual == 9 && siguiente == 1)
+    else if (actual === 9 && siguiente === 1)
         valor = 4;
-    else if (actual == 10 && siguiente == 1)
+    else if (actual === 10 && siguiente === 1)
         valor = 5;
-    else if (actual == 18 && siguiente == 1)
+    else if (actual === 18 && siguiente === 1)
         valor = 2;
-    else if (actual == 19 && siguiente == 1)
+    else if (actual === 19 && siguiente === 1)
         valor = 3;
-    else if (actual == 20 && siguiente == 1)
+    else if (actual === 20 && siguiente === 1)
         valor = 4;
-    else if (actual == 21 && siguiente == 1)
+    else if (actual === 21 && siguiente === 1)
         valor = 5;
-    else if (actual == 2 && (siguiente == 0 || siguiente == 16))
+    else if (actual === 2 && (siguiente === 0 || siguiente === 16))
         valor = 18;
-    else if (actual == 3 && (siguiente == 0 || siguiente == 16))
+    else if (actual === 3 && (siguiente === 0 || siguiente === 16))
         valor = 19;
-    else if (actual == 4 && (siguiente == 0 || siguiente == 16))
+    else if (actual === 4 && (siguiente === 0 || siguiente === 16))
         valor = 20;
-    else if (actual == 5 && (siguiente == 0 || siguiente == 16))
+    else if (actual === 5 && (siguiente === 0 || siguiente === 16))
         valor = 21;
-    else if ((actual >= 18 && actual <= 21) && siguiente == 0)
+    else if ((actual >= 18 && actual <= 21) && siguiente === 0)
         valor = 0;
-    else if ((actual >= 2 && actual <= 5) && siguiente == 1)
+    else if ((actual >= 2 && actual <= 5) && siguiente === 1)
         valor = 0;
-    else if ((actual >= 7 && actual <= 10) && siguiente == 6)
+    else if ((actual >= 7 && actual <= 10) && siguiente === 6)
         valor = 0;
-    else if ((actual >= 12 && actual <= 15) && siguiente == 11)
+    else if ((actual >= 12 && actual <= 15) && siguiente === 11)
         valor = 0;
-    else if (siguiente == 16)
+    else if (siguiente === 16)
         valor = 0;
     else
         valor = -1;
@@ -436,7 +436,7 @@ function casillaActual(act) {//captura el valor donde esta el fantasma y dice q 
         valor = 11;
     else if (act >= 18 && act <= 21)
         valor = 0;
-    else if (act == 16)
+    else if (act === 16)
         valor = 1;
     return valor;
 }
@@ -446,44 +446,44 @@ function moverDef() {
     vector = new Array(2);
     vector = buscarFant();
     buscarLuz();
-    if (matrizFuncion [f][c] == 1) {
+    if (matrizFuncion [f][c] === 1) {
         mover(1);
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
         console.log((vector[0]) + dx);
-        if ((vector[0]) + dx == -1 || (vector[0]) + dx == 8) {
+        if ((vector[0]) + dx === -1 || (vector[0]) + dx === 8) {
             swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
         }
-        if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
+        if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) === -1) {
 
             swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
-        } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
+        } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) === 0) {
             matrizMundo [(vector[0])][(vector[1])] = casillaActual(matrizMundo [(vector[0])][(vector[1])]);
             matrizMundo [(vector[0]) + dx][(vector[1] + dy)] = valor;
         } else {
             swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
         }
-    } else if (matrizFuncion [f][c] == 2) {
+    } else if (matrizFuncion [f][c] === 2) {
         mover(2);
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 2);
         matrizMundo [(vector[0])][(vector[1])] = valor;
-    } else if (matrizFuncion [f][c] == 3) {
+    } else if (matrizFuncion [f][c] === 3) {
         mover(3);
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 3);
         matrizMundo [(vector[0])][(vector[1])] = valor;
-    } else if (matrizFuncion [f][c] == 4) {
+    } else if (matrizFuncion [f][c] === 4) {
         mover(4);
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
-        if ((vector[0]) + dx == -1 || (vector[0]) + dx == 8) {
+        if ((vector[0]) + dx === -1 || (vector[0]) + dx === 8) {
             swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
         }
-        if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
+        if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) === -1) {
             swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
-        } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
+        } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) === 0) {
             swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
         } else {
@@ -492,9 +492,9 @@ function moverDef() {
             matrizMundo [(vector[0]) + dx][(vector[1] + dy)] = valor;
         }
 
-    } else if (matrizFuncion [f][c] == 5) {
+    } else if (matrizFuncion [f][c] === 5) {
 
-        if (vector[0] == xBom && vector[1] == yBom) {
+        if (vector[0] === xBom && vector[1] === yBom) {
             matrizMundo [(vector[0])][(vector[1])] = 17;
             pintarTablero(ctx);
             window.clearInterval(movFunc);
@@ -521,38 +521,38 @@ function moverDefFunction() {
     movFunc = window.setInterval('moverDefFunctionFinal()', 300);
 }
 function moverDefFunctionFinal() {
-    if (matrizFunciones[ff][cf] != 0) {
+    if (matrizFunciones[ff][cf] !== 0) {
         var vector, valor, posActual, posSig;
         vector = new Array(2);
         vector = buscarFant();
-        if (matrizFunciones [ff][cf] == 1) {
+        if (matrizFunciones [ff][cf] === 1) {
             mover(1);
             valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
-            if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
+            if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) === -1) {
                 swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
                 reset();
-            } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
+            } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) === 0) {
                 matrizMundo [(vector[0])][(vector[1])] = casillaActual(matrizMundo [(vector[0])][(vector[1])]);
                 matrizMundo [(vector[0]) + dx][(vector[1] + dy)] = valor;
             } else {
                 swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
                 reset();
             }
-        } else if (matrizFunciones [ff][cf] == 2) {
+        } else if (matrizFunciones [ff][cf] === 2) {
             mover(2);
             valor = girar(matrizMundo [(vector[0])][(vector[1])], 2);
             matrizMundo [(vector[0])][(vector[1])] = valor;
-        } else if (matrizFunciones [ff][cf] == 3) {
+        } else if (matrizFunciones [ff][cf] === 3) {
             mover(3);
             valor = girar(matrizMundo [(vector[0])][(vector[1])], 3);
             matrizMundo [(vector[0])][(vector[1])] = valor;
-        } else if (matrizFunciones [ff][cf] == 4) {
+        } else if (matrizFunciones [ff][cf] === 4) {
             mover(4);
             valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
-            if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) == -1) {
+            if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) === -1) {
                 swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
                 reset();
-            } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) == 0) {
+            } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) === 0) {
                 swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
                 reset();
             } else {
@@ -615,7 +615,7 @@ function buscarLuz() {
     vector = new Array(2);
     for (i = 0; i < 8; i++) {
         for (j = 0; j < 8; j++) {
-            if (matrizMundo[i][j] == 16) {
+            if (matrizMundo[i][j] === 16) {
                 vector[0] = i;
                 vector[1] = j;
             }

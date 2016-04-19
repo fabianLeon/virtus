@@ -23,6 +23,13 @@
      ***************************************************************************************************************** -->
     <?php include_once 'templates/js.php'; ?>
     <script>
+        // definicion de variables de sesion de javascript para almacenar los distintos valores
+        // estos cambiaran para cada usuario y nivel
+        // cookies almacenara el nivel en este caso nivel uno
+        // usuario traido de la variable de session de php
+        usuario = "<?php echo($_SESSION['correo']); ?>";
+        usuario = usuario.substring(0, 5);
+        cookies = "dos";
 
         var game = new Phaser.Game(1200, 600, Phaser.AUTO, 'game');
         game.state.add('Inicio', Juego.Inicio);
@@ -128,18 +135,18 @@
                 //me.body.mass = 1;
                 if (me.cl == 'azul') {
                     me.loadTexture('azul');
-                    saltar = me.animations.add('saltar', [3,10,9,8,7,6,5,4,3], 5, false);
+                    saltar = me.animations.add('saltar', [3, 10, 9, 8, 7, 6, 5, 4, 3], 5, false);
                     me.x = 90 + (150 * plataforma);
                 } else {
                     me.loadTexture('rojo');
-                    saltar = me.animations.add('saltar', [10,4,5,6,7,8,9,10], 5, false);
+                    saltar = me.animations.add('saltar', [10, 4, 5, 6, 7, 8, 9, 10], 5, false);
                     me.x = 60 + (150 * plataforma);
                 }
 
                 me.inputEnabled = true;
                 me.events.onInputUp.add(mover);
 
-                me.y = 2*(game.height / 3);
+                me.y = 2 * (game.height / 3);
 
                 saltar.onComplete.add(animationStopped, game);
                 saltar.onLoop.add(animationPlay, game);

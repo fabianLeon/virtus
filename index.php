@@ -13,8 +13,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <h1>JUEGOS IDENTIFICACION PERFIL DE TECNICOS TECNOLOGOS E INGENIEROS.</h1>
-                        <h3> Pretende ...</h3>
+                        <h1>Juegos de pensamiento Abstracto, Matematico y de Aplicacion</h1>
+                        <h3> Pretende identificar de que manera resuelven los problemas en el ambito laboral
+                            los tecnicos, tecnologos e ingenieros
+                        </h3>
+                        <br>
+                        <h3> 
+                            Para ello se emplea un entorno gamificado.
+                        </h3>
 
                     </div>
                     <div class="col-lg-8 col-lg-offset-2 himg">

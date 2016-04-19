@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.php">
-                Juegos T T I
+                Odin
             </a>
         </div>
         <div class="navbar-collapse collapse navbar-right">

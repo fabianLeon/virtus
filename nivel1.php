@@ -40,7 +40,10 @@ include_once 'templates/open_head.php';
             game.state.start('Inicio');
             game.state.start('Inicio');
 
-
+            // definicion de variables de sesion de javascript para almacenar los distintos valores
+            // estos cambiaran para cada usuario y nivel
+            // cookies almacenara el nivel en este caso nivel uno
+            // usuario traido de la variable de session de php
             usuario = "<?php echo($_SESSION['correo']); ?>";
             usuario = usuario.substring(0, 5);
             cookies = "uno";

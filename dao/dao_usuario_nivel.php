@@ -31,5 +31,18 @@ class daoUsuarioNivel {
         $result = $this->database->ejecutarConsulta($sql);
         return ($this->database->transformarResultado2($result));
     }
+    function get_medallas($user) {
+        $sql = "select 
+                    q_estrategia, 
+                    q_eficiencia, 
+                    q_efectividad 
+                from 
+                    nivel_usuario 
+                where k_usuario = '".$user."';";
+        
+        //echo $sql;
+        $result = $this->database->ejecutarConsulta($sql);
+        return ($this->database->transformarResultado2($result));
+    }
 
 }

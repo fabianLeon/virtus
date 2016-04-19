@@ -57,7 +57,12 @@
                         <br>    Lic. Armando Solano. Escuela Tecnológica Instituto Técnico Central (Planta)
                         <br>    Ing. Luis Eduardo Herrera. Escuela Tecnológica Instituto Técnico Central
                         <br>    Ing. Herly Johanna Vargas. Escuela Tecnológica Instituto Técnico Central
-
+                        <div class="row">
+                            <a href="http://grupovirtus.org/" target="_blank" class="btn btn-theme">
+                                <span class="glyphicon glyphicon-sunglasses
+                                      " aria-hidden="true"> </span> Ver mas...
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div><! --/row -->
