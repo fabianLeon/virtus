@@ -503,7 +503,8 @@ function moverDef() {
             juego++;
 
             swal({title: "Buen Trabajo!", text: "Ha recojido la planta de este nivel, !", type: "success", confirmButtonText: "Aceptar"});
-            setTimeout("location.href='aplicacion.php'", 4000);
+
+            efectividad(0);
         } else {
             swal({title: "Mal Movimiento!", text: "No puedes Recoger la planta ahora!", type: "error", confirmButtonText: "Aceptar"});
             reset();
@@ -712,9 +713,8 @@ function perdio() {
 
 function ayuda1() {
     swal({
-        title: 'Ayuda!',
         imageUrl: 'assets/img/fichas/ayuda1.png',
-        imageWidth: 800,
+        imageWidth: 600,
         imageHeight: 600,
         animation: true
     });
@@ -722,9 +722,8 @@ function ayuda1() {
 
 function ayuda2() {
     swal({
-        title: 'Ayuda!',
         imageUrl: 'assets/img/fichas/ayuda1.png',
-        imageWidth: 800,
+        imageWidth: 600,
         imageHeight: 600,
         animation: true
     });
@@ -732,9 +731,8 @@ function ayuda2() {
 
 function ayuda3() {
     swal({
-        title: 'Ayuda!',
         imageUrl: 'assets/img/fichas/ayuda1.png',
-        imageWidth: 800,
+        imageWidth: 600,
         imageHeight: 600,
         animation: true
     });
@@ -742,10 +740,28 @@ function ayuda3() {
 
 function ayuda4() {
     swal({
-        title: 'Ayuda!',
         imageUrl: 'assets/img/fichas/ayuda1.png',
         imageWidth: 800,
         imageHeight: 600,
         animation: true
+    });
+}
+
+function eficiencia(number) {
+    swal({
+        imageUrl: 'assets/img/medallas/' + number + '.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        animation: true,
+        
+    });
+}
+
+function efectividad(number) {
+    swal({
+        imageUrl: 'assets/img/medallas/' + number + '.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        animation: true,
     });
 }

@@ -62,40 +62,38 @@
             init();
             var sePuede = false;
             //animar();
-
-
             function dondeSaltar() {
-
+                sePuede = false;
                 console.log("old: " + plataforma);
-                if (me.cl == 'rojo') {
-                    if (saposGame[plataforma + 1] == null) {
+                if (me.cl === 'rojo') {
+                    if (saposGame[plataforma + 1] === null && plataforma + 1 <= 6) {
                         saposGame[plataforma] = null;
                         plataforma += 1;
                         saposGame[plataforma] = me;
-                        vx = 100;
+                        vx = 97;
                         vy = -40;
                         sePuede = true;
-                    } else if (saposGame[plataforma + 2] == null) {
+                    } else if (saposGame[plataforma + 2] === null && plataforma + 2 <= 6) {
                         saposGame[plataforma] = null;
                         plataforma += 2;
                         saposGame[plataforma] = me;
-                        vx = 200;
+                        vx = 195;
                         vy = -60;
                         sePuede = true;
                     }
                 } else {
-                    if (saposGame[plataforma - 1] == null) {
+                    if (saposGame[plataforma - 1] === null && plataforma - 1 >= 0) {
                         saposGame[plataforma] = null;
                         plataforma -= 1;
                         saposGame[plataforma] = me;
-                        vx = -90;
+                        vx = -85;
                         vy = -40;
                         sePuede = true;
-                    } else if (saposGame[plataforma - 2] == null) {
+                    } else if (saposGame[plataforma - 2] === null && plataforma - 2 >= 0) {
                         saposGame[plataforma] = null;
                         plataforma -= 2;
                         saposGame[plataforma] = me;
-                        vx = -180;
+                        vx = -170;
                         vy = -60;
                         sePuede = true;
                     }
@@ -103,11 +101,9 @@
             }
 
             function mover() {
-
                 dondeSaltar();
                 if (sePuede == true) {
                     animar();
-                    console.log(vx + "," + vy);
                     me.body.velocity = new Phaser.Point(vx, vy);
                     if (B_efecto) {
                         Sonido_Salto.play();

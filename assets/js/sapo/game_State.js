@@ -19,7 +19,7 @@ Juego.Game_State.prototype = {
 //        this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 //        this.game.scale.pageAlignHorizontally = true;
 //        this.game.scale.pageAlignVertically = true;
-        
+
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.arcade.gravity.set(0, 60);
 
@@ -40,7 +40,7 @@ Juego.Game_State.prototype = {
             bound1.height -= 50;
             console.log(bound1);
             plataformas.add(plataforma);
-            
+
         }
         for (var i = 0; i < 7; i++) {
 
@@ -79,14 +79,14 @@ Juego.Game_State.prototype = {
     },
     update: function () {
         game.physics.arcade.collide(plataformas, sapos);
-        if (    saposGame[0] !== null &&
+        if (saposGame[0] !== null &&
                 saposGame[1] !== null &&
                 saposGame[2] !== null &&
                 saposGame[4] !== null &&
                 saposGame[5] !== null &&
                 saposGame[6] !== null) {
 
-            if (    saposGame[0].cl == 'azul' &&
+            if (saposGame[0].cl == 'azul' &&
                     saposGame[1].cl == 'azul' &&
                     saposGame[2].cl == 'azul' &&
                     saposGame[4].cl == 'rojo' &&
@@ -94,6 +94,8 @@ Juego.Game_State.prototype = {
                     saposGame[6].cl == 'rojo') {
                 console.log("GANOOOOO"); /// listo mk aqui es donde gana el socio
                 borrarTodasLasCookies();
+                game.state.start('Premiacion');
+                MusicaFondo.stop();
             }
         }
         //Si la musica fue o no desactivada que relice la gestion necesaria
