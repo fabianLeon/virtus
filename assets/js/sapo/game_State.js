@@ -12,8 +12,8 @@ Juego.Game_State.prototype = {
         game.load.image('BotonEfecto2', 'assets/btn/sapo/BT_Efectos2.png');
         game.load.image('BotonMusica2', 'assets/btn/sapo/BT_Musica2.png');
 
-        game.load.audio('MusicaFondo', 'assets/audio/sapo/MusicaFondo.mp3');
-        game.load.audio('Salto_Sapo', 'assets/audio/sapo/Salto_Sapo.mp3');
+        game.load.audio('MusicaFondo', 'assets/audio/sapo/MusicaFondo3.mp3');
+        game.load.audio('Salto_Sapo', 'assets/audio/sapo/Sonido de la rana salto.mp3');
     },
     create: function () {
 //        this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -38,7 +38,7 @@ Juego.Game_State.prototype = {
             var bound1 = plataforma.getBounds();
             bound1.width -= 20;
             bound1.height -= 50;
-            console.log(bound1);
+           
             plataformas.add(plataforma);
 
         }
@@ -92,7 +92,7 @@ Juego.Game_State.prototype = {
                     saposGame[4].cl == 'rojo' &&
                     saposGame[5].cl == 'rojo' &&
                     saposGame[6].cl == 'rojo') {
-                console.log("GANOOOOO"); /// listo mk aqui es donde gana el socio
+                 /// listo mk aqui es donde gana el socio
                 borrarTodasLasCookies();
                 game.state.start('Premiacion');
                 MusicaFondo.stop();
