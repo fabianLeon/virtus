@@ -362,7 +362,6 @@ function colision(act, sig) {
     var actual = 0, siguiente = 0, valor = 0;
     actual = act;
     siguiente = sig;
-    console.log(siguiente);
     if (actual === 2 && siguiente === 6)
         valor = 7;
     else if (actual === 3 && siguiente === 6)
@@ -449,7 +448,6 @@ function moverDef() {
     if (matrizFuncion [f][c] === 1) {
         mover(1);
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
-        console.log((vector[0]) + dx);
         if ((vector[0]) + dx === -1 || (vector[0]) + dx === 8) {
             swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
             reset();
@@ -501,10 +499,7 @@ function moverDef() {
             gano = true;
             juego = parseInt(nivel);
             juego++;
-
-            swal({title: "Buen Trabajo!", text: "Ha recojido la planta de este nivel, !", type: "success", confirmButtonText: "Aceptar"});
-
-            efectividad(0);
+            lanzar_ganador();
         } else {
             swal({title: "Mal Movimiento!", text: "No puedes Recoger la planta ahora!", type: "error", confirmButtonText: "Aceptar"});
             reset();
@@ -577,7 +572,6 @@ function moverDefFunctionFinal() {
             c += 1;
             f = 0;
         }
-        console.log("Salio de la funcion");
 
     }
 }
@@ -747,21 +741,11 @@ function ayuda4() {
     });
 }
 
-function eficiencia(number) {
-    swal({
-        imageUrl: 'assets/img/medallas/' + number + '.png',
-        imageWidth: 200,
-        imageHeight: 200,
-        animation: true,
-        
-    });
-}
+function lanzar_ganador() {
+    
+    var img_efec = document.getElementById("efectividad");
+    var img_efic = document.getElementById("eficiencia");
+    var estrategia = document.getElementById("estrategia");
 
-function efectividad(number) {
-    swal({
-        imageUrl: 'assets/img/medallas/' + number + '.png',
-        imageWidth: 200,
-        imageHeight: 200,
-        animation: true,
-    });
+    ganador.click();
 }

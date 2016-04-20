@@ -5,8 +5,10 @@ include_once 'templates/open_head.php';
 </head>
 <body>
 
-    <?php include_once 'templates/header.php'; ?>
-
+    <?php
+    include_once 'templates/header.php';
+    include_once 'templates/ganar.php';
+    ?>
     <table>
         <tr>
             <!-- sentencia php para el manejo de archivos, (cargar los mundos ya creados) -->
@@ -23,6 +25,7 @@ include_once 'templates/open_head.php';
             // estos cambiaran para cada usuario y nivel
             // cookies almacenara el nivel en este caso nivel uno
             // usuario traido de la variable de session de php
+            var ganador = document.getElementById("boton1");
             usuario = "<?php echo($_SESSION['correo']); ?>";
             usuario = usuario.substring(0, 5);
             cookies = "nueve";
