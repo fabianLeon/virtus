@@ -128,6 +128,7 @@ Juego.Game_State.prototype = {
         bounds = null;
         vertical1 = null;
         vertical2 = null;
+        Movimientos = 0;
         j = -1;
         lag = [];
         MusicaFondo.stop();

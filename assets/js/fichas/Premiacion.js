@@ -12,14 +12,14 @@ Juego.Premiacion.prototype = {
         this.buttonContinue.anchor.setTo(0.5, 0.5);
     },
     Medalleria: function () {
-        var efectividad = new Rangos(0, 2, "Efectividad");  // definir estructura de premiacion de la efectividad depende de hacerlo bien
-        var eficacia = new Rangos(540, 840, "eficacia");        // definir estructura de premiacion de la eficacia depende del tiempo
-        var estrategia = new Rangos(360, 660, "Estrategia");    // definir estructura de premiacion de la estrategia depende del juego
+        var efectividad = new Rangos(5, 10, "Efectividad");  // definir estructura de premiacion de la efectividad depende de hacerlo bien
+        var eficacia = new Rangos(900, 1800, "eficacia");        // definir estructura de premiacion de la eficacia depende del tiempo
+        var estrategia = new Rangos(100, 150, "Estrategia");    // definir estructura de premiacion de la estrategia depende del juego
 
         var nivel_premiacion = new Premiacion(efectividad, eficacia, estrategia);
         medalla_eficacia = nivel_premiacion.calcularEfi(tiempoTotal);
-        medalla_efectividad = nivel_premiacion.calcularEfe(Fallos);
-        medalla_estrategia = nivel_premiacion.calcularEstra(promedioFallo);
+        medalla_efectividad = nivel_premiacion.calcularEfe(intentos);
+        medalla_estrategia = nivel_premiacion.calcularEstra(Movimientos);
 //---------------------------------MEDALLA 1-----------------------------------------
         this.medalla1 = this.game.add.sprite(500, 200, 'Medallas', medalla_efectividad);
         this.medalla1.anchor.setTo(0.5, 0.5);
@@ -32,7 +32,7 @@ Juego.Premiacion.prototype = {
 
     },
     retornarInicio: function () {
-        salvarInfo(medalla_eficacia, medalla_efectividad, medalla_estrategia, "5", "abstracto.php");
+        salvarInfo(medalla_eficacia, medalla_efectividad, medalla_estrategia, "6", "abstracto.php");
 
     },
 };

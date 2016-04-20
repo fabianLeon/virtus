@@ -40,6 +40,7 @@
         var posiciones_sapos = [80,230,380,530,680,830,980];
         var saposGame = [];
         var sapos = null;
+        var Movimientos=0;
         var plataformas = null;
         var VAzul = new Phaser.Point(-55, -90); //velocidad sapo azul
         var VRojo = new Phaser.Point(55, -90); // velocidad sapo rojo
@@ -152,6 +153,7 @@
                 //me.body.gravity.y = 300;
             }
             function animar() {
+                Movimientos++;
                 me.animations.play('saltar');
             }
         }

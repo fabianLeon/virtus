@@ -11,6 +11,7 @@ Juego.Game_State.prototype = {
         game.load.spritesheet('BottonPause', 'assets/btn/sapo/BT_Pause.png', 50, 50, 3);
         game.load.image('BotonEfecto2', 'assets/btn/sapo/BT_Efectos2.png');
         game.load.image('BotonMusica2', 'assets/btn/sapo/BT_Musica2.png');
+        game.load.spritesheet('BottonReiniciar', 'assets/btn/sapo/BT_Reiniciar.png', 50, 50, 3);
 
         game.load.audio('MusicaFondo', 'assets/audio/sapo/MusicaFondo3.mp3');
         game.load.audio('Salto_Sapo', 'assets/audio/sapo/Sonido de la rana salto.mp3');
@@ -26,6 +27,7 @@ Juego.Game_State.prototype = {
         var fondo = game.add.sprite(0, 0, 'fondo');
 
         var me = this;
+        this.timerJuego = 0;
         sapos = game.add.group();
         plataformas = game.add.group();
 
@@ -38,7 +40,7 @@ Juego.Game_State.prototype = {
             var bound1 = plataforma.getBounds();
             bound1.width -= 20;
             bound1.height -= 50;
-           
+
             plataformas.add(plataforma);
 
         }
@@ -71,11 +73,19 @@ Juego.Game_State.prototype = {
         this.buttonPause = this.game.add.button(1110, 50, 'BottonPause', this.managePause, this, 1, 0, 2);
         this.buttonPause.anchor.setTo(0.5, 0.5);
         this.buttonPause.name = 'Pause';
+        
+        this.buttonReiniciar = this.game.add.button(930, 50, 'BottonReiniciar', this.Reiniciar_Nivel, this, 1, 0, 2);
+        this.buttonReiniciar.anchor.setTo(0.5, 0.5);
+        this.buttonReiniciar.name = 'Reiniciar';
 
         //Sonidos del videoJuego se agregan
         MusicaFondo = this.game.add.audio('MusicaFondo');
         MusicaFondo.loopFull(0.6);
         Sonido_Salto = this.game.add.audio('Salto_Sapo');
+        this.time.events.loop(Phaser.Timer.SECOND, this.updateTimer, this);
+    },
+    updateTimer: function () {
+        this.timerJuego++;
     },
     update: function () {
         game.physics.arcade.collide(plataformas, sapos);
@@ -92,7 +102,7 @@ Juego.Game_State.prototype = {
                     saposGame[4].cl == 'rojo' &&
                     saposGame[5].cl == 'rojo' &&
                     saposGame[6].cl == 'rojo') {
-                 /// listo mk aqui es donde gana el socio
+                /// listo mk aqui es donde gana el socio
                 borrarTodasLasCookies();
                 game.state.start('Premiacion');
                 MusicaFondo.stop();
@@ -132,6 +142,20 @@ Juego.Game_State.prototype = {
             pausedText.destroy();
             this.game.paused = false;
         }, this);
+    },
+    Reiniciar_Nivel: function () {
+        intentos += 1;
+        tiempoTotal = tiempoTotal + this.timerJuego;
+        B_musica = true;
+        B_efecto = true;
+        
+        posiciones_sapos = [80,230,380,530,680,830,980];
+        saposGame = [];
+        sapos = null;
+        plataformas = null;
+
+        MusicaFondo.stop();
+        this.game.state.start('Game');
     }
 
 };

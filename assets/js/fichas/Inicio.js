@@ -18,6 +18,12 @@ Juego.Inicio.prototype = {
         this.game.load.spritesheet('BottonAceptar', 'assets/btn/fichas/BT_Aceptar.png', 150, 45, 3);
         this.game.load.spritesheet('Bottones', 'assets/btn/fichas/BT_Jugar_Ayuda.png', 150, 45, 6);
         this.game.load.spritesheet('Abecedario', 'assets/img/fichas/Abecedario.png', 159, 151, 45);
+    
+        //Archivos Premiacion
+        this.game.load.audio('MusicaTriunfo', 'assets/audio/fichas/Ganador.mp3');
+        this.game.load.image('FondoPremiacion', 'assets/img/fichas/Premiacion.png');
+        this.game.load.spritesheet('Medallas', 'assets/img/fichas/Medallas.png', 200, 160, 9);
+
     },
 
     create: function() {

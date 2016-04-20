@@ -1,69 +1,38 @@
-Juego.Premiacion = function(game) {
+Juego.Premiacion = function (game) {
 };
 Juego.Premiacion.prototype = {
-	preload: function(){
-		this.game.load.audio('MusicaTriunfo', 'assets/audio/canon/Ganador.mp3');
-		this.game.load.image('FondoPremiacion', 'assets/img/canon/Premiacion.png');
-        this.game.load.spritesheet('Medallas', 'assets/img/canon/Medallas.png', 200, 160, 9);
-	},
-	create: function() {
-		this.game.add.image(0, 0, 'FondoPremiacion');
-		this.Medalleria();
+    create: function () {
+        this.game.add.image(0, 0, 'FondoPremiacion');
+        this.Medalleria();
 
-		MusicaFondo = this.game.add.audio('MusicaTriunfo');
+        MusicaFondo = this.game.add.audio('MusicaTriunfo');
         MusicaFondo.loopFull(0.6);
 
-		this.buttonContinue = this.add.button(500, 520, 'BottonAceptar', this.retornarInicio, this, 1, 0, 2);
-		this.buttonContinue.anchor.setTo(0.5, 0.5);
-		document.getElementById("caja1").remove();
-	},
+        this.buttonContinue = this.add.button(500, 470, 'BottonAceptar', this.retornarInicio, this, 1, 0, 2);
+        this.buttonContinue.anchor.setTo(0.5, 0.5);
+    },
+    Medalleria: function () {
+        var efectividad = new Rangos(2, 5, "Efectividad");  // definir estructura de premiacion de la efectividad depende de hacerlo bien
+        var eficacia = new Rangos(300, 600, "eficacia");        // definir estructura de premiacion de la eficacia depende del tiempo
+        var estrategia = new Rangos(13, 20, "Estrategia");    // definir estructura de premiacion de la estrategia depende del juego
 
-    Medalleria: function(){
-    	var promedioFallo=bombaLanzada-57;
+        var nivel_premiacion = new Premiacion(efectividad, eficacia, estrategia);
+        medalla_eficacia = nivel_premiacion.calcularEfi(tiempoTotal);
+        medalla_efectividad = nivel_premiacion.calcularEfe(intentos);
+        medalla_estrategia = nivel_premiacion.calcularEstra(Movimientos);
 //---------------------------------MEDALLA 1-----------------------------------------
-    	if(bombaLanzada<=10){
-    		this.medalla1 = this.game.add.sprite(500, 200, 'Medallas', 0);
-        	this.medalla1.anchor.setTo(0.5, 0.5);
-    	}
-    	else if(bombaLanzada>10 && bombaLanzada<=57){
-    		this.medalla1 = this.game.add.sprite(500, 200, 'Medallas', 1);
-        	this.medalla1.anchor.setTo(0.5, 0.5);
-    	}
-    	else{
-    		this.medalla1 = this.game.add.sprite(500, 200, 'Medallas', 2);
-        	this.medalla1.anchor.setTo(0.5, 0.5);
-    	}
-
+        this.medalla1 = this.game.add.sprite(500, 200, 'Medallas', medalla_efectividad);
+        this.medalla1.anchor.setTo(0.5, 0.5);
 //---------------------------------MEDALLA 2-----------------------------------------
-    	if(tiempoTotal<=25){
-    		this.medalla2 = this.game.add.sprite(700, 300, 'Medallas', 3);
-        	this.medalla2.anchor.setTo(0.5, 0.5);
-    	}
-    	else if(tiempoTotal>25 && tiempoTotal<=40){
-    		this.medalla2 = this.game.add.sprite(700, 300, 'Medallas', 4);
-        	this.medalla2.anchor.setTo(0.5, 0.5);
-    	}
-    	else{
-    		this.medalla2 = this.game.add.sprite(700, 300, 'Medallas', 5);
-        	this.medalla2.anchor.setTo(0.5, 0.5);
-    	}
+        this.medalla1 = this.game.add.sprite(700, 300, 'Medallas', medalla_eficacia);
+        this.medalla1.anchor.setTo(0.5, 0.5);
 //---------------------------------MEDALLA 3-----------------------------------------
-    	if(promedioFallo<=10){
-    		this.medalla3 = this.game.add.sprite(300, 300, 'Medallas', 6);
-        	this.medalla3.anchor.setTo(0.5, 0.5);
-    	}
-    	else if(promedioFallo>10 && promedioFallo<=20){
-    		this.medalla3 = this.game.add.sprite(300, 300, 'Medallas', 7);
-        	this.medalla3.anchor.setTo(0.5, 0.5);
-    	}
-    	else{
-    		this.medalla3 = this.game.add.sprite(300, 300, 'Medallas', 8);
-        	this.medalla3.anchor.setTo(0.5, 0.5);
-    	}
+        this.medalla1 = this.game.add.sprite(300, 300, 'Medallas', medalla_estrategia);
+        this.medalla1.anchor.setTo(0.5, 0.5);
 
     },
-	retornarInicio: function() {
-		this.game.state.start('Inicio');
-		MusicaFondo.stop();
-	},
+    retornarInicio: function () {
+        salvarInfo(medalla_eficacia, medalla_efectividad, medalla_estrategia, "4", "abstracto.php");
+
+    },
 };

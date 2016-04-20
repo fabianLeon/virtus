@@ -53,6 +53,7 @@ include_once 'templates/open_head.php';
             var Sonido_Movimiento;
             var MusicaFondo;
             var tiempoTotal = 0;
+            var Movimientos = 0;
 
             var efectividad = new Rangos(10, 50, "Efectividad");  // definir estructura de premiacion de la efectividad
             var eficacia = new Rangos(20, 50, "eficacia");        // definir estructura de premiacion de la eficacia
@@ -100,10 +101,12 @@ include_once 'templates/open_head.php';
                                 me.y = me.yOld;
                             }
                             if (fichas[9].x == 200 && fichas[9].y == 400) {
-                                game.state.start('Premiacion');
+                                MusicaFondo.stop();
+                                game.state.start('Premiacion');        
                             }
                         }
                     }
+                    Movimientos++;
                 }
 
                 function init(x, y, t, i) {
