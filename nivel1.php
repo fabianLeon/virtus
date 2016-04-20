@@ -12,7 +12,7 @@ include_once 'templates/open_head.php';
 <style type="text/css">
     body{
         margin-top: 8%;
-        margin-left: 8%;
+        margin-left: 30%;
     }
     .phaser{
         padding-left: 30%;
@@ -25,7 +25,7 @@ include_once 'templates/open_head.php';
     <?php include_once 'templates/js.php'; ?>
     <div class="phaser">
         <script type="text/javascript">
-            var game = new Phaser.Game(1000, 650, Phaser.AUTO, '');
+            var game = new Phaser.Game(600, 700, Phaser.AUTO, '');
             var fichas = [];
             var bounds = null;
             var vertical1 = null;
@@ -52,6 +52,7 @@ include_once 'templates/open_head.php';
             var B_efecto = true;
             var Sonido_Salto;
             var MusicaFondo;
+            var tiempoTotal = 0;
             
             var efectividad = new Rangos(10, 50, "Efectividad");  // definir estructura de premiacion de la efectividad
             var eficacia = new Rangos(20, 50, "eficacia");        // definir estructura de premiacion de la eficacia

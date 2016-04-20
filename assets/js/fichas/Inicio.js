@@ -1,6 +1,6 @@
 var Juego = {
-    _WIDTH: 1000,
-    _HEIGHT: 650
+    _WIDTH: 600,
+    _HEIGHT: 700
 };
 
 Juego.Inicio = function(game) {};
@@ -30,11 +30,11 @@ Juego.Inicio.prototype = {
         this.game.add.image(0, 0, 'Fondo');
 
 
-        this.buttonJugar = this.game.add.button(350, 400, 'Bottones', this.actionOnClick, this, 1, 0, 2);
+        this.buttonJugar = this.game.add.button(200, 500, 'Bottones', this.actionOnClick, this, 1, 0, 2);
         this.buttonJugar.anchor.setTo(0.5, 0.5);
         this.buttonJugar.name = 'Jugar';
         
-        this.buttonAyuda = this.game.add.button(650, 400, 'Bottones', this.actionOnClick, this, 4, 3, 5);
+        this.buttonAyuda = this.game.add.button(400, 500, 'Bottones', this.actionOnClick, this, 4, 3, 5);
         this.buttonAyuda.anchor.setTo(0.5, 0.5);
         this.buttonAyuda.name = 'Ayuda';
 
@@ -46,12 +46,12 @@ Juego.Inicio.prototype = {
 
         for (var i = 0; i < 7; i++)
         {
-            item = this.game.add.sprite(300 + 70 * i, -100, 'Abecedario', mensaje[i]);
+            item = this.game.add.sprite(100 + 70 * i, -100, 'Abecedario', mensaje[i]);
             item.anchor.setTo(0.5,0.5);
             item.scale.x=0.5;
             item.scale.y=0.5;
 
-            this.game.add.tween(item).to({y: 240}, 2400, Phaser.Easing.Bounce.Out, true, 1000 + 400 * i, true);
+            this.game.add.tween(item).to({y: 300}, 2400, Phaser.Easing.Bounce.Out, true, 1000 + 400 * i, true);
             this.game.add.tween(item).to({angle: 360}, 2400, Phaser.Easing.Cubic.In, true, 1000 + 400 * i, true);
         }
 

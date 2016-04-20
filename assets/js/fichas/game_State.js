@@ -14,15 +14,18 @@ Juego.Game_State.prototype = {
         game.load.spritesheet('BottonPause', 'assets/btn/sapo/BT_Pause.png', 50, 50, 3);
         game.load.image('BotonEfecto2', 'assets/btn/sapo/BT_Efectos2.png');
         game.load.image('BotonMusica2', 'assets/btn/sapo/BT_Musica2.png');
+        game.load.spritesheet('BottonReiniciar', 'assets/btn/engranes/BT_Reiniciar.png', 50, 50, 3);
 
         game.load.audio('MusicaFondo', 'assets/audio/fichas/MusicaFondo.mp3');
     },
     create: function () {
+
         game.add.image(0, 0, 'Fondo');
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.stage.backgroundColor = '#FFFFFF';
         var x = 100;
         var y = 100;
+        this.timerJuego = 0;
         bounds = game.add.sprite(x - 29, y - 25, 'tablero');
 
         // creacion de las fichas
@@ -53,22 +56,28 @@ Juego.Game_State.prototype = {
         fichas.push(cuadro);
 
         //Botones de sonidos y pause
-        this.buttonEfecto= this.game.add.button(840, 50, 'BottonesSonido', this.Musica_Efecto, this, 1,0,0);
+        this.buttonEfecto = this.game.add.button(440, 30, 'BottonesSonido', this.Musica_Efecto, this, 1, 0, 0);
         this.buttonEfecto.anchor.setTo(0.5, 0.5);
         this.buttonEfecto.name = 'Efectos_Sonido';
 
 
-        this.buttonMusica = this.game.add.button(900, 50, 'BottonesSonido', this.Musica_Efecto, this, 3,2,2);
+        this.buttonMusica = this.game.add.button(500, 30, 'BottonesSonido', this.Musica_Efecto, this, 3, 2, 2);
         this.buttonMusica.anchor.setTo(0.5, 0.5);
         this.buttonMusica.name = 'Musica';
 
-        this.buttonPause = this.game.add.button(960, 50, 'BottonPause', this.managePause, this, 1,0,2);
+        this.buttonPause = this.game.add.button(560, 30, 'BottonPause', this.managePause, this, 1, 0, 2);
         this.buttonPause.anchor.setTo(0.5, 0.5);
         this.buttonPause.name = 'Pause';
+
+        this.buttonReiniciar = this.game.add.button(380, 30, 'BottonReiniciar', this.Reiniciar_Nivel, this, 1, 0, 2);
+        this.buttonReiniciar.anchor.setTo(0.5, 0.5);
+        this.buttonReiniciar.name = 'Reiniciar';
 
         //Sonidos del videoJuego se agregan
         MusicaFondo = this.game.add.audio('MusicaFondo');
         MusicaFondo.loopFull(0.6);
+
+        this.time.events.loop(Phaser.Timer.SECOND, this.updateTimer, this);
     }, update: function () {
         //Si la musica fue o no desactivada que relice la gestion necesaria
         if (B_musica == false) {
@@ -77,7 +86,11 @@ Juego.Game_State.prototype = {
             MusicaFondo.resume();
         }
 
-    }, Musica_Efecto: function (button) {
+    },
+    updateTimer: function () {
+        this.timerJuego++;
+    },
+    Musica_Efecto: function (button) {
         if (button.name == "Musica") {
             if (B_musica == true) {
                 button.loadTexture('BotonMusica2');
@@ -96,12 +109,25 @@ Juego.Game_State.prototype = {
     },
     managePause: function () {
         this.game.paused = true;
-        var pausedText = this.add.text(600, 300, "PAUSED", this.fontMessage);
+        var pausedText = this.add.text(300, 350, "PAUSED", this.fontMessage);
         pausedText.anchor.set(0.5, 0.5);
 
         this.input.onDown.add(function () {
             pausedText.destroy();
             this.game.paused = false;
         }, this);
+    }, Reiniciar_Nivel: function () {
+        intentos += 1;
+        tiempoTotal = tiempoTotal + this.timerJuego;
+        B_musica = true;
+        B_efecto = true;
+        fichas = [];
+        bounds = null;
+        vertical1 = null;
+        vertical2 = null;
+        j = -1;
+        lag = [];
+        MusicaFondo.stop();
+        this.game.state.start('Game');
     }
 };
