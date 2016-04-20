@@ -109,7 +109,7 @@
                         Sonido_Salto.play();
                     }
                 } else {
-                    game.state.start('Game');
+                    swal({title: "Mal Movimiento!", text: "Este Movimiento No es Valido!", type: "error", confirmButtonText: "Aceptar"});
                     MusicaFondo.stop();
                 }
             }
