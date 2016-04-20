@@ -37,7 +37,7 @@
         game.state.add('Ayuda', Juego.Ayuda);
         game.state.add('Premiacion', Juego.Premiacion);
         game.state.start('Inicio');
-
+        var posiciones_sapos = [80,230,380,530,680,830,980];
         var saposGame = [];
         var sapos = null;
         var plataformas = null;
@@ -99,7 +99,7 @@
                     }
                 }
             }
-
+                
             function mover() {
                 dondeSaltar();
                 if (sePuede == true) {
@@ -112,10 +112,10 @@
                     game.state.start('Game');
                     MusicaFondo.stop();
                 }
-
             }
 
             function animationStopped(me, animation) {
+                me.x = posiciones_sapos[plataforma];
                 vx = 0;
                 vy = 0;
                 me.body.velocity = new Phaser.Point(vx, vy);
