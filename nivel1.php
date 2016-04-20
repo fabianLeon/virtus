@@ -47,13 +47,13 @@ include_once 'templates/open_head.php';
             usuario = "<?php echo($_SESSION['correo']); ?>";
             usuario = usuario.substring(0, 5);
             cookies = "uno";
-            
+
             var B_musica = true;
             var B_efecto = true;
             var Sonido_Movimiento;
             var MusicaFondo;
             var tiempoTotal = 0;
-            
+
             var efectividad = new Rangos(10, 50, "Efectividad");  // definir estructura de premiacion de la efectividad
             var eficacia = new Rangos(20, 50, "eficacia");        // definir estructura de premiacion de la eficacia
             var estrategia = new Rangos(10, 15, "Estrategia");    // definir estructura de premiacion de la estrategia
@@ -69,7 +69,9 @@ include_once 'templates/open_head.php';
                 init(x, y, t, i);
 
                 function dragStart() {
-                    Sonido_Movimiento.play();
+                    if (B_efecto) {
+                        Sonido_Movimiento.play();
+                    }
                     me.bringToTop();
                     me.xOld = me.x;
                     me.yOld = me.y;
@@ -98,12 +100,7 @@ include_once 'templates/open_head.php';
                                 me.y = me.yOld;
                             }
                             if (fichas[9].x == 200 && fichas[9].y == 400) {
-                                var campos = ["t_duracion", "n_secuencia", "q_desorden", "q_click", "n_teclado", "k_nivel"];
-                                var valores = [relojito, "'4'", 0, clicks, "'" + texto + "'", "1"];
-                                var tabla = "nivel_usuario";
-                                var destino = "controller/nivel_usuario_controller.php";
-                                borrarTodasLasCookies();
-                                llevarDatos(tabla, campos, valores, destino);
+                                game.state.start('Premiacion');
                             }
                         }
                     }
