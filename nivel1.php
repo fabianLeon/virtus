@@ -50,7 +50,7 @@ include_once 'templates/open_head.php';
             
             var B_musica = true;
             var B_efecto = true;
-            var Sonido_Salto;
+            var Sonido_Movimiento;
             var MusicaFondo;
             var tiempoTotal = 0;
             
@@ -69,6 +69,7 @@ include_once 'templates/open_head.php';
                 init(x, y, t, i);
 
                 function dragStart() {
+                    Sonido_Movimiento.play();
                     me.bringToTop();
                     me.xOld = me.x;
                     me.yOld = me.y;

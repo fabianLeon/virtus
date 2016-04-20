@@ -17,6 +17,7 @@ Juego.Game_State.prototype = {
         game.load.spritesheet('BottonReiniciar', 'assets/btn/engranes/BT_Reiniciar.png', 50, 50, 3);
 
         game.load.audio('MusicaFondo', 'assets/audio/fichas/MusicaFondo.mp3');
+        game.load.audio('Arrastrar', 'assets/audio/fichas/Arrastrar_ficha.mp3');
     },
     create: function () {
 
@@ -26,6 +27,7 @@ Juego.Game_State.prototype = {
         var x = 100;
         var y = 100;
         this.timerJuego = 0;
+        Sonido_Movimiento = this.game.add.audio('Arrastrar');
         bounds = game.add.sprite(x - 29, y - 25, 'tablero');
 
         // creacion de las fichas
@@ -116,7 +118,8 @@ Juego.Game_State.prototype = {
             pausedText.destroy();
             this.game.paused = false;
         }, this);
-    }, Reiniciar_Nivel: function () {
+    }, 
+    Reiniciar_Nivel: function () {
         intentos += 1;
         tiempoTotal = tiempoTotal + this.timerJuego;
         B_musica = true;
