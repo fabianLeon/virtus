@@ -29,7 +29,7 @@ include_once 'templates/open_head.php';
             usuario = "<?php echo($_SESSION['correo']); ?>";
             usuario = usuario.substring(0, 5);
             cookies = "diez";
-            nivel = "<?php echo $nivel; ?>";
+            nivel = 3;
             matrizMundo = [
 <?php
 for ($i = 0; $i < 8; $i++) {

@@ -20,12 +20,10 @@
                     </div><!-- /row -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" onclick="guardar_resultados()" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <a id="boton1" href="#ventana1" class="hiden" data-toggle="modal"></a>
-    <br><br><br><br><a class="btn btn-danger btn-lg" onclick="lanzar_ganador()">Peligro</a>
 </div>

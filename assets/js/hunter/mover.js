@@ -749,3 +749,6 @@ function lanzar_ganador() {
 
     ganador.click();
 }
+function guardar_resultados(){
+    salvarInfo(2, 3, 2,(7+nivel), 'aplicacion.php');
+}

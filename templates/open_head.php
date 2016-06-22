@@ -25,11 +25,11 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<!--<script type="text/javascript" src="assets/js/jquery-1.7.js"></script>-->
+<script type="text/javascript" src="assets/js/jquery-1.7.js"></script>
 <script type="text/javascript" src="assets/js/jquery-1.11.2.min.js"></script>
 
 <script type="text/javascript" src="assets/js/data.js"></script>
-
+<script type="text/javascript" src="assets/js/modal.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script src="dist/sweetalert-dev.js"></script>
