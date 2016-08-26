@@ -8,6 +8,6 @@ Juego.Ayuda.prototype = {
         this.buttonAceptar.anchor.setTo(0.5, 0.5);
     },
     retornarInicio: function () {
-        this.game.state.start('Inicio');
+        this.game.state.start('Menu');
     }
 };

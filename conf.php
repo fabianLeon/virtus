@@ -6,16 +6,16 @@
 /**
 *host de la base de datos
 */
-define('DB_HOST','http://www.grupovirtus.org:/tmp/mysql.sock');
+define('DB_HOST','localhost');//http://www.grupovirtus.org:/tmp/mysql.sock
 /**
 *nombre de la base de datos
 */
-define('DB_NAME','tecnoedu_virtus');
+define('DB_NAME','virtus');//tecnoedu_virtus'
 /**
 *usuario de base de datos de cliente
 */
-define('DB_USER','tecnoedu');
+define('DB_USER','root');//tecnoedu
 /**
 *PASS de base de datos de cliente
 */
-define('DB_PASS','Virtus2007');
+define('DB_PASS','');//Virtus2007

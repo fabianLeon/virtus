@@ -2,6 +2,8 @@
 <?php include_once 'templates/open_head.php'; ?>
 <script type="text/javascript" src="assets/js/phaser.min.js"></script>
 <script type="text/javascript" src="assets/js/canon/Inicio.js"></script>
+<script type="text/javascript" src="assets/js/canon/Precarga.js"></script>
+<script type="text/javascript" src="assets/js/canon/Menu.js"></script>
 <script type="text/javascript" src="assets/js/canon/Game.js"></script>
 <script type="text/javascript" src="assets/js/canon/Ayuda.js"></script>
 <script type="text/javascript" src="assets/js/canon/Premiacion.js"></script>
@@ -32,6 +34,8 @@
         
         var game = new Phaser.Game(1000, 550, Phaser.CANVAS, 'game');
         game.state.add('Inicio', Juego.Inicio);
+        game.state.add('Precarga', Juego.Precarga);
+        game.state.add('Menu', Juego.Menu);
         game.state.add('Game', Juego.Game);
         game.state.add('Ayuda', Juego.Ayuda);
         game.state.add('Premiacion', Juego.Premiacion);

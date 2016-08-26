@@ -6,6 +6,8 @@ include_once 'templates/open_head.php';
 <script type="text/javascript" src="assets/js/phaser.min.js"></script>
 <script type="text/javascript" src="assets/js/php.js"></script>
 <script type="text/javascript" src="assets/js/fichas/Inicio.js"></script>
+<script type="text/javascript" src="assets/js/fichas/Precarga.js"></script>
+<script type="text/javascript" src="assets/js/fichas/Menu.js"></script>
 <script type="text/javascript" src="assets/js/fichas/Ayuda.js"></script>
 <script type="text/javascript" src="assets/js/fichas/game_State.js"></script>
 <script type="text/javascript" src="assets/js/fichas/Premiacion.js"></script>
@@ -34,12 +36,13 @@ include_once 'templates/open_head.php';
             var lag = [];
 
             game.state.add('Inicio', Juego.Inicio);
+            game.state.add('Precarga', Juego.Precarga);
+            game.state.add('Menu', Juego.Menu);
             game.state.add('Game', Juego.Game_State);
             game.state.add('Ayuda', Juego.Ayuda);
             game.state.add('Premiacion', Juego.Premiacion);
             game.state.start('Inicio');
-            game.state.start('Inicio');
-
+            
             // definicion de variables de sesion de javascript para almacenar los distintos valores
             // estos cambiaran para cada usuario y nivel
             // cookies almacenara el nivel en este caso nivel uno

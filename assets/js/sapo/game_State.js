@@ -1,21 +1,6 @@
 Juego.Game_State = function (game) {
 };
 Juego.Game_State.prototype = {
-    preload: function () {
-        game.load.image('plataforma', 'assets/img/sapo/plataforma.png');
-        game.load.image('fondo', 'assets/img/sapo/fondo1.jpg');
-        game.load.spritesheet('azul', 'assets/img/sapo/rojo.png', 138, 100);
-        game.load.spritesheet('rojo', 'assets/img/sapo/azul.png', 138, 100);
-
-        game.load.spritesheet('BottonesSonido', 'assets/btn/sapo/BT_Sonido.png', 50, 50, 4);
-        game.load.spritesheet('BottonPause', 'assets/btn/sapo/BT_Pause.png', 50, 50, 3);
-        game.load.image('BotonEfecto2', 'assets/btn/sapo/BT_Efectos2.png');
-        game.load.image('BotonMusica2', 'assets/btn/sapo/BT_Musica2.png');
-        game.load.spritesheet('BottonReiniciar', 'assets/btn/sapo/BT_Reiniciar.png', 50, 50, 3);
-
-        game.load.audio('MusicaFondo', 'assets/audio/sapo/MusicaFondo3.mp3');
-        game.load.audio('Salto_Sapo', 'assets/audio/sapo/Sonido de la rana salto.mp3');
-    },
     create: function () {
 //        this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 //        this.game.scale.pageAlignHorizontally = true;
@@ -24,7 +9,7 @@ Juego.Game_State.prototype = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.arcade.gravity.set(0, 60);
 
-        var fondo = game.add.sprite(0, 0, 'fondo');
+        var fondo = game.add.sprite(0, 0, 'Fondo');
 
         var me = this;
         this.timerJuego = 0;

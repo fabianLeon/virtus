@@ -1,24 +1,6 @@
 Juego.Game_State = function (game) {
 };
 Juego.Game_State.prototype = {
-    preload: function () {
-        game.load.image('Fondo', 'assets/img/fichas/fondo.jpg');
-        game.load.image('cuadro', 'assets/img/fichas/cuadro1.png');
-        game.load.image('horizontal', 'assets/img/fichas/horizontal3.png');
-        game.load.image('vertical', 'assets/img/fichas/vertical2.png');
-        game.load.image('cuadrito', 'assets/img/fichas/cuadrito2.png');
-        game.load.image('tablero', 'assets/img/fichas/fondo2.png');
-        game.load.spritesheet('fuego', 'assets/img/fichas/fuego.png', 200, 200);
-
-        game.load.spritesheet('BottonesSonido', 'assets/btn/sapo/BT_Sonido.png', 50, 50, 4);
-        game.load.spritesheet('BottonPause', 'assets/btn/sapo/BT_Pause.png', 50, 50, 3);
-        game.load.image('BotonEfecto2', 'assets/btn/sapo/BT_Efectos2.png');
-        game.load.image('BotonMusica2', 'assets/btn/sapo/BT_Musica2.png');
-        game.load.spritesheet('BottonReiniciar', 'assets/btn/engranes/BT_Reiniciar.png', 50, 50, 3);
-
-        game.load.audio('MusicaFondo', 'assets/audio/fichas/MusicaFondo.mp3');
-        game.load.audio('Arrastrar', 'assets/audio/fichas/Arrastrar_ficha.mp3');
-    },
     create: function () {
 
         game.add.image(0, 0, 'Fondo');
