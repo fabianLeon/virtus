@@ -2,7 +2,6 @@ Juego.GameSecond = function (game) {
 };
 Juego.GameSecond.prototype = {
     create: function () {
-
         this.textPregunta;
         this.timer = 0;
         this.contadorPregunta = 1;

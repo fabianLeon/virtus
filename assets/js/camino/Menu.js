@@ -1,7 +1,7 @@
 Juego.Menu = function (game) {
 };
 Juego.Menu.prototype = {
-    create: function () {
+    create: function () {  
         this.game.add.image(0, 0, 'Fondo');
 
         this.buttonJugar = this.game.add.button(350, 400, 'Bottones', this.actionOnClick, this, 1, 0, 2);

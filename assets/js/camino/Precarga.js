@@ -4,21 +4,18 @@ Juego.Precarga.prototype = {
     preload: function () {
         //Agregar texto al juego
         this.labelloading = this.game.add.text(this.game.world.centerX + 0.5, //Posicion en X
-                this.game.world.centerY - 15 + 0.5, //Posicion en Y
+                this.game.world.centerY + 110, //Posicion en Y
                 'cargando...', //Texto
-                {font: '30px Arial', fill: '#fff'}); //Estilo del texto
+                {font: '30px Arial', fill: '#ffffff'}); //Estilo del texto
         //Establecer el punto de anclaje en el centro
         this.labelloading.anchor.setTo(0.5, 0.5);
 
-        this.preloadingborder = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 30, 'loadingborder');
+        this.preloadingborder = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 100, 'odin2');
         this.preloadingborder.x -= this.preloadingborder.width / 2;
-        this.preloading = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY + 19, 'loading');
+        this.preloading = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 100, 'odin');
         this.preloading.x -= this.preloading.width / 2;
         //Crear la barra de carga del juego
-        this.game.load.setPreloadSprite(this.preloading, 0);//Sprite, direccion(0==horizontal, 1==vertical)       
-
-//        this.odin = this.game.add.image(500, 250, 'odin');
-//        this.odin.angle += 0.8;
+        this.game.load.setPreloadSprite(this.preloading, 1);//Sprite, direccion(0==horizontal, 1==vertical)       
 
         this.game.load.image('Fondo', 'assets/img/camino/Fondo.jpg');
         this.game.load.image('Ayuda_1', 'assets/img/camino/Ayuda1.png');
