@@ -8,7 +8,7 @@ Juego.Premiacion.prototype = {
         MusicaFondo = this.game.add.audio('MusicaTriunfo');
         MusicaFondo.loopFull(0.6);
 
-        this.buttonContinue = this.add.button(500, 470, 'BottonAceptar', this.retornarInicio, this, 1, 0, 2);
+        this.buttonContinue = this.add.button(630, 470, 'BottonAceptar', this.retornarInicio, this, 1, 0, 2);
         this.buttonContinue.anchor.setTo(0.5, 0.5);
     },
     Medalleria: function () {
@@ -21,13 +21,13 @@ Juego.Premiacion.prototype = {
         medalla_efectividad = nivel_premiacion.calcularEfe(intentos);
         medalla_estrategia = nivel_premiacion.calcularEstra(Movimientos);
 //---------------------------------MEDALLA 1-----------------------------------------
-        this.medalla1 = this.game.add.sprite(500, 200, 'Medallas', medalla_efectividad);
+        this.medalla1 = this.game.add.sprite(630, 200, 'Medallas', medalla_efectividad);
         this.medalla1.anchor.setTo(0.5, 0.5);
 //---------------------------------MEDALLA 2-----------------------------------------
-        this.medalla1 = this.game.add.sprite(700, 300, 'Medallas', medalla_eficacia);
+        this.medalla1 = this.game.add.sprite(830, 300, 'Medallas', medalla_eficacia);
         this.medalla1.anchor.setTo(0.5, 0.5);
 //---------------------------------MEDALLA 3-----------------------------------------
-        this.medalla1 = this.game.add.sprite(300, 300, 'Medallas', medalla_estrategia);
+        this.medalla1 = this.game.add.sprite(430, 300, 'Medallas', medalla_estrategia);
         this.medalla1.anchor.setTo(0.5, 0.5);
 
     },

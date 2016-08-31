@@ -24,10 +24,10 @@ Juego.Premiacion.prototype = {
         this.medalla1 = this.game.add.sprite(500, 200, 'Medallas', medalla_efectividad);
         this.medalla1.anchor.setTo(0.5, 0.5);
 //---------------------------------MEDALLA 2-----------------------------------------
-        this.medalla1 = this.game.add.sprite(700, 300, 'Medallas', medalla_eficacia);
+        this.medalla1 = this.game.add.sprite(650, 300, 'Medallas', medalla_eficacia);
         this.medalla1.anchor.setTo(0.5, 0.5);
 //---------------------------------MEDALLA 3-----------------------------------------
-        this.medalla1 = this.game.add.sprite(300, 300, 'Medallas', medalla_estrategia);
+        this.medalla1 = this.game.add.sprite(350, 300, 'Medallas', medalla_estrategia);
         this.medalla1.anchor.setTo(0.5, 0.5);
 
     },

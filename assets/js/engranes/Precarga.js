@@ -4,7 +4,7 @@ Juego.Precarga.prototype = {
     preload: function () {
         //Agregar texto al juego
         this.labelloading = this.game.add.text(this.game.world.centerX + 0.5, //Posicion en X
-                this.game.world.centerY + 110, //Posicion en Y
+                this.game.world.centerY + 130, //Posicion en Y
                 'cargando...', //Texto
                 {font: '30px Arial', fill: '#fff'}); //Estilo del texto
         //Establecer el punto de anclaje en el centro
