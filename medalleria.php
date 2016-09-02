@@ -31,45 +31,45 @@
             
             <div class="row"><!-- /eficacia -->
                 <div class="col-lg-4">
-                    <img src="assets/img/medallas/0.png" class="img-responsive" alt="" width="200" height="200">
+                    <img src="assets/img/medallas/0.png" class="img-responsive" alt="" width="150" height="150">
                     <h1><?php echo (contarMedallas($medallas,0));?></h1>
                 </div>
                 <div class="col-lg-4">
-                    <img src="assets/img/medallas/1.png" class="img-responsive" alt="" width="200" height="200">
+                    <img src="assets/img/medallas/1.png" class="img-responsive" alt="" width="150" height="150">
                     <h1><?php echo (contarMedallas($medallas,1));?></h1>
                 </div>
                 <div class="col-lg-4">
-                    <img src="assets/img/medallas/2.png" class="img-responsive" alt="" width="200" height="200">
+                    <img src="assets/img/medallas/2.png" class="img-responsive" alt="" width="150" height="150">
                     <h1><?php echo (contarMedallas($medallas,2));?></h1>
                 </div>
             </div><!-- /row -->
             
             <div class="row"><!-- /eficacia -->
                 <div class="col-lg-4">
-                    <img src="assets/img/medallas/3.png" class="img-responsive" alt="" width="200" height="200">
+                    <img src="assets/img/medallas/3.png" class="img-responsive" alt="" width="150" height="150">
                     <h1><?php echo (contarMedallas($medallas,3));?></h1>
                 </div>
                 <div class="col-lg-4">
-                    <img src="assets/img/medallas/4.png" class="img-responsive" alt="" width="200" height="200">
+                    <img src="assets/img/medallas/4.png" class="img-responsive" alt="" width="150" height="150">
                     <h1><?php echo (contarMedallas($medallas,4));?></h1>
                 </div>
                 <div class="col-lg-4">
-                    <img src="assets/img/medallas/5.png" class="img-responsive" alt="" width="200" height="200">
+                    <img src="assets/img/medallas/5.png" class="img-responsive" alt="" width="150" height="150">
                     <h1><?php echo (contarMedallas($medallas,5));?></h1>
                 </div>
             </div><!-- /row -->
             
             <div class="row"><!-- /estrategia -->
                 <div class="col-lg-4">
-                    <img src="assets/img/medallas/6.png" class="img-responsive" alt="" width="200" height="200">
+                    <img src="assets/img/medallas/6.png" class="img-responsive" alt="" width="150" height="150">
                     <h1><?php echo (contarMedallas($medallas,6));?></h1>
                 </div>
                 <div class="col-lg-4">
-                    <img src="assets/img/medallas/7.png" class="img-responsive" alt="" width="200" height="200">
+                    <img src="assets/img/medallas/7.png" class="img-responsive" alt="" width="150" height="150">
                     <h1><?php echo (contarMedallas($medallas,7));?></h1>
                 </div>
                 <div class="col-lg-4">
-                    <img src="assets/img/medallas/8.png" class="img-responsive" alt="" width="200" height="200">
+                    <img src="assets/img/medallas/8.png" class="img-responsive" alt="" width="150" height="150">
                     <h1><?php echo (contarMedallas($medallas,8));?></h1>
                 </div>
             </div><!-- /row -->
