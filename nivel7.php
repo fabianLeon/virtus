@@ -19,16 +19,18 @@ include_once 'templates/open_head.php';
     ?>
     <!-- asignar la matriz guardada en el archivo a la matriz creada en javascript que contiene el mundo creado -->
     <script type="text/javascript">
+
+
         // definicion de variables de sesion de javascript para almacenar los distintos valores
         // estos cambiaran para cada usuario y nivel
         // cookies almacenara el nivel en este caso nivel uno
         // usuario traido de la variable de session de php
         var ganador = document.getElementById("boton1");
-        
+
         var efectividad = new Rangos(7, 12, "Efectividad");  // definir estructura de premiacion de la efectividad depende de hacerlo bien
         var eficacia = new Rangos(300, 600, "eficacia");        // definir estructura de premiacion de la eficacia depende del tiempo
         var estrategia = new Rangos(7, 12, "Estrategia");
-        
+
         usuario = "<?php echo($_SESSION['correo']); ?>";
         usuario = usuario.substring(0, 5);
         cookies = "siete";
@@ -44,7 +46,6 @@ for ($i = 0; $i < 8; $i++) {
 }
 ?>
         ];
-
 
     </script>
     <br><br><br><br>
@@ -143,5 +144,12 @@ for ($i = 0; $i < 8; $i++) {
     </div>
 
 </body>
+<script>
+    Pace.on('hide', function () {
+
+        console.log('done');
+    });
+</script>
 <?php include_once 'templates/js.php'; ?>
+
 </html>

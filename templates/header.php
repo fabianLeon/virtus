@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.php">
-                Odin
+                 <img src = "assets/img/pag/odin.png"class="img-responsive" style="max-width: 100px; margin-top: -25px">
             </a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
