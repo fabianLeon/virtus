@@ -15,8 +15,6 @@
 <!-- Custom styles for this template -->
 <link href="assets/css/style.css" rel="stylesheet">
 <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/pace-theme-center-circle.css" />
 <!-- Just for debugging purposes. Don't actually copy this line! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -34,6 +32,4 @@
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script src="dist/sweetalert-dev.js"></script>
 <script src="dist/sweetalert2.min.js"></script>
-<script src="assets/js/pace.js"></script>
-<script src="assets/js/pace.min.js"></script>
 <link rel="stylesheet" type="text/css" href="dist/sweetalert2.min.css">
