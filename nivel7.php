@@ -144,12 +144,6 @@ for ($i = 0; $i < 8; $i++) {
     </div>
 
 </body>
-<script>
-    Pace.on('hide', function () {
-
-        console.log('done');
-    });
-</script>
 <?php include_once 'templates/js.php'; ?>
 
 </html>

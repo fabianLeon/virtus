@@ -71,7 +71,7 @@
                                 <img src= "assets/img/niveles/hunter4.png" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
-                                        <h3 class="a1" data-animate="fadeInDown">Nivel 4. Apaga la Llama</h3>
+                                        <h3 class="a1" data-animate="fadeInDown">Nivel 4. Nivel Final</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/hunter4.png" class="dmbutton a2" data-animate="fadeInUp">
                                             <i class="fa fa-search"></i></a>
                                         <a href="nivel10.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>

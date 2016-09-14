@@ -12,7 +12,10 @@ function salvarInfo(efi, efe, est,n, origen){
     var tabla = "nivel_usuario";
     var destino = "controller/nivel_usuario_controller.php";
     borrarTodasLasCookies();
-    llevarDatos(tabla, campos, valores, destino, origen);
+    var cadena = llevarDatos(tabla, campos, valores, destino, origen);
+    $.get(cadena, function(status){
+        console.log(status);
+    });
 }
 var Rangos = function (ini, fin, nombre) {
     // define la posicion correspondiente a la peor
@@ -62,7 +65,8 @@ function llevarDatos(tabla, campos, valores, lugar, origen) {
     }
     cadena += "tabla=" + tabla;
     cadena += "&origen=" + origen;
-    window.location = lugar + cadena;
+    return (lugar + cadena);
+   //window.location = lugar + cadena;
 }
 
 function obtenersesion(us, cok, data) {

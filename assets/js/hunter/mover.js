@@ -491,7 +491,6 @@ function moverDef() {
         }
 
     } else if (matrizFuncion [f][c] === 5) {
-
         if (vector[0] === xBom && vector[1] === yBom) {
             matrizMundo [(vector[0])][(vector[1])] = 17;
             pintarTablero(ctx);
@@ -714,40 +713,8 @@ function ayuda1() {
     });
 }
 
-function ayuda2() {
-    swal({
-        imageUrl: 'assets/img/fichas/ayuda1.png',
-        imageWidth: 600,
-        imageHeight: 600,
-        animation: true
-    });
-}
-
-function ayuda3() {
-    swal({
-        imageUrl: 'assets/img/fichas/ayuda1.png',
-        imageWidth: 600,
-        imageHeight: 600,
-        animation: true
-    });
-}
-
-function ayuda4() {
-    swal({
-        imageUrl: 'assets/img/fichas/ayuda1.png',
-        imageWidth: 800,
-        imageHeight: 600,
-        animation: true
-    });
-}
-
 function lanzar_ganador() {
     
-    var img_efec = document.getElementById("efectividad");
-    var img_efic = document.getElementById("eficiencia");
-    var estrategia = document.getElementById("estrategia");
-
-    ganador.click();
 }
 function guardar_resultados(){
     salvarInfo(2, 3, 2,(7+nivel), 'aplicacion.php');
