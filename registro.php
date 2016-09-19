@@ -48,10 +48,10 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" name="inputEdad" id="inputEdad" required="" placeholder="* Edad">
+                                    <input type="number" class="form-control" name="inputEdad" id="inputEdad" required="" placeholder="* Edad" autocomplete="off">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" name="inputPassword" id="inputPassword" required="" placeholder="* Contraseña ">
+                                    <input type="password" class="form-control" name="inputPassword" id="inputPassword" required="" placeholder="* Contraseña " autocomplete="off">
                                 </div>
                                 <div style="text-align: center">
                                     <button type="submit" class="btn btn-theme">Registrar</button>

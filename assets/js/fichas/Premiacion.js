@@ -35,10 +35,9 @@ Juego.Premiacion.prototype = {
         this.medalla1.anchor.setTo(0.5, 0.5);
         this.medalla1.scale.x = 0.7;
         this.medalla1.scale.y = 0.7;
-
+        salvarInfo(medalla_eficacia, medalla_efectividad, medalla_estrategia, "6");
     },
     retornarInicio: function () {
-        salvarInfo(medalla_eficacia, medalla_efectividad, medalla_estrategia, "6", "abstracto.php");
-
-    },
+        ir_a("abstracto.php");
+    }
 };

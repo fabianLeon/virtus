@@ -29,10 +29,10 @@ Juego.Premiacion.prototype = {
 //---------------------------------MEDALLA 3-----------------------------------------
         this.medalla1 = this.game.add.sprite(430, 300, 'Medallas', medalla_estrategia);
         this.medalla1.anchor.setTo(0.5, 0.5);
-
+        salvarInfo(medalla_eficacia, medalla_efectividad, medalla_estrategia, "4");
+        console.log('algo sucedio');
     },
     retornarInicio: function () {
-        salvarInfo(medalla_eficacia, medalla_efectividad, medalla_estrategia, "4", "abstracto.php");
-
-    },
+        ir_a("abstracto.php");   
+    }
 };

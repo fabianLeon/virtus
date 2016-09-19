@@ -6,19 +6,20 @@ function reiniciar(side) {
     setTimeout("location.href='" + side + "'", 3000);
 }
 
-function salvarInfo(efi, efe, est,n, origen){
+function salvarInfo(efi, efe, est,n){
     var campos = ["n_intento","q_eficiencia","q_efectividad","q_estrategia","t_duracion", "q_click", "n_teclado", "k_nivel"];
     var valores = [intentos,efi,efe,est,relojito, clicks, "'" + texto + "'", n];
     var tabla = "nivel_usuario";
     var destino = "controller/nivel_usuario_controller.php";
     borrarTodasLasCookies();
-    var cadena = llevarDatos(tabla, campos, valores, destino, origen);
+    var cadena = llevarDatos(tabla, campos, valores, destino);
     $.get(cadena, function(status){
         console.log(status);
     });
 }
 
 function ir_a(destino){
+    console.log(destino);
    window.location = destino;
 }
 var Rangos = function (ini, fin, nombre) {
@@ -61,14 +62,13 @@ var Premiacion = function (efectividad, eficacia, estrategia) {
     };
 };
 
-function llevarDatos(tabla, campos, valores, lugar, origen) {
+function llevarDatos(tabla, campos, valores, lugar) {
     var lugar = lugar + "?";
     var cadena = "";
     for (var i = campos.length - 1; i >= 0; i--) {
         cadena += campos[i] + "=" + valores[i] + "&";
     }
     cadena += "tabla=" + tabla;
-    cadena += "&origen=" + origen;
     return (lugar + cadena);
 }
 

@@ -35,7 +35,7 @@
                                 <img src= "assets/img/niveles/sapos.jpg" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
-                                        <h3 class="a1" data-animate="fadeInDown">Nivel 1. Camaleones</h3>
+                                        <h3 class="a1" data-animate="fadeInDown">Nivel 1. Sapos Saltarines</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/sapos.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <?php
                                         if (!in_array('4', $niveles)) {
