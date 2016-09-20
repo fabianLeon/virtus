@@ -17,6 +17,10 @@ function salvarInfo(efi, efe, est,n, origen){
         console.log(status);
     });
 }
+
+function ir_a(destino){
+   window.location = destino;
+}
 var Rangos = function (ini, fin, nombre) {
     // define la posicion correspondiente a la peor
     this.nombre = nombre;
@@ -66,7 +70,6 @@ function llevarDatos(tabla, campos, valores, lugar, origen) {
     cadena += "tabla=" + tabla;
     cadena += "&origen=" + origen;
     return (lugar + cadena);
-   //window.location = lugar + cadena;
 }
 
 function obtenersesion(us, cok, data) {

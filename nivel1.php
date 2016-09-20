@@ -105,6 +105,7 @@ include_once 'templates/open_head.php';
                             }
                             if (fichas[9].x == 200 && fichas[9].y == 400) {
                                 MusicaFondo.stop();
+                                
                                 game.state.start('Premiacion');        
                             }
                         }
