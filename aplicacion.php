@@ -37,7 +37,7 @@
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 1. Aplicación</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter1.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter1.png" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <?php
                                         if (!in_array('7', $niveles)) {
                                             ?>
@@ -56,7 +56,7 @@
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 2. Aplicación</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter2.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter2.png" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <?php
                                         if (!in_array('8', $niveles)) {
                                             ?>
@@ -75,7 +75,7 @@
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 3. Aplicación</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter3.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter3.png" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <?php
                                         if (!in_array('9', $niveles)) {
                                             ?>
@@ -94,7 +94,7 @@
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel Final Aplicación</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter4.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter4.png" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <?php
                                         if (!in_array('10', $niveles)) {
                                             ?>
