@@ -17,7 +17,7 @@ if( $daoSession->inicioSesion($correo, $pass)){
     $result = $daoSession->inicioSesion($correo, $pass);
     $_SESSION['user'] = $dao->strtoupper_utf8($result[0]);
     $_SESSION['correo'] = $correo;
-    header('Location: ../index.php');
+    header('Location: ../menu.php');
 }else{
     header('Location: ../login.php?e=QWEsdfeDFSDAcdffg');
 }

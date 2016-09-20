@@ -20,15 +20,7 @@
                 <li><a href="contactenos.php">CONTACTENOS</a></li>
 
                 <?php if ($_SESSION) { ?>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">JUGAR !! </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="logica_matematica.php">Logica Matemática</a></li>
-                            <li><a href="abstracto.php">Abstracto</a></li>
-                            <li><a href="aplicacion.php">Aplicacion</a></li>
-                            <li><a href="medalleria.php">Medalleria</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="menu.php">JUGAR</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class='glyphicon glyphicon-user' aria-hidden='true'>
                             </span><?php echo("    " . $_SESSION['user']); ?> <b class="caret"></b></a>

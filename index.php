@@ -34,7 +34,11 @@
             </div>
 
             <h3>
-                <a href="registro.php">Registrate y Juega con nosotros.</a>
+                <a href="registro.php">Registrate y Juega con nosotros aqui!.</a>
+            </h3>
+            
+            <h3>
+                <a href="login.php">si ya has jugado antes inicia sesion aqui !.</a>
             </h3>
         </div><!-- /row -->
     </div> <!-- /container -->
