@@ -2,7 +2,11 @@
     <?php include_once 'templates/head.php'; ?>
     <body>
 
-        <?php include_once 'templates/header.php'; ?>
+        <?php include_once 'templates/header.php';
+
+        include_once './controller/niveles_controller.php';
+        ?>
+
         <!-- Fixed navbar -->
 
         <!-- *****************************************************************************************************************
@@ -32,9 +36,15 @@
                                 <img src= "assets/img/niveles/hunter1.png" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
-                                        <h3 class="a1" data-animate="fadeInDown">Nivel 1. Inicial</h3>
+                                        <h3 class="a1" data-animate="fadeInDown">Nivel 1. Aplicación</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/hunter1.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel7.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php
+                                        if (!in_array('7', $niveles)) {
+                                            ?>
+                                            <a href="nivel7.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                            <?php } else { ?>
+                                            <h3 class="a1" data-animate="fadeInDown">SUPERADO !!!</h3>
+                                            <?php } ?>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
@@ -45,9 +55,15 @@
                                 <img src= "assets/img/niveles/hunter2.png" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
-                                        <h3 class="a1" data-animate="fadeInDown">Nivel 2. Saltos</h3>
+                                        <h3 class="a1" data-animate="fadeInDown">Nivel 2. Aplicación</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/hunter2.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel8.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php
+                                        if (!in_array('8', $niveles)) {
+                                            ?>
+                                            <a href="nivel8.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                            <?php } else { ?>
+                                            <h3 class="a1" data-animate="fadeInDown">SUPERADO !!!</h3>
+                                            <?php } ?>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
@@ -58,23 +74,34 @@
                                 <img src= "assets/img/niveles/hunter3.png" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
-                                        <h3 class="a1" data-animate="fadeInDown">Nivel 3. Funciones</h3>
+                                        <h3 class="a1" data-animate="fadeInDown">Nivel 3. Aplicación</h3>
                                         <a data-rel="prettyPhoto" href="assets/img/niveles/hunter3.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                        <a href="nivel9.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <?php
+                                        if (!in_array('9', $niveles)) {
+                                            ?>
+                                            <a href="nivel9.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                            <?php } else { ?>
+                                            <h3 class="a1" data-animate="fadeInDown">SUPERADO !!!</h3>
+                                            <?php } ?>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
                         </div><!-- end col-12 --> 
-                        
+
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
                                 <img src= "assets/img/niveles/hunter4.png" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
-                                        <h3 class="a1" data-animate="fadeInDown">Nivel 4. Nivel Final</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter4.png" class="dmbutton a2" data-animate="fadeInUp">
-                                            <i class="fa fa-search"></i></a>
-                                        <a href="nivel10.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                        <h3 class="a1" data-animate="fadeInDown">Nivel Final Aplicación</h3>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter4.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <?php
+                                        if (!in_array('10', $niveles)) {
+                                            ?>
+                                            <a href="nivel10.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
+                                            <?php } else { ?>
+                                            <h3 class="a1" data-animate="fadeInDown">SUPERADO !!!</h3>
+                                            <?php } ?>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
                             </div><!-- he wrap -->
@@ -95,12 +122,12 @@
         <!-- *****************************************************************************************************************
          FOOTER
          ***************************************************************************************************************** -->
-        <?php include_once 'templates/footer.php'; ?>
+<?php include_once 'templates/footer.php'; ?>
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <?php include_once 'templates/js.php'; ?>
+<?php include_once 'templates/js.php'; ?>
         <script>
             // Portfolio
             (function ($) {

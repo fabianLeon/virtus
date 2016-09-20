@@ -29,4 +29,5 @@
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script src="dist/sweetalert-dev.js"></script>
     <script src="dist/sweetalert2.min.js"></script>
+    <script src="dist/promise.min.js"></script>
     <link rel="stylesheet" type="text/css" href="dist/sweetalert2.min.css">

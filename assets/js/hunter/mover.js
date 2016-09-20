@@ -9,6 +9,7 @@ var gano = false;
 var nivel, juego;
 var movEsce;
 var movFunc;
+var movimientos = 0;
 
 
 //inicializacion		   
@@ -199,6 +200,7 @@ function crearMatrizFunciones2() {
 
 //adiciona movimientos a la matriz
 function cambiarMatriz(val) {
+    movimientos++;
     if (val !== null) {
         if (val === 7) {
             if ((matrizFunciones[0][0] !== 0)) {
@@ -501,7 +503,7 @@ function moverDef() {
             lanzar_ganador();
         } else {
             swal({title: "Mal Movimiento!", text: "No puedes Recoger la planta ahora!", type: "error", confirmButtonText: "Aceptar"});
-            reset();
+            //reset();
         }
     }
     f++;
@@ -706,7 +708,47 @@ function perdio() {
 
 function ayuda1() {
     swal({
-        imageUrl: 'assets/img/fichas/ayuda1.png',
+        title: 'Medallas',
+        html:
+                '<img src="assets/img/hunter/dezplazamientos/encender.png">\n\
+<img src="assets/img/hunter/dezplazamientos/encender.png">\n\
+<img src="assets/img/hunter/dezplazamientos/encender.png">',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonText:
+                '<i class="fa fa-thumbs-up"></i> Great!',
+        cancelButtonText:
+                '<i class="fa fa-thumbs-down"></i>'
+    });
+}
+
+function ayuda2() {
+    swal({
+        title: 'Sweet!',
+        text: 'Modal with a custom image.',
+        imageUrl: 'https://unsplash.it/600/600',
+        imageWidth: 600,
+        imageHeight: 600,
+        animation: true
+    });
+}
+
+function ayuda3() {
+    swal({
+        title: 'Sweet!',
+        text: 'Modal with a custom image.',
+        imageUrl: 'https://unsplash.it/600/600',
+        imageWidth: 600,
+        imageHeight: 600,
+        animation: true
+    });
+}
+
+function ayuda4() {
+    swal({
+        title: 'Sweet!',
+        text: 'Modal with a custom image.',
+        imageUrl: 'https://unsplash.it/600/600',
         imageWidth: 600,
         imageHeight: 600,
         animation: true
@@ -714,8 +756,22 @@ function ayuda1() {
 }
 
 function lanzar_ganador() {
-    
-}
-function guardar_resultados(){
-    salvarInfo(2, 3, 2,(7+nivel), 'aplicacion.php');
+    var nivel_premiacion = new Premiacion(efectividad, eficacia, estrategia);
+    medalla_eficacia = nivel_premiacion.calcularEfi(relojito);
+    medalla_efectividad = nivel_premiacion.calcularEfe(intentos);
+    medalla_estrategia = nivel_premiacion.calcularEstra(movimientos);
+
+    salvarInfo(medalla_eficacia, medalla_efectividad, medalla_estrategia, 7 + nivel);
+
+    swal({
+        title: 'Medallas',
+        html:
+                '<img style="max-width: 120px;" src="assets/img/medallas/' + medalla_eficacia + '.png">\n\
+                <img style="max-width: 120px;" src="assets/img/medallas/' + medalla_efectividad + '.png">\n\
+                <img style="max-width: 120px; " src="assets/img/medallas/' + medalla_estrategia + '.png">',
+        confirmButtonText: 'Aceptar'
+    }).then(function () {
+        ir_a('aplicacion.php');
+    });
+
 }
