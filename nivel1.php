@@ -4,7 +4,6 @@ include_once 'templates/open_head.php';
 ?>
 
 <script type="text/javascript" src="assets/js/phaser.min.js"></script>
-<script type="text/javascript" src="assets/js/php.js"></script>
 <script type="text/javascript" src="assets/js/fichas/Inicio.js"></script>
 <script type="text/javascript" src="assets/js/fichas/Precarga.js"></script>
 <script type="text/javascript" src="assets/js/fichas/Menu.js"></script>

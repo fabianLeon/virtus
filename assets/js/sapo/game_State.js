@@ -58,10 +58,14 @@ Juego.Game_State.prototype = {
         this.buttonPause = this.game.add.button(1110, 50, 'BottonPause', this.managePause, this, 1, 0, 2);
         this.buttonPause.anchor.setTo(0.5, 0.5);
         this.buttonPause.name = 'Pause';
-        
+
         this.buttonReiniciar = this.game.add.button(930, 50, 'BottonReiniciar', this.Reiniciar_Nivel, this, 1, 0, 2);
         this.buttonReiniciar.anchor.setTo(0.5, 0.5);
         this.buttonReiniciar.name = 'Reiniciar';
+
+        this.buttonAyudaJuego = this.game.add.button(870, 50, 'BottonAyuda', this.Ayuda_Juego, this, 1, 0, 2);
+        this.buttonAyudaJuego.anchor.setTo(0.5, 0.5);
+        this.buttonAyudaJuego.name = 'Ayuda';
 
         //Sonidos del videoJuego se agregan
         MusicaFondo = this.game.add.audio('MusicaFondo');
@@ -133,14 +137,22 @@ Juego.Game_State.prototype = {
         tiempoTotal = tiempoTotal + this.timerJuego;
         B_musica = true;
         B_efecto = true;
-        
-        posiciones_sapos = [80,230,380,530,680,830,980];
+
+        posiciones_sapos = [80, 230, 380, 530, 680, 830, 980];
         saposGame = [];
         sapos = null;
         plataformas = null;
 
         MusicaFondo.stop();
         this.game.state.start('Game');
+    },
+    Ayuda_Juego: function () {
+        swal({
+            title: 'Ayuda',
+            html: '<img src="assets/img/sapo/Ayuda.png" WIDTH=1000 HEIGHT=600>',
+            showCloseButton: true,
+            confirmButtonText: 'Ok'
+        });
     }
 
 };

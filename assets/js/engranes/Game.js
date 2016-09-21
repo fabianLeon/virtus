@@ -37,6 +37,11 @@ Juego.Game.prototype = {
         this.buttonReiniciar.anchor.setTo(0.5, 0.5);
         this.buttonReiniciar.name = 'Reiniciar';
 
+        this.buttonAyudaJuego = this.game.add.button(720, 50, 'BottonAyuda', this.Ayuda_Juego, this, 1, 0, 2);
+        this.buttonAyudaJuego.anchor.setTo(0.5, 0.5);
+        this.buttonAyudaJuego.name = 'Ayuda';
+
+
         this.buttonContinue = this.game.add.button(500, 500, 'BottonSiguiente', this.CambiarEscenario, this, 1, 0, 2);
         this.buttonContinue.name = "Continue";
         this.buttonContinue.anchor.setTo(0.5, 0.5);
@@ -168,10 +173,10 @@ Juego.Game.prototype = {
                 this.tiempo_detenerse++;
                 if (respuesta == 3 && this.tiempo_detenerse == 1) {
                     swal({title: "¡Respuesta Correcta!",
-                            text: "Ningun sistema de engranes hace que las agujas se muevan en sentido contrario.",
-                            timer: 1000,
-                            showConfirmButton: false,
-                            type: "success"});
+                        text: "Ningun sistema de engranes hace que las agujas se muevan en sentido contrario.",
+                        timer: 1000,
+                        showConfirmButton: false,
+                        type: "success"});
                     respuestas_Acertadas += 1;
                     tiempoTotal = tiempoTotal + this.timerJuego;
                     this.buttonContinue.visible = true;
@@ -604,6 +609,14 @@ Juego.Game.prototype = {
         Tablero = 0;
         MusicaFondo.stop();
         this.game.state.start('Game');
+    },
+    Ayuda_Juego: function () {
+        swal({
+            title: 'Ayuda',
+            html: '<img src="assets/img/engranes/Ayuda.png" WIDTH=1000 HEIGHT=600>',
+            showCloseButton: true,
+            confirmButtonText: 'Ok'
+        });
     }
 
 };

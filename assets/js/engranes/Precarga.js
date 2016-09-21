@@ -48,7 +48,8 @@ Juego.Precarga.prototype = {
         this.game.load.image('BotonEfecto2', 'assets/btn/engranes/BT_Efectos2.png');
         this.game.load.image('BotonMusica2', 'assets/btn/engranes/BT_Musica2.png');
         this.game.load.spritesheet('BottonReiniciar', 'assets/btn/engranes/BT_Reiniciar.png', 50, 50, 3);
-
+        this.game.load.spritesheet('BottonAyuda', 'assets/btn/engranes/BT_Ayuda.png', 50, 50, 3);
+        
         this.game.load.audio('MusicaFondo', 'assets/audio/engranes/MusicaFondo.mp3');
         this.game.load.audio('MusicaTriunfo', 'assets/audio/engranes/Ganador.mp3');
     },

@@ -12,6 +12,7 @@ Juego.Premiacion.prototype = {
         this.buttonContinue.anchor.setTo(0.5, 0.5);
     },
     Medalleria: function () {
+        console.log("Cantidad Movimientos Segundo Escenario:" + cantidad_movimientos)
         var efectividad = new Rangos(0, 2, "Efectividad");  // definir estructura de premiacion de la efectividad depende de hacerlo bien
         var eficacia = new Rangos(540, 840, "eficacia");        // definir estructura de premiacion de la eficacia depende del tiempo
         var estrategia = new Rangos(360, 660, "Estrategia");    // definir estructura de premiacion de la estrategia depende del juego
@@ -19,7 +20,7 @@ Juego.Premiacion.prototype = {
         var nivel_premiacion = new Premiacion(efectividad, eficacia, estrategia);
         medalla_eficacia = nivel_premiacion.calcularEfi(tiempoTotal);
         medalla_efectividad = nivel_premiacion.calcularEfe(Fallos);
-        medalla_estrategia = nivel_premiacion.calcularEstra(promedioFallo);
+        medalla_estrategia = nivel_premiacion.calcularEstra(cantidad_movimientos);
 //---------------------------------MEDALLA 1-----------------------------------------
         this.medalla1 = this.game.add.sprite(500, 200, 'Medallas', medalla_efectividad);
         this.medalla1.anchor.setTo(0.5, 0.5);
@@ -32,6 +33,6 @@ Juego.Premiacion.prototype = {
         salvarInfo(medalla_eficacia, medalla_efectividad, medalla_estrategia, "5");
     },
     retornarInicio: function () {
-        ir_a( "abstracto.php");
+        ir_a("abstracto.php");
     }
 };

@@ -44,6 +44,7 @@ Juego.Precarga.prototype = {
         this.game.load.spritesheet('BottonSiguiente', 'assets/btn/canon/BT_Siguiente.png', 150, 45, 3);
         this.game.load.spritesheet('BottonAtras', 'assets/btn/canon/BT_Atras.png', 150, 45, 3);
         this.game.load.spritesheet('BottonAceptar', 'assets/btn/canon/BT_Aceptar.png', 150, 45, 3);
+        this.game.load.spritesheet('BottonAyuda', 'assets/btn/canon/BT_Ayuda.png', 50, 50, 3);
         this.game.load.spritesheet('Bottones', 'assets/btn/canon/BT_Jugar_Ayuda.png', 150, 45, 6);
 
         this.game.load.audio('MusicaFondo', 'assets/audio/canon/MusicaFondo.mp3');

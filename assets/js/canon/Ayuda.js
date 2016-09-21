@@ -14,9 +14,9 @@ Juego.Ayuda.prototype = {
         if (buttonName.name == "Continue") {
             this.Fondo.loadTexture("Ayuda_2");
             this.buttonContinue.visible = false;
-            this.buttonAceptar = this.game.add.button(300, 520, 'BottonAceptar', this.retornarInicio, this, 1, 0, 2);
+            this.buttonAceptar = this.game.add.button(500, 520, 'BottonAceptar', this.retornarInicio, this, 1, 0, 2);
             this.buttonAceptar.anchor.setTo(0.5, 0.5);
-            this.buttonAtras = this.game.add.button(500, 520, 'BottonAtras', this.ActualizarFondo, this, 1, 0, 2);
+            this.buttonAtras = this.game.add.button(300, 520, 'BottonAtras', this.ActualizarFondo, this, 1, 0, 2);
             this.buttonAtras.anchor.setTo(0.5, 0.5);
         } else {
             this.Fondo.loadTexture("Ayuda_1");

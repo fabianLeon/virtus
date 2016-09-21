@@ -57,6 +57,10 @@ Juego.Game_State.prototype = {
         this.buttonReiniciar.anchor.setTo(0.5, 0.5);
         this.buttonReiniciar.name = 'Reiniciar';
 
+        this.buttonAyudaJuego = this.game.add.button(320, 30, 'BottonAyuda', this.Ayuda_Juego, this, 1, 0, 2);
+        this.buttonAyudaJuego.anchor.setTo(0.5, 0.5);
+        this.buttonAyudaJuego.name = 'Ayuda';
+
         //Sonidos del videoJuego se agregan
         MusicaFondo = this.game.add.audio('MusicaFondo');
         MusicaFondo.loopFull(0.6);
@@ -100,7 +104,7 @@ Juego.Game_State.prototype = {
             pausedText.destroy();
             this.game.paused = false;
         }, this);
-    }, 
+    },
     Reiniciar_Nivel: function () {
         intentos += 1;
         tiempoTotal = tiempoTotal + this.timerJuego;
@@ -115,5 +119,13 @@ Juego.Game_State.prototype = {
         lag = [];
         MusicaFondo.stop();
         this.game.state.start('Game');
+    },
+    Ayuda_Juego: function () {
+        swal({
+            title: 'Ayuda',
+            html: '<img src="assets/img/fichas/Ayuda.png" WIDTH=1000 HEIGHT=600>',
+            showCloseButton: true,
+            confirmButtonText: 'Ok'
+        });
     }
 };

@@ -49,6 +49,10 @@ Juego.GameSecond.prototype = {
         this.buttonPause.anchor.setTo(0.5, 0.5);
         this.buttonPause.name = 'Pause';
 
+        this.buttonAyudaJuego = this.game.add.button(720, 30, 'BottonAyuda', this.Ayuda_Juego, this, 1, 0, 2);
+        this.buttonAyudaJuego.anchor.setTo(0.5, 0.5);
+        this.buttonAyudaJuego.name = 'Ayuda';
+
         //Sonidos del videoJuego se agregan
         MusicaFondo = this.game.add.audio('MusicaFondo');
         MusicaFondo.loopFull(0.6);
@@ -246,12 +250,21 @@ Juego.GameSecond.prototype = {
     },
     Reiniciar_Nivel: function () {
         intentos += 1;
-        tiempoTotal = tiempoTotal + this.timerJuego;      
+        tiempoTotal = tiempoTotal + this.timerJuego;
         B_musica = true;
         B_efecto = true;
-        Fallos=0;
+        Fallos = 0;
         MusicaFondo.stop();
         this.game.state.start('GameSecond');
+    },
+    Ayuda_Juego: function () {
+        swal({
+            title: 'Ayuda',
+            html: '<img src="assets/img/camino/Ayuda1.png" WIDTH=1000 HEIGHT=600>\n\
+                   <img src="assets/img/camino/Ayuda2.png" WIDTH=1000 HEIGHT=600>',
+            showCloseButton: true,
+            confirmButtonText: 'Ok'
+        });
     }
 
 };
