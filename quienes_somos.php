@@ -42,19 +42,19 @@
                         </p>
 
                         <h3>INTEGRANTES.</h3>
-                        <br>    Ing. Fernando Martínez Rodríguez. (Fundador y Director del Grupo) Universidad Distrital (Planta).  Escuela Tecnológica Instituto Técnico Central (Cátedra)
-                        <br>    Ing. Hernán Darío Cortés. Escuela Tecnológica Instituto Técnico Central (Planta)
-                        <br>    Ing. Rodrigo Quintero Reyes Universidad Distrital (Planta).  Escuela Tecnológica Instituto Técnico Central (Cátedra)
-                        <br>    Ing. Armando Díaz Escobar Escuela Tecnológica Instituto Técnico Central (Planta)
-                        <br>    Bioquímica Clara Liliana Montero Escuela Tecnológica Instituto Técnico Central (Cátedra)
-                        <br>    Ing. Jorge Enrique Pérez Nepta.  Escuela Tecnológica Instituto Técnico Central (Planta)
-                        <br>    Ing. Pablo Emilio Góngora  Escuela Tecnológica Instituto Técnico Central (Cátedra)
-                        <br>    Adm. Martha Cecilia Herrera Romero Escuela Tecnológica Instituto Técnico Central (Administrativa)
-                        <br>    Ing. Luis Alfonso Melo Ospina  Escuela Tecnológica Instituto Técnico Central (Planta). Universidad Distrital (Cátedra) (Sub-Director del Grupo)
-                        <br>    Ing. Jaime Páez. Escuela Tecnológica Instituto Técnico Central (Planta)
-                        <br>    Lic. Armando Solano. Escuela Tecnológica Instituto Técnico Central (Planta)
-                        <br>    Ing. Luis Eduardo Herrera. Escuela Tecnológica Instituto Técnico Central
-                        <br>    Ing. Herly Johanna Vargas. Escuela Tecnológica Instituto Técnico Central
+                            <li>    Ing. Fernando Martínez Rodríguez. (Fundador y Director del Grupo) Universidad Distrital (Planta).  Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
+                            <li>    Ing. Hernán Darío Cortés. Escuela Tecnológica Instituto Técnico Central (Planta)</li>
+                            <li>    Ing. Rodrigo Quintero Reyes Universidad Distrital (Planta).  Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
+                            <li>    Ing. Armando Díaz Escobar Escuela Tecnológica Instituto Técnico Central (Planta)</li>
+                            <li>    Bioquímica Clara Liliana Montero Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
+                            <li>    Ing. Jorge Enrique Pérez Nepta.  Escuela Tecnológica Instituto Técnico Central (Planta)</li>
+                            <li>    Ing. Pablo Emilio Góngora  Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
+                            <li>    Adm. Martha Cecilia Herrera Romero Escuela Tecnológica Instituto Técnico Central (Administrativa)</li>
+                            <li>    Ing. Luis Alfonso Melo Ospina  Escuela Tecnológica Instituto Técnico Central (Planta). Universidad Distrital (Cátedra) (Sub-Director del Grupo)</li>
+                            <li>    Ing. Jaime Páez. Escuela Tecnológica Instituto Técnico Central (Planta)</li>
+                            <li>    Lic. Armando Solano. Escuela Tecnológica Instituto Técnico Central (Planta)</li>
+                            <li>    Ing. Luis Eduardo Herrera. Escuela Tecnológica Instituto Técnico Central</li>
+                            <li>    Ing. Herly Johanna Vargas. Escuela Tecnológica Instituto Técnico Central</li>
                     </div>
                     <div class="col-lg-6" align="center">
                         <p><img src = "assets/img/pag/historia.jpg" width="200px"  alt="Historia"  style="float: left;  padding-right: 10px">

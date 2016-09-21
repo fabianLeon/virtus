@@ -20,7 +20,7 @@
          TITLE & CONTENT
          ***************************************************************************************************************** -->
 
-        <div class="container">
+        <div class="container-fluid">
             <div id="portfoliowrap">
                 <div class="portfolio-centered">
 
@@ -57,7 +57,7 @@
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">APLICACIÓN</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter3.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/hunter1.png" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <a href="aplicacion.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                     </div><!-- he bg -->
                                 </div><!-- he view -->		
