@@ -90,7 +90,7 @@ for ($i = 0; $i < 8; $i++) {
                                 <span class="glyphicon glyphicon-backward" aria-hidden="true"> </span>
                             </button>
                             <small>Ayuda</small>
-                            <button onClick="ayuda1()" class="btn btn-theme">
+                            <button onClick="ayuda2()" class="btn btn-theme">
                                 <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                             </button>
                         </div>

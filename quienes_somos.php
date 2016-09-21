@@ -42,19 +42,21 @@
                         </p>
 
                         <h3>INTEGRANTES.</h3>
-                            <li>    Ing. Fernando Martínez Rodríguez. (Fundador y Director del Grupo) Universidad Distrital (Planta).  Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
-                            <li>    Ing. Hernán Darío Cortés. Escuela Tecnológica Instituto Técnico Central (Planta)</li>
-                            <li>    Ing. Rodrigo Quintero Reyes Universidad Distrital (Planta).  Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
-                            <li>    Ing. Armando Díaz Escobar Escuela Tecnológica Instituto Técnico Central (Planta)</li>
-                            <li>    Bioquímica Clara Liliana Montero Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
-                            <li>    Ing. Jorge Enrique Pérez Nepta.  Escuela Tecnológica Instituto Técnico Central (Planta)</li>
-                            <li>    Ing. Pablo Emilio Góngora  Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
-                            <li>    Adm. Martha Cecilia Herrera Romero Escuela Tecnológica Instituto Técnico Central (Administrativa)</li>
-                            <li>    Ing. Luis Alfonso Melo Ospina  Escuela Tecnológica Instituto Técnico Central (Planta). Universidad Distrital (Cátedra) (Sub-Director del Grupo)</li>
-                            <li>    Ing. Jaime Páez. Escuela Tecnológica Instituto Técnico Central (Planta)</li>
-                            <li>    Lic. Armando Solano. Escuela Tecnológica Instituto Técnico Central (Planta)</li>
-                            <li>    Ing. Luis Eduardo Herrera. Escuela Tecnológica Instituto Técnico Central</li>
-                            <li>    Ing. Herly Johanna Vargas. Escuela Tecnológica Instituto Técnico Central</li>
+                        <ul class="list-group">
+                            <li class="list-group-item">    Ing. Fernando Martínez Rodríguez. (Fundador y Director del Grupo) Universidad Distrital (Planta).  Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
+                            <li class="list-group-item">    Ing. Hernán Darío Cortés. Escuela Tecnológica Instituto Técnico Central (Planta)</li>
+                            <li class="list-group-item">    Ing. Rodrigo Quintero Reyes Universidad Distrital (Planta).  Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
+                            <li class="list-group-item">    Ing. Armando Díaz Escobar Escuela Tecnológica Instituto Técnico Central (Planta)</li>
+                            <li class="list-group-item">    Bioquímica Clara Liliana Montero Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
+                            <li class="list-group-item">    Ing. Jorge Enrique Pérez Nepta.  Escuela Tecnológica Instituto Técnico Central (Planta)</li>
+                            <li class="list-group-item">    Ing. Pablo Emilio Góngora  Escuela Tecnológica Instituto Técnico Central (Cátedra)</li>
+                            <li class="list-group-item">    Adm. Martha Cecilia Herrera Romero Escuela Tecnológica Instituto Técnico Central (Administrativa)</li>
+                            <li class="list-group-item">    Ing. Luis Alfonso Melo Ospina  Escuela Tecnológica Instituto Técnico Central (Planta). Universidad Distrital (Cátedra) (Sub-Director del Grupo)</li>
+                            <li class="list-group-item">    Ing. Jaime Páez. Escuela Tecnológica Instituto Técnico Central (Planta)</li>
+                            <li class="list-group-item">    Lic. Armando Solano. Escuela Tecnológica Instituto Técnico Central (Planta)</li>
+                            <li class="list-group-item">    Ing. Luis Eduardo Herrera. Escuela Tecnológica Instituto Técnico Central</li>
+                            <li class="list-group-item">    Ing. Herly Johanna Vargas. Escuela Tecnológica Instituto Técnico Central</li>
+                        </ul>
                     </div>
                     <div class="col-lg-6" align="center">
                         <p><img src = "assets/img/pag/historia.jpg" width="200px"  alt="Historia"  style="float: left;  padding-right: 10px">

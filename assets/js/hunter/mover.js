@@ -731,9 +731,7 @@ function ayuda1() {
     swal({
         title: 'Ayuda',
         html: '<img src="assets/img/hunter/Ayuda1.png">\n\
-               <img src="assets/img/hunter/Ayuda2.png">\n\\n\
-               <img src="assets/img/hunter/Ayuda3.png">\n\
-               <img src="assets/img/hunter/Ayuda4.png">',
+               <img src="assets/img/hunter/Ayuda2.png">\n',
         showConfirmButton: true,
     });
 }
@@ -741,10 +739,7 @@ function ayuda1() {
 function ayuda2() {
     swal({
         title: 'Ayuda',
-        html: '<img src="assets/img/hunter/Ayuda1.png">\n\
-               <img src="assets/img/hunter/Ayuda2.png">\n\\n\
-               <img src="assets/img/hunter/Ayuda3.png">\n\
-               <img src="assets/img/hunter/Ayuda4.png">',
+        html: '<img src="assets/img/hunter/Ayuda3.png">',
         showConfirmButton: true,
     });
 }
@@ -752,10 +747,7 @@ function ayuda2() {
 function ayuda3() {
     swal({
         title: 'Ayuda',
-        html: '<img src="assets/img/hunter/Ayuda1.png">\n\
-               <img src="assets/img/hunter/Ayuda2.png">\n\\n\
-               <img src="assets/img/hunter/Ayuda3.png">\n\
-               <img src="assets/img/hunter/Ayuda4.png">',
+        html: '<img src="assets/img/hunter/Ayuda4.png">',
         showConfirmButton: true,
     });
 }
@@ -763,10 +755,7 @@ function ayuda3() {
 function ayuda4() {
     swal({
         title: 'Ayuda',
-        html: '<img src="assets/img/hunter/Ayuda1.png">\n\
-               <img src="assets/img/hunter/Ayuda2.png">\n\\n\
-               <img src="assets/img/hunter/Ayuda3.png">\n\
-               <img src="assets/img/hunter/Ayuda4.png">',
+        html: '<img src="assets/img/hunter/Ayuda4.png">',
         showConfirmButton: true,
     });
 }

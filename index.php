@@ -27,7 +27,7 @@
                 <br>
                 <br>
                 <h4> El proyecto Odin es un conjunto de juegos de caracter Logico-Matemático, Abstracto y de aplicación
-                    que buscan poner a prueba el pensamiento humano. Adicionalmente, pretende asociar a su vez algunas caracteristicas
+                    que buscan poner a prueba el pensamiento humano. Adicionalmente, pretende asociar algunas caracteristicas
                     subjetivas del jugador con su perfil de registro. Técnico, Tecnologo e Ingeniero.
                 </h4>
                 <br>

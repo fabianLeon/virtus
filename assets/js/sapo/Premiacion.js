@@ -12,6 +12,11 @@ Juego.Premiacion.prototype = {
         this.buttonContinue.anchor.setTo(0.5, 0.5);
     },
     Medalleria: function () {
+        var efectividad = new Rangos(2, 5, "Efectividad");  // definir estructura de premiacion de la efectividad depende de hacerlo bien
+        var eficacia = new Rangos(300, 600, "eficacia");        // definir estructura de premiacion de la eficacia depende del tiempo
+        var estrategia = new Rangos(13, 20, "Estrategia");    // definir estructura de premiacion de la estrategia depende del juego
+
+
         var nivel_premiacion = new Premiacion(efectividad, eficacia, estrategia);
         medalla_eficacia = nivel_premiacion.calcularEfi(tiempoTotal);
         medalla_efectividad = nivel_premiacion.calcularEfe(intentos);
@@ -29,6 +34,6 @@ Juego.Premiacion.prototype = {
         console.log('algo sucedio');
     },
     retornarInicio: function () {
-        ir_a("abstracto.php");   
+        ir_a("abstracto.php");
     }
 };
