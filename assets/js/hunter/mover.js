@@ -9,11 +9,15 @@ var gano = false;
 var nivel, juego;
 var movEsce;
 var movFunc;
+
 var movimientos = 0;
+var relojito = 0;
+var intentos = 0;
 
 
 //inicializacion		   
 function init() {
+    relojito=0;
     crearMatrizFunciones();
     crearMatrizFunciones2();
     asignarInicial();
@@ -34,7 +38,7 @@ function run() {
     pintarFunciones(ctx2);
     pintarFunciones2(ctx3);
     pintarTablero(ctx);
-
+    reloj();
 }
 //envia orden de movimiento
 function automover() {
@@ -42,6 +46,10 @@ function automover() {
     cf = 0;
     window.clearInterval(movFunc);
     movEsce = window.setInterval('automover_escenario()', 300);
+}
+
+function reloj() {
+    relojito++;
 }
 
 function automover_escenario() {
@@ -60,10 +68,12 @@ function automover_escenario() {
     } else if (matrizFuncion[f][c] === 0 && !gano) {
         window.clearInterval(movEsce);
         swal({title: "Juego no Culminado!", text: "No lograste recoger la planta, intenta nuevamente!", type: "error", confirmButtonText: "Aceptar"});
+        intentos++;
         reset();
     } else if (c === 4 && f === 4 & !gano) {
         window.clearInterval(movEsce);
         swal({title: "Juego no Culminado!", text: "No lograste recoger la planta, intenta nuevamente!", type: "error", confirmButtonText: "Aceptar"});
+        intentos++;
         reset();
     }
 }
@@ -452,17 +462,20 @@ function moverDef() {
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
         if ((vector[0]) + dx === -1 || (vector[0]) + dx === 8) {
             swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
+            intentos++;
             reset();
         }
         if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) === -1) {
 
             swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
+            intentos++;
             reset();
         } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) === 0) {
             matrizMundo [(vector[0])][(vector[1])] = casillaActual(matrizMundo [(vector[0])][(vector[1])]);
             matrizMundo [(vector[0]) + dx][(vector[1] + dy)] = valor;
         } else {
             swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
+            intentos++;
             reset();
         }
     } else if (matrizFuncion [f][c] === 2) {
@@ -478,13 +491,16 @@ function moverDef() {
         valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
         if ((vector[0]) + dx === -1 || (vector[0]) + dx === 8) {
             swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
+            intentos++;
             reset();
         }
         if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) === -1) {
             swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
+            intentos++;
             reset();
         } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) === 0) {
             swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
+            intentos++;
             reset();
         } else {
             valor = colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]);
@@ -503,7 +519,8 @@ function moverDef() {
             lanzar_ganador();
         } else {
             swal({title: "Mal Movimiento!", text: "No puedes Recoger la planta ahora!", type: "error", confirmButtonText: "Aceptar"});
-            //reset();
+            intentos++;
+            reset();//Esto estaba Borrado
         }
     }
     f++;
@@ -527,12 +544,14 @@ function moverDefFunctionFinal() {
             valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
             if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) === -1) {
                 swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
+                intentos++;
                 reset();
             } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) === 0) {
                 matrizMundo [(vector[0])][(vector[1])] = casillaActual(matrizMundo [(vector[0])][(vector[1])]);
                 matrizMundo [(vector[0]) + dx][(vector[1] + dy)] = valor;
             } else {
                 swal({title: "Mal Movimiento!", text: "No puede Avanzar !", type: "error", confirmButtonText: "Aceptar"});
+                intentos++;
                 reset();
             }
         } else if (matrizFunciones [ff][cf] === 2) {
@@ -548,9 +567,11 @@ function moverDefFunctionFinal() {
             valor = girar(matrizMundo [(vector[0])][(vector[1])], 1);
             if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]) === -1) {
                 swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
+                intentos++;
                 reset();
             } else if (colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1]) + dy]) === 0) {
                 swal({title: "Mal Movimiento!", text: "No puede Saltar !", type: "error", confirmButtonText: "Aceptar"});
+                intentos++;
                 reset();
             } else {
                 valor = colision(matrizMundo [(vector[0])][(vector[1])], matrizMundo [(vector[0]) + dx][(vector[1] + dy)]);
@@ -708,55 +729,58 @@ function perdio() {
 
 function ayuda1() {
     swal({
-        title: 'Medallas',
-        html:
-                '<img src="assets/img/hunter/dezplazamientos/encender.png">\n\
-<img src="assets/img/hunter/dezplazamientos/encender.png">\n\
-<img src="assets/img/hunter/dezplazamientos/encender.png">',
-        showCloseButton: true,
-        showCancelButton: true,
-        confirmButtonText:
-                '<i class="fa fa-thumbs-up"></i> Great!',
-        cancelButtonText:
-                '<i class="fa fa-thumbs-down"></i>'
+        title: 'Ayuda',
+        html: '<img src="assets/img/hunter/Ayuda1.png">\n\
+               <img src="assets/img/hunter/Ayuda2.png">\n\\n\
+               <img src="assets/img/hunter/Ayuda3.png">\n\
+               <img src="assets/img/hunter/Ayuda4.png">',
+        showConfirmButton: true,
     });
 }
 
 function ayuda2() {
     swal({
-        title: 'Sweet!',
-        text: 'Modal with a custom image.',
-        imageUrl: 'https://unsplash.it/600/600',
-        imageWidth: 600,
-        imageHeight: 600,
-        animation: true
+        title: 'Ayuda',
+        html: '<img src="assets/img/hunter/Ayuda1.png">\n\
+               <img src="assets/img/hunter/Ayuda2.png">\n\\n\
+               <img src="assets/img/hunter/Ayuda3.png">\n\
+               <img src="assets/img/hunter/Ayuda4.png">',
+        showConfirmButton: true,
     });
 }
 
 function ayuda3() {
     swal({
-        title: 'Sweet!',
-        text: 'Modal with a custom image.',
-        imageUrl: 'https://unsplash.it/600/600',
-        imageWidth: 600,
-        imageHeight: 600,
-        animation: true
+        title: 'Ayuda',
+        html: '<img src="assets/img/hunter/Ayuda1.png">\n\
+               <img src="assets/img/hunter/Ayuda2.png">\n\\n\
+               <img src="assets/img/hunter/Ayuda3.png">\n\
+               <img src="assets/img/hunter/Ayuda4.png">',
+        showConfirmButton: true,
     });
 }
 
 function ayuda4() {
     swal({
-        title: 'Sweet!',
-        text: 'Modal with a custom image.',
-        imageUrl: 'https://unsplash.it/600/600',
-        imageWidth: 600,
-        imageHeight: 600,
-        animation: true
+        title: 'Ayuda',
+        html: '<img src="assets/img/hunter/Ayuda1.png">\n\
+               <img src="assets/img/hunter/Ayuda2.png">\n\\n\
+               <img src="assets/img/hunter/Ayuda3.png">\n\
+               <img src="assets/img/hunter/Ayuda4.png">',
+        showConfirmButton: true,
     });
 }
 
 function lanzar_ganador() {
+    var efectividad = new Rangos(0, 2, "Efectividad");  // definir estructura de premiacion de la efectividad depende de hacerlo bien
+    var eficacia = new Rangos(540, 840, "eficacia");        // definir estructura de premiacion de la eficacia depende del tiempo
+    var estrategia = new Rangos(360, 660, "Estrategia");    // definir estructura de premiacion de la estrategia depende del juego
+
+    
     var nivel_premiacion = new Premiacion(efectividad, eficacia, estrategia);
+    console.log(relojito)
+    relojito=relojito/25
+    console.log(relojito)
     medalla_eficacia = nivel_premiacion.calcularEfi(relojito);
     medalla_efectividad = nivel_premiacion.calcularEfe(intentos);
     medalla_estrategia = nivel_premiacion.calcularEstra(movimientos);

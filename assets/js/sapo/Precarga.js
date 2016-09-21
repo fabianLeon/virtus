@@ -36,6 +36,7 @@ Juego.Precarga.prototype = {
         this.game.load.image('BotonEfecto2', 'assets/btn/sapo/BT_Efectos2.png');
         this.game.load.image('BotonMusica2', 'assets/btn/sapo/BT_Musica2.png');
         this.game.load.spritesheet('BottonReiniciar', 'assets/btn/sapo/BT_Reiniciar.png', 50, 50, 3);
+        this.game.load.spritesheet('BottonAyuda', 'assets/btn/sapo/BT_Ayuda.png', 50, 50, 3);
 
         //Archivos Premiacion
         this.game.load.audio('MusicaTriunfo', 'assets/audio/sapo/Ganador.mp3');

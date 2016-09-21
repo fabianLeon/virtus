@@ -42,12 +42,15 @@ Juego.Game.prototype = {
         this.buttonReiniciar.anchor.setTo(0.5, 0.5);
         this.buttonReiniciar.name = 'Reiniciar';
 
+        this.buttonAyudaJuego = this.game.add.button(720, 50, 'BottonAyuda', this.Ayuda_Juego, this, 1, 0, 2);
+        this.buttonAyudaJuego.anchor.setTo(0.5, 0.5);
+        this.buttonAyudaJuego.name = 'Ayuda';
+
         this.buttonContinue = this.add.button(70, 100, 'BottonAceptar', this.Verificar_Resultado, this, 1, 0, 2);
         this.buttonContinue.anchor.setTo(0.5, 0.5);
         this.buttonContinue.scale.x = 0.7;
         this.buttonContinue.scale.y = 0.7;
         this.buttonContinue.name = 'Continue';
-
 
         // se crea el cañon
         this.canon = this.game.add.sprite(80, 400, 'Canon', 0);
@@ -299,7 +302,7 @@ Juego.Game.prototype = {
     },
     //Funcion que desactiva disparo y marcado de blanco si se encuentra sobre comandos de sonido y pausa
     Desactivar_Tiro: function (x, y) {
-        if (((x >= 800 && x <= 1000) && (y >= 0 && y <= 80)) || ((x >= 0 && x <= 180) && (y >= 0 && y <= 120))) {
+        if (((x >= 695 && x <= 1000) && (y >= 0 && y <= 80)) || ((x >= 0 && x <= 180) && (y >= 0 && y <= 120))) {
             return true;
         }
         else {
@@ -325,5 +328,14 @@ Juego.Game.prototype = {
         MusicaFondo.stop();
         document.getElementById("caja1").remove();
         this.game.state.start('Game');
+   },
+    Ayuda_Juego: function () {
+        swal({
+            title: 'Ayuda',
+            html: '<img src="assets/img/canon/Ayuda1.png" WIDTH=1000 HEIGHT=600>\n\
+                   <img src="assets/img/canon/Ayuda2.png" WIDTH=1000 HEIGHT=600>',
+            showCloseButton: true,
+            confirmButtonText: 'Ok'
+        });
     }
 };
