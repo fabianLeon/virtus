@@ -730,33 +730,32 @@ function perdio() {
 function ayuda1() {
     swal({
         title: 'Ayuda',
-        html: '<img src="assets/img/hunter/Ayuda1.png">\n\
-               <img src="assets/img/hunter/Ayuda2.png">\n',
-        showConfirmButton: true,
+        html: '<img src="assets/img/hunter/Ayuda1.png">\n',
+        showConfirmButton: true
     });
 }
 
 function ayuda2() {
     swal({
         title: 'Ayuda',
-        html: '<img src="assets/img/hunter/Ayuda3.png">',
-        showConfirmButton: true,
+        html: '<img src="assets/img/hunter/Ayuda2.png">',
+        showConfirmButton: true
     });
 }
 
 function ayuda3() {
     swal({
         title: 'Ayuda',
-        html: '<img src="assets/img/hunter/Ayuda4.png">',
-        showConfirmButton: true,
+        html: '<img src="assets/img/hunter/Ayuda4.jpg">',
+        showConfirmButton: true
     });
 }
 
 function ayuda4() {
     swal({
         title: 'Ayuda',
-        html: '<img src="assets/img/hunter/Ayuda4.png">',
-        showConfirmButton: true,
+        html: '<img src="assets/img/hunter/Ayuda4.jpg">',
+        showConfirmButton: true
     });
 }
 

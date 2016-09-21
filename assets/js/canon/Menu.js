@@ -16,7 +16,7 @@ Juego.Menu.prototype = {
         var item;
 
         //Mensaje corresponde alos posiciones de las letras del Spritee. En este caso "Nivel 1"
-        var mensaje = [13, 8, 21, 4, 11, 37, 28];
+        var mensaje = [13, 8, 21, 4, 11, 37, 29];
 
         for (var i = 0; i < 7; i++)
         {
