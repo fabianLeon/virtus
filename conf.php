@@ -10,7 +10,7 @@ define('DB_HOST','localhost');//http://www.grupovirtus.org:/tmp/mysql.sock
 /**
 *nombre de la base de datos
 */
-define('DB_NAME','tecnoedu_virtus');//tecnoedu_virtus'
+define('DB_NAME','virtus');//tecnoedu_virtus'
 /**
 *usuario de base de datos de cliente
 */

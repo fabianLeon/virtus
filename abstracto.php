@@ -46,17 +46,17 @@
                                             <h3 class="a1" data-animate="fadeInDown">SUPERADO !!!</h3>
                                         <?php } ?>
                                     </div><!-- he bg -->
-                                </div><!-- he view -->		
+                                </div><!-- he view -->
                             </div><!-- he wrap -->
-                        </div><!-- end col-12 --> 
+                        </div><!-- end col-12 -->
 
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/camino.jpg" alt="">
+                                <img src= "assets/img/niveles/camino.JPG" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 2. Camino</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/camino.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/camino.JPG" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <?php
                                         if (!in_array('5', $niveles)) {
                                             ?>
@@ -67,17 +67,17 @@
                                         <?php } ?>
 
                                     </div><!-- he bg -->
-                                </div><!-- he view -->		
+                                </div><!-- he view -->
                             </div><!-- he wrap -->
-                        </div><!-- end col-12 --> 
+                        </div><!-- end col-12 -->
 
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/fichas.jpg" alt="">
+                                <img src= "assets/img/niveles/fichas.JPG" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 3. Apaga la Llama</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/fichas.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/fichas.JPG" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <?php
                                         if (!in_array('6', $niveles)) {
                                             ?>
@@ -88,9 +88,9 @@
                                         <?php } ?>
 
                                     </div><!-- he bg -->
-                                </div><!-- he view -->		
+                                </div><!-- he view -->
                             </div><!-- he wrap -->
-                        </div><!-- end col-12 --> 
+                        </div><!-- end col-12 -->
 
                     </div><!-- portfolio -->
                 </div><!-- portfolio container -->

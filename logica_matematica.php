@@ -31,11 +31,11 @@
 
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/numeros.jpg" alt="">
+                                <img src= "assets/img/niveles/numeros.JPG" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 1. Numeros</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/numeros.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/numeros.JPG" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <?php
                                         if (!in_array('1', $niveles)) {
                                             ?>
@@ -45,43 +45,43 @@
                                             <h3 class="a1" data-animate="fadeInDown">SUPERADO !!!</h3>
                                         <?php } ?>
                                     </div><!-- he bg -->
-                                </div><!-- he view -->		
+                                </div><!-- he view -->
                             </div><!-- he wrap -->
-                        </div><!-- end col-12 --> 
+                        </div><!-- end col-12 -->
 
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/canon.jpg" alt="">
+                                <img src= "assets/img/niveles/canon.JPG" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 2. Cañón</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/canon.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/canon.JPG" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <?php if (!in_array('2', $niveles)) { ?>
                                             <a href="nivel4.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                         <?php } else { ?>
                                             <h3 class="a1" data-animate="fadeInDown">SUPERADO . !!!</h3>
                                         <?php } ?>
                                     </div><!-- he bg -->
-                                </div><!-- he view -->		
+                                </div><!-- he view -->
                             </div><!-- he wrap -->
-                        </div><!-- end col-12 --> 
+                        </div><!-- end col-12 -->
 
                         <div class="portfolio-item graphic-design">
                             <div class="he-wrap tpl6">
-                                <img src= "assets/img/niveles/engranes.jpg" alt="">
+                                <img src= "assets/img/niveles/engranes.JPG" alt="">
                                 <div class="he-view">
                                     <div class="bg a0" data-animate="fadeIn">
                                         <h3 class="a1" data-animate="fadeInDown">Nivel 3. Engranes</h3>
-                                        <a data-rel="prettyPhoto" href="assets/img/niveles/engranes.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                        <a data-rel="prettyPhoto" href="assets/img/niveles/engranes.JPG" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                                         <?php if (!in_array('3', $niveles)) { ?>
                                             <a href="nivel6.php" class="dmbutton a2" data-animate="fadeInUp">Jugar</a>
                                         <?php } else { ?>
                                             <h3 class="a1" data-animate="fadeInDown">SUPERADO . !!!</h3>
                                         <?php } ?>
                                     </div><!-- he bg -->
-                                </div><!-- he view -->		
+                                </div><!-- he view -->
                             </div><!-- he wrap -->
-                        </div><!-- end col-12 --> 
+                        </div><!-- end col-12 -->
 
                     </div><!-- portfolio -->
                 </div><!-- portfolio container -->
