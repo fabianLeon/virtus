@@ -15,9 +15,9 @@ Juego.Precarga.prototype = {
         this.preloading = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 100, 'odin');
         this.preloading.x -= this.preloading.width / 2;
         //Crear la barra de carga del juego
-        this.game.load.setPreloadSprite(this.preloading, 1);//Sprite, direccion(0==horizontal, 1==vertical)       
+        this.game.load.setPreloadSprite(this.preloading, 1);//Sprite, direccion(0==horizontal, 1==vertical)
 
-        this.game.load.image('Fondo', 'assets/img/camino/Fondo.jpg');
+        this.game.load.image('Fondo', 'assets/img/camino/fondo.jpg');
         this.game.load.image('Ayuda_1', 'assets/img/camino/Ayuda1.png');
         this.game.load.image('Ayuda_2', 'assets/img/camino/Ayuda2.png');
         this.game.load.spritesheet('Abecedario', 'assets/img/camino/Abecedario.png', 159, 151, 45);

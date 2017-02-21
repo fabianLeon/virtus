@@ -15,8 +15,8 @@ Juego.Precarga.prototype = {
         this.preloading = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 100, 'odin');
         this.preloading.x -= this.preloading.width / 2;
         //Crear la barra de carga del juego
-        this.game.load.setPreloadSprite(this.preloading, 1);//Sprite, direccion(0==horizontal, 1==vertical)         
-        
+        this.game.load.setPreloadSprite(this.preloading, 1);//Sprite, direccion(0==horizontal, 1==vertical)
+
         this.game.load.image('Fondo', 'assets/img/canon/Fondo.png');
         this.game.load.spritesheet('Abecedario', 'assets/img/canon/Abecedario.png', 159, 151, 45);
         this.game.load.image('Ayuda_1', 'assets/img/canon/Ayuda1.png');
@@ -24,7 +24,7 @@ Juego.Precarga.prototype = {
         this.game.load.image('FondoPremiacion', 'assets/img/canon/Premiacion.png');
         this.game.load.spritesheet('Medallas', 'assets/img/canon/Medallas.png', 200, 160, 9);
         this.game.load.image('Piso', 'assets/img/canon/piso.png');
-        this.game.load.image('Globo', 'assets/img/canon/bomba.png');
+        this.game.load.image('Globo', 'assets/img/canon/Bomba.png');
         this.game.load.image('Puas', 'assets/img/canon/Caneca/Puas.png');
         this.game.load.image('Llanta', 'assets/img/canon/Caneca/llanta.png');
         this.game.load.image('FondoCaneca', 'assets/img/canon/Caneca/fondoCaneca.png');
