@@ -14,13 +14,13 @@ function salvarInfo(efi, efe, est, n) {
     borrarTodasLasCookies();
     var cadena = llevarDatos(tabla, campos, valores, destino);
     $.get(cadena, function() {
-            console.log("enviando ajax");
+            console.log("enviando ajax ...");
         })
-        .done(function(data) {
-            console.log(data);
+        .done(function() {
+            console.log("Envio exitoso");
         })
         .fail(function(error) {
-            console.log(error);
+            console.log("Ha ocurrido un error");
         });
 }
 
