@@ -1,35 +1,41 @@
 var texto, usuario, cookies;
 var relojito, clicks, intentos, borrado = true;
-var medalla_eficacia, medalla_efectividad, medalla_estrategia; 
+var medalla_eficacia, medalla_efectividad, medalla_estrategia;
 
 function reiniciar(side) {
     setTimeout("location.href='" + side + "'", 3000);
 }
 
-function salvarInfo(efi, efe, est,n){
-    var campos = ["n_intento","q_eficiencia","q_efectividad","q_estrategia","t_duracion", "q_click", "n_teclado", "k_nivel"];
-    var valores = [intentos,efi,efe,est,relojito, clicks, "'" + texto + "'", n];
+function salvarInfo(efi, efe, est, n) {
+    var campos = ["n_intento", "q_eficiencia", "q_efectividad", "q_estrategia", "t_duracion", "q_click", "n_teclado", "k_nivel"];
+    var valores = [intentos, efi, efe, est, relojito, clicks, "'" + texto + "'", n];
     var tabla = "nivel_usuario";
     var destino = "controller/nivel_usuario_controller.php";
     borrarTodasLasCookies();
     var cadena = llevarDatos(tabla, campos, valores, destino);
-    $.get(cadena, function(status){
-        console.log(status);
-    });
+    $.get(cadena, function() {
+            console.log("enviando ajax");
+        })
+        .done(function(data) {
+            console.log(data);
+        })
+        .fail(function(error) {
+            console.log(error);
+        });
 }
 
-function ir_a(destino){
+function ir_a(destino) {
     console.log(destino);
-   window.location = destino;
+    window.location = destino;
 }
-var Rangos = function (ini, fin, nombre) {
+var Rangos = function(ini, fin, nombre) {
     // define la posicion correspondiente a la peor
     this.nombre = nombre;
     this.inicial = ini;
     this.fin = fin;
     this.orden = 0;
 
-    this.getPosicion = function (date) {
+    this.getPosicion = function(date) {
         if (date <= this.inicial) {
             this.orden = 0;
         } else if (date > this.inicial && date <= this.fin) {
@@ -41,23 +47,23 @@ var Rangos = function (ini, fin, nombre) {
     };
 };
 
-var Premiacion = function (efectividad, eficacia, estrategia) {
+var Premiacion = function(efectividad, eficacia, estrategia) {
 
     this.efe = efectividad;
     this.efi = eficacia;
     this.estra = estrategia;
 
-    this.calcularEfe = function (date) {
+    this.calcularEfe = function(date) {
         return (this.efe.getPosicion(date));
     };
 
 
-    this.calcularEfi = function (date) {
+    this.calcularEfi = function(date) {
         return (this.efi.getPosicion(date) + 3);
     };
 
 
-    this.calcularEstra = function (date) {
+    this.calcularEstra = function(date) {
         return (this.estra.getPosicion(date) + 6);
     };
 };
@@ -81,6 +87,7 @@ function borrarCookies(us, cok, data) {
     sessionStorage.removeItem("'" + us + cok + data + "'");
 
 }
+
 function borrarTodasLasCookies() {
     sessionStorage.removeItem("'" + usuario + cookies + "ti" + "'");
     sessionStorage.removeItem("'" + usuario + cookies + "cl" + "'");
@@ -94,6 +101,7 @@ function guardarSesion(us, cok, data, valor) {
     sessionStorage.setItem("'" + us + cok + data + "'", valor);
     console.log(obtenersesion(us, cok, data));
 }
+
 function concatenador(elEvento) {
     var evento = elEvento || window.event;
     var caracter = evento.charCode || evento.keyCode;
@@ -118,7 +126,7 @@ function reloj() {
     setTimeout("reloj()", 1000);
 }
 
-$(window).on('beforeunload', function () {
+$(window).on('beforeunload', function() {
     intentos += 1;
     if (borrado) {
         guardarSesion(usuario, cookies, "te", texto);
@@ -133,10 +141,10 @@ $(window).on('beforeunload', function () {
     console.log("clicks  : " + clicks);
     console.log("texto   : " + texto);
     console.log(obtenersesion(usuario, cookies, "ti"));
-//    return ("saliendo");
+    //    return ("saliendo");
 });
 
-$(window).on('load', function () {
+$(window).on('load', function() {
     // cargar el texto escrito
     if (obtenersesion(usuario, cookies, "te") !== "null") {
         texto = obtenersesion(usuario, cookies, "te");
